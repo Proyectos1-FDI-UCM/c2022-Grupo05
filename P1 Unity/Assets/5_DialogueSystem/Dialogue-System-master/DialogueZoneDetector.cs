@@ -9,7 +9,7 @@ public class DialogueZoneDetector : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
        
-       if (collision.GetComponent<temporal_PlayerMovement>() != null) //(CAMBIAR NOMBRE COMPONENTE)
+       if (collision.GetComponent<PlayerMovementManager>() != null) //(CAMBIAR NOMBRE COMPONENTE)
         {
             GetComponent<DialogueTrigger>().TriggerDialogue();
         }
