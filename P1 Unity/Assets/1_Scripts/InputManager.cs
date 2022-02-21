@@ -17,10 +17,10 @@ public class InputManager : MonoBehaviour
     void Update() {
         _movementManager.Move(new Vector2(Input.GetAxis("Horizontal"), 0)); // Desplazamiento horizontal
 
-        if(Input.GetAxis("Fire2") > 0 && !_gravButtonDown) { // Cambio de gravedad
+        if(Input.GetAxis("ChangeGravity") > 0 && !_gravButtonDown) { // Cambio de gravedad
             _movementManager.ChangeGravity();
             _gravButtonDown = true;
-        } else if(Input.GetAxis("Fire2") == 0) _gravButtonDown = false;
+        } else if(Input.GetAxis("ChangeGravity") == 0) _gravButtonDown = false;
 
         if(Input.GetAxis("Jump") > 0 && !_jumpButtonDown) { // Salto
             _movementManager.Jump();

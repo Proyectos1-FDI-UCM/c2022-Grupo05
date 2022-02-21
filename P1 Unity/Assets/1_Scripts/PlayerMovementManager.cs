@@ -19,6 +19,8 @@ public class PlayerMovementManager : MonoBehaviour
     private float _dashTime = 0.125f;
     [SerializeField]
     private int _airJumpNumber = 1;
+    [SerializeField]
+    private bool _hasAntigravity = true;
     #endregion
 
     #region properties
@@ -47,7 +49,7 @@ public class PlayerMovementManager : MonoBehaviour
     }
 
     public void ChangeGravity() {
-        if(_canChangeGravity) _changingGravity = true;
+        if(_hasAntigravity && _canChangeGravity) _changingGravity = true;
     }
 
     public void Jump() {
