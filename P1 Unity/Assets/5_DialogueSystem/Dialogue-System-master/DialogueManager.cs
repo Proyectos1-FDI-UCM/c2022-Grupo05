@@ -25,7 +25,7 @@ public class DialogueManager : MonoBehaviour
     void Start()
     {
         sentences = new Queue<string>();
-        speakers= new Queue<string>();
+        speakers = new Queue<string>();
         enabled = false;
     }
 
@@ -47,28 +47,38 @@ public class DialogueManager : MonoBehaviour
             speakers.Enqueue(speaker);
         }
 
-        
+
         DisplayNextSentence();
-       
+
     }
 
     public void DisplayNextSentence()
     {
         if (sentences.Count == 0) //si se han reproducido todas las frases, se acaba la conversación
         {
-            Time.timeScale = 1f; //resume la escena
             enabled = false;
             EndDialogue();
             return;
         }
-        
+
         Time.timeScale = 0f; //pausa la escena hasta terminar el diálogo
         string sentence = sentences.Dequeue();
         string speaker = speakers.Dequeue();
         StopAllCoroutines(); //limpiar corutinas anteriores
         StartCoroutine(TypeSentence(sentence, speaker)); //le pasa el nombre del hablante y la frase del diálogo para luego trocear en caracteres
-       
+
     }
+
+
+    public void SkipDialogue()
+    {
+        enabled = false;
+        StopAllCoroutines(); //limpiar corutinas anteriores
+        EndDialogue();
+
+    }
+
+
     /// <summary>
     ///escribe en el text box la línea de diálogo correspondiente
     /// </summary>
@@ -82,19 +92,24 @@ public class DialogueManager : MonoBehaviour
             yield return new WaitForSecondsRealtime(TypingTime); //el diálogo ignora la pausa y seguirá escribiendo con normalidad
         }
     }
+
+
+
     /// <summary>
     /// Acaba la conversación
     /// </summary>
     void EndDialogue()
     {
+        Time.timeScale = 1f; //resume la escena
+      
         animator.SetBool("IsOpen", false);
-        
+
     }
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Return))
+        if (Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonDown(0)) //espacio o botón izq del ratón
             DisplayNextSentence();
     }
-    
+
 }
