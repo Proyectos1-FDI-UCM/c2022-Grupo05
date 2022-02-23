@@ -84,7 +84,8 @@ public class PlayerMovementManager : MonoBehaviour
         // Girar sprite si cambia de sentido
         if (!_dashing && ((_movement.x < 0 && _facingRight) || (_movement.x > 0 && !_facingRight))) {
             _facingRight = !_facingRight;
-            _transform.localScale = new Vector3(-_transform.localScale.x, _transform.localScale.y, _transform.localScale.z);
+            _transform.Rotate(0, 180, 0);
+            //_transform.localScale = new Vector3(-_transform.localScale.x, _transform.localScale.y, _transform.localScale.z);
         }
 
         if (_isGrounded) { // Si toca el suelo, se recargan sus saltos, el cambio de gravedad y el deslizamiento
