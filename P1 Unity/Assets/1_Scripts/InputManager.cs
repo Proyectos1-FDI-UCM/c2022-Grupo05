@@ -5,12 +5,14 @@ using UnityEngine;
 public class InputManager : MonoBehaviour
 {
     private PlayerMovementManager _movementManager;
+    private PlayerAttackController _attackController;
     private Transform _transform;
 
     private bool _gravButtonDown = false, _jumpButtonDown = false;
 
     void Start() {
         _movementManager = GetComponent<PlayerMovementManager>();
+        _attackController = GetComponent<PlayerAttackController>();
         _transform = transform;
     }
 
@@ -22,7 +24,9 @@ public class InputManager : MonoBehaviour
             _gravButtonDown = true;
         } else if(Input.GetAxis("ChangeGravity") == 0) _gravButtonDown = false;
 
-        if(Input.GetAxis("Jump") > 0 && !_jumpButtonDown) { // Salto
+        if (Input.GetAxis("Shoot") > 0) _attackController.Shoot(); // Disparo
+            
+        if (Input.GetAxis("Jump") > 0 && !_jumpButtonDown) { // Salto
             _movementManager.Jump();
             _jumpButtonDown = true;
         } else if(Input.GetAxis("Jump") == 0) _jumpButtonDown = false;
