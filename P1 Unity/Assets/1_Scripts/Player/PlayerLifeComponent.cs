@@ -83,7 +83,7 @@ public class PlayerLifeComponent : MonoBehaviour
             _hitDamage = 0;
 
             _timer -= Time.deltaTime;
-            Debug.Log("Invincible");
+           // Debug.Log("Invincible");
         }
     }
    

@@ -3,13 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(BoxCollider2D))] //añade por defecto un componente de tipo boxCollider
-public class SelfActiveController : MonoBehaviour
+public class AutoActivateRenderController : MonoBehaviour
 {
     [SerializeField]
     private float _activeTime = 5f;
     [SerializeField]
     private float _desactiveTime = 3f;
-    [SerializeField]
+
     private float _elapsedTime=0.0f;
 
     private bool _active = true;
