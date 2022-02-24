@@ -9,19 +9,32 @@ public class ShotMovementController : MonoBehaviour
     private float _shootSpeed = 10.0f;
     #endregion
 
+    #region properties
+    private Vector2 _direction;
+    #endregion
+
     #region references
     private Transform _myTransform;
     #endregion
+
+    #region methods
+    public void SetDirection(Vector2 direction)
+    {
+        _direction = direction;
+    }
+    #endregion
+
 
     // Start is called before the first frame update
     void Start()
     {
         _myTransform = transform;
+        //_direction = _myTransform.rotation.y == 0 ? Vector2.left : Vector2.right;
     }
 
     // Update is called once per frame
     void Update()
     {
-        _myTransform.Translate((_myTransform.rotation.y == 0 ? Vector2.left : Vector2.right) * _shootSpeed * Time.deltaTime);
+        _myTransform.Translate(_direction * _shootSpeed * Time.deltaTime);
     }
 }

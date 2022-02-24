@@ -2,19 +2,19 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyShotCollisionController : MonoBehaviour
+public class ShotCollisionController : MonoBehaviour
 {
     #region references 
-    private EnemyLifeComponent enemy;
+    private PlayerLifeComponent player;
     #endregion
 
     #region methods
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        enemy = collision.GetComponent<EnemyLifeComponent>();
-        if (enemy != null)
+        player = collision.GetComponent<PlayerLifeComponent>();
+        if (player != null)
         {
-            enemy.Damage();
+            player.Damage();
             Destroy(gameObject);
         }
     }

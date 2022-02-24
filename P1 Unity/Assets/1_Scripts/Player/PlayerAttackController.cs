@@ -6,7 +6,7 @@ public class PlayerAttackController : MonoBehaviour
 {
     #region parameters
     [SerializeField]
-    private float _shootTime;
+    private float _shootTime = 0.5f;
     #endregion
 
     #region properties
@@ -24,7 +24,6 @@ public class PlayerAttackController : MonoBehaviour
         if (_shootCooldown <= 0)
         {
             GameObject shot = Instantiate(_shotPrefab, _shootPoint.position, _shootPoint.rotation);
-            shot.transform.localScale = _shootPoint.localScale;
             _shootCooldown = _shootTime;
         }
     }
