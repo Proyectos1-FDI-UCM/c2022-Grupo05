@@ -12,6 +12,7 @@ public class DamagePlayerController : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         player = collision.GetComponent<PlayerLifeComponent>();
+
         if (player != null)
         {
             player.Damage();

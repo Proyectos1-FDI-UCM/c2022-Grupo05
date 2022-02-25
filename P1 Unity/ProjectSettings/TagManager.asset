@@ -5,17 +5,19 @@ TagManager:
   serializedVersion: 2
   tags:
   - Energy
+  - Health
+  - Recharge
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - PlayerShot
+  - 
   - Water
   - UI
   - Player
   - Enemy
   - EnemyShot
-  - 
+  - PlayerShot
   - 
   - 
   - 

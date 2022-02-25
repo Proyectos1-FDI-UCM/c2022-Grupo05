@@ -26,8 +26,6 @@ public class PickupComponent : MonoBehaviour
 
         if (_playerLife != null)
         {
-            Destroy(gameObject);
-
             if (_myTransform.tag == "Energy")
             {
                 // Añadir contador de energía en el GameManager
@@ -36,32 +34,47 @@ public class PickupComponent : MonoBehaviour
                 Debug.Log("Energy picked");
             }
 
+            else if (_myTransform.tag == "Health")
+            {
+                _playerLife.Heal();
+
+                Debug.Log("Health picked");
+            }
+
+            else if (_myTransform.tag == "Recharge")
+            {
+                _playerLife.GetEnergy();
+
+                Debug.Log("Recharge picked");
+            }
+
+            Destroy(gameObject);
             // Añadir más tags para los kits de vida, setas, o sobrecargas de energía
         }
     }
-    #endregion
+        #endregion
 
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        _myTransform = transform;
-    }
-
-
-    // Update is called once per frame
-    void Update()
-    {
-        _timer += Time.deltaTime;
-
-        // Movimiento del objeto
-        _myTransform.Translate(Vector3.up * _speed * Time.deltaTime);
-
-        // Cambia la dirección del movimiento y resetea el temporizador
-        if(_timer > 0.7f)
+        // Start is called before the first frame update
+        void Start()
         {
-            _speed = -_speed;
-            _timer = 0f;
+            _myTransform = transform;
         }
-    }
+
+
+        // Update is called once per frame
+        void Update()
+        {
+            _timer += Time.deltaTime;
+
+            // Movimiento del objeto
+            _myTransform.Translate(Vector3.up * _speed * Time.deltaTime);
+
+            // Cambia la dirección del movimiento y resetea el temporizador
+            if (_timer > 0.7f)
+            {
+                _speed = -_speed;
+                _timer = 0f;
+            }
+        }
 }

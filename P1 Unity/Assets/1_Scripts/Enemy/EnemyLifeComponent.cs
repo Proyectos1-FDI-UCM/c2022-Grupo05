@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class EnemyLifeComponent : MonoBehaviour
 {
-    // Start is called before the first frame update
     #region parametros
     [SerializeField]
     private int vida = 3;
@@ -18,6 +17,7 @@ public class EnemyLifeComponent : MonoBehaviour
 
         if (vida <= 0)
         {
+
             Destroy(gameObject);
         }
     }

@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 21245856}
   - component: {fileID: 9587900}
   - component: {fileID: 2576430194080542553}
-  - component: {fileID: 5483305050741531930}
+  - component: {fileID: 5615100806092322910}
   m_Layer: 0
   m_Name: "Energ\xEDa recogible"
   m_TagString: Energy
@@ -28,7 +28,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 130892}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.3447292, y: -1.2662394, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 5, y: 5, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -117,8 +117,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _speed: 1
---- !u!61 &5483305050741531930
-BoxCollider2D:
+--- !u!60 &5615100806092322910
+PolygonCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -140,6 +140,11 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 0.16, y: 0.16}
-  m_EdgeRadius: 0
+  m_Points:
+    m_Paths:
+    - - {x: -0.042713907, y: -0.03560376}
+      - {x: -0.016852254, y: -0.051940225}
+      - {x: 0.010216921, y: -0.037543982}
+      - {x: 0.009484211, y: 0.03219812}
+      - {x: -0.01637744, y: 0.049999993}
+      - {x: -0.042713914, y: 0.033405636}

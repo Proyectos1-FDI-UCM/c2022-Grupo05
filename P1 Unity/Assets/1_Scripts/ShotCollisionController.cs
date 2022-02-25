@@ -12,12 +12,13 @@ public class EnemyShotCollisionController : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         enemy = collision.GetComponent<EnemyLifeComponent>();
+
         if (enemy != null)
         {
             enemy.Damage();
         }
+        Debug.Log("Enemy damaged");
         Destroy(gameObject);
-        Debug.Log("hola");
     }
     #endregion
 }
