@@ -24,6 +24,7 @@ public class PlayerAttackController : MonoBehaviour
         if (_shootCooldown <= 0)
         {
             GameObject shot = Instantiate(_shotPrefab, _shootPoint.position, _shootPoint.rotation);
+            shot.GetComponent<ShotMovementController>().SetDirection(_shootPoint.rotation.y == 180 ? Vector2.left : Vector2.right);
             _shootCooldown = _shootTime;
         }
     }

@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 1313892743956679297}
   - component: {fileID: 3326449389699446934}
   - component: {fileID: -6202567316666087886}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: EnemyShot
   m_TagString: Untagged
   m_Icon: {fileID: 0}

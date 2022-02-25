@@ -15,8 +15,9 @@ public class EnemyShotCollisionController : MonoBehaviour
         if (enemy != null)
         {
             enemy.Damage();
-            Destroy(gameObject);
         }
+        Destroy(gameObject);
+        Debug.Log("hola");
     }
     #endregion
 }

@@ -11,14 +11,23 @@ public class EnemyShotController : MonoBehaviour
 
     #region properties
     private float _shootCooldown;
+    private bool _playerinRange;
     #endregion
 
     #region references
     private Transform _shootPoint;
     [SerializeField] private Transform _playerPos;
     [SerializeField] private GameObject _shotPrefab;
+    [SerializeField] private EnemyDetection _detection;
     #endregion
-
+    private void Detectplayer()
+    {
+        _playerinRange = true;
+    }
+    private void F()
+    {
+        _playerinRange = false;
+    }
     public void Shoot()
     {
         
@@ -34,12 +43,18 @@ public class EnemyShotController : MonoBehaviour
     {
         _shootPoint = transform;
         _shootCooldown = 0;
+        _detection.accionEntrar += Detectplayer;
+        _detection.accionSalir += F;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (_shootCooldown > 0) _shootCooldown -= Time.deltaTime;
-        else Shoot();
+        if (_playerinRange)
+        {
+            if (_shootCooldown > 0) _shootCooldown -= Time.deltaTime;
+            else Shoot();
+        }
+        
     }
 }

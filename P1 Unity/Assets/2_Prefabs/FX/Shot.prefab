@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 6406234964522720795}
   - component: {fileID: 575961613714142123}
   - component: {fileID: 4096603762328496137}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Shot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -130,7 +130,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2f1499e88912f7b44a9e9aada815be0b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _shootSpeed: 10
+  _shootSpeed: 15.57
 --- !u!114 &575961613714142123
 MonoBehaviour:
   m_ObjectHideFlags: 0

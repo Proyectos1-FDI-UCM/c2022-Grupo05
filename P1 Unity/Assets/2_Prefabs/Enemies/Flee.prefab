@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 890952661986792625}
   - component: {fileID: 890952661986792630}
   - component: {fileID: 890952661986792631}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Flee
   m_TagString: Untagged
   m_Icon: {fileID: 0}

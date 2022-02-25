@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4600615352017307894}
   - component: {fileID: 4600615352017307895}
   - component: {fileID: 4600615352017307880}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Floor Trigger
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -79,7 +79,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4600615353091072486}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: ShotPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -116,7 +116,7 @@ GameObject:
   - component: {fileID: 4600615353497502602}
   - component: {fileID: 4600615353497502603}
   - component: {fileID: 4600615353497502612}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}

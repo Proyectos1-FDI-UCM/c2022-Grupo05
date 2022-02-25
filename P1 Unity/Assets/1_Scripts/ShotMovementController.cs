@@ -6,7 +6,7 @@ public class ShotMovementController : MonoBehaviour
 {
     #region parameters
     [SerializeField]
-    private float _shootSpeed = 10.0f;
+    private float _shootSpeed = 15.0f;
     #endregion
 
     #region properties
@@ -29,7 +29,6 @@ public class ShotMovementController : MonoBehaviour
     void Start()
     {
         _myTransform = transform;
-        //_direction = _myTransform.rotation.y == 0 ? Vector2.left : Vector2.right;
     }
 
     // Update is called once per frame
