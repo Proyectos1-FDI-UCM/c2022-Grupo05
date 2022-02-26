@@ -25,6 +25,7 @@ public class Checkpoint : MonoBehaviour
         playerTransform.position = _transform.position;
         rigidbody.velocity = Vector2.zero;
         _movement.enabled = false;
+        _movement.StopDashing();
     }
 
     private void Start() {

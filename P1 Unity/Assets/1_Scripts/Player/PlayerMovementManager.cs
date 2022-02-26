@@ -63,7 +63,7 @@ public class PlayerMovementManager : MonoBehaviour
     }
 
     public void Jump() {
-        if(_jumpsLeft > 0) _jumping = true;
+        if(_jumpsLeft > 0 && !_dashing) _jumping = true;
     }
 
     public void Dash() {
@@ -78,7 +78,10 @@ public class PlayerMovementManager : MonoBehaviour
         _isGrounded = false;
     }
 
-    // Start is called before the first frame update
+    public void StopDashing() {
+        _dashCont = _dashTime;
+    }
+
     void Start() {
         _transform = transform;
         _rigidbody = GetComponent<Rigidbody2D>();
@@ -116,26 +119,24 @@ public class PlayerMovementManager : MonoBehaviour
         if(_jumping) {
             if (!_isGrounded) _jumpsLeft--;
             _rigidbody.velocity = new Vector2(_rigidbody.velocity.x, 0);
-            _rigidbody.AddForce(new Vector2(0, _jumpForce * _rigidbody.gravityScale / Mathf.Abs(_rigidbody.gravityScale)));
+            if(_isGravityChanged) _rigidbody.AddForce(new Vector2(0, -_jumpForce));
+            else _rigidbody.AddForce(new Vector2(0, _jumpForce));
             _jumping = false;
         }
 
         // Deslizamiento
         if(_dashing) {
-            // Inicio
-            if(_rigidbody.gravityScale != 0) {
+            if(_rigidbody.gravityScale != 0) { // Inicio
                 _gravityScale = _rigidbody.gravityScale;
                 _rigidbody.gravityScale = 0;
                 _rigidbody.velocity = new Vector2(_rigidbody.velocity.x, 0);
             }
 
-            // Durante
-            if(_facingRight) _rigidbody.MovePosition(_rigidbody.position + new Vector2(_dashDistance / _dashTime * Time.fixedDeltaTime, 0));
-            else _rigidbody.MovePosition(_rigidbody.position - new Vector2(_dashDistance / _dashTime * Time.fixedDeltaTime, 0));
-            _dashCont += Time.fixedDeltaTime;
-
-            // Final
-            if(_dashCont > _dashTime) {
+            if(_dashCont < _dashTime) { // Durante
+                if(_facingRight) _rigidbody.MovePosition(_rigidbody.position + new Vector2(_dashDistance / _dashTime * Time.fixedDeltaTime, 0));
+                else _rigidbody.MovePosition(_rigidbody.position - new Vector2(_dashDistance / _dashTime * Time.fixedDeltaTime, 0));
+                _dashCont += Time.fixedDeltaTime;
+            } else { // Final
                 _rigidbody.gravityScale = _gravityScale;
                 _dashCont = 0;
                 _dashing = _canDash = false;
