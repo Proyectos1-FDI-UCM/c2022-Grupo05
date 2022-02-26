@@ -13,7 +13,6 @@ public class AntigravityStoneController : MonoBehaviour
         if (player != null)
         {
             player.HasAntigravity();
-            Destroy(gameObject);
         }
     }
 }
