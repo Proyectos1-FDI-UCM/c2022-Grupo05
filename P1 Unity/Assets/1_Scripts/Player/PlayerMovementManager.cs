@@ -20,7 +20,7 @@ public class PlayerMovementManager : MonoBehaviour
     [SerializeField]
     private int _airJumpNumber = 1;
     [SerializeField]
-    private bool _hasAntigravity = true;
+    private bool _hasAntigravity = false;
     #endregion
 
     #region properties
@@ -45,6 +45,11 @@ public class PlayerMovementManager : MonoBehaviour
     #endregion
 
     #region methods
+    public void HasAntigravity()
+    {
+        _hasAntigravity = true;
+    }
+    
     public void Move(Vector2 v) {
         _movement = v * _speed;
     }
@@ -74,7 +79,6 @@ public class PlayerMovementManager : MonoBehaviour
         _transform = transform;
         _rigidbody = GetComponent<Rigidbody2D>();
         _trigger.accionEntrar = EnterGround; _trigger.accionSalir = ExitGround;
-
     }
     #endregion
 

@@ -15,7 +15,6 @@ public class EnemyDetection : MonoBehaviour
         player = collision.GetComponent<PlayerMovementManager>();
         if (player != null)
         {
-            //Debug.Log("player");
             accionEntrar();
         }
     }
@@ -23,8 +22,7 @@ public class EnemyDetection : MonoBehaviour
     {
         player = p.GetComponent<PlayerMovementManager>();
         if (player != null)
-        {
-            //Debug.Log("exit");          
+        {      
             accionSalir();
         }
     }
