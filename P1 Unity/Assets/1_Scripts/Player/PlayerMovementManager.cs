@@ -41,9 +41,10 @@ public class PlayerMovementManager : MonoBehaviour
     private Transform _transform;
     private Rigidbody2D _rigidbody;
     [SerializeField]
-    private Trigger _trigger;
+    private FloorTrigger _trigger;
     #endregion
 
+    #region methods
     public void Move(Vector2 v) {
         _movement = v * _speed;
     }
@@ -75,6 +76,7 @@ public class PlayerMovementManager : MonoBehaviour
         _trigger.accionEntrar = EnterGround; _trigger.accionSalir = ExitGround;
 
     }
+    #endregion
 
     private void FixedUpdate() {
         //Desplazamiento horizontal
@@ -103,8 +105,7 @@ public class PlayerMovementManager : MonoBehaviour
 
         // Salto y doble salto
         if(_jumping) {
-            if (_isGrounded) _jumpsLeft++;
-            _jumpsLeft--;
+            if (!_isGrounded) _jumpsLeft--;
             _rigidbody.velocity = new Vector2(_rigidbody.velocity.x, 0);
             _rigidbody.AddForce(new Vector2(0, _jumpForce * _rigidbody.gravityScale / Mathf.Abs(_rigidbody.gravityScale)));
             _jumping = false;
@@ -112,11 +113,19 @@ public class PlayerMovementManager : MonoBehaviour
 
         // Deslizamiento
         if(_dashing) {
-            if(_rigidbody.gravityScale != 0) _gravityScale = _rigidbody.gravityScale;
-            _rigidbody.gravityScale = 0;
+            // Inicio
+            if(_rigidbody.gravityScale != 0) {
+                _gravityScale = _rigidbody.gravityScale;
+                _rigidbody.gravityScale = 0;
+                _rigidbody.velocity = new Vector2(_rigidbody.velocity.x, 0);
+            }
+
+            // Durante
             if(_facingRight) _rigidbody.MovePosition(_rigidbody.position + new Vector2(_dashDistance / _dashTime * Time.fixedDeltaTime, 0));
             else _rigidbody.MovePosition(_rigidbody.position - new Vector2(_dashDistance / _dashTime * Time.fixedDeltaTime, 0));
             _dashCont += Time.fixedDeltaTime;
+
+            // Final
             if(_dashCont > _dashTime) {
                 _rigidbody.gravityScale = _gravityScale;
                 _dashCont = 0;
