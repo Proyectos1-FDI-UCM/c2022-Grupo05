@@ -35,6 +35,10 @@ public class PlayerMovementManager : MonoBehaviour
     private float _dashCont;
     private float _gravityScale;
     private bool _isGrounded;
+    private bool _isGravityChanged = false;
+    public bool IsGravityChanged {
+        get => _isGravityChanged;
+    }
     #endregion
 
     #region references
@@ -105,6 +109,7 @@ public class PlayerMovementManager : MonoBehaviour
             _rigidbody.gravityScale = -_rigidbody.gravityScale;
             _facingRight = !_facingRight;
             _changingGravity = _canChangeGravity = false;
+            _isGravityChanged = !_isGravityChanged;
         }
 
         // Salto y doble salto

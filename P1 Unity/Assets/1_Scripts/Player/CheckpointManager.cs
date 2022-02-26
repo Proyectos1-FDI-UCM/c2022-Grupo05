@@ -11,12 +11,6 @@ public class CheckpointManager : MonoBehaviour
     private PlayerMovementManager _movement;
     private Checkpoint _checkpoint;
     private Checkpoint _miniCheckpoint;
-    public Checkpoint Checkpoint {
-        set => _checkpoint = value;
-    }
-    public Checkpoint MiniCheckpoint {
-        set => _miniCheckpoint = value;
-    }
     static private CheckpointManager _me;
     static public CheckpointManager Instance {
         get => _me;
@@ -24,14 +18,24 @@ public class CheckpointManager : MonoBehaviour
 
 
     public void GoToCheckpoint() {
-        _checkpoint.GoToCheckpoint(_transform, _rigidbody, _movement);
+        _checkpoint.GoToCheckpoint(_transform, _rigidbody);
     }
 
     public void GoToMiniCheckpoint() {
-        _miniCheckpoint.GoToCheckpoint(_transform, _rigidbody, _movement);
+        _miniCheckpoint.GoToCheckpoint(_transform, _rigidbody);
     }
 
-    void Start() {
+    public void NewCheckpoint(Checkpoint checkpoint, out PlayerMovementManager movement) {
+        _checkpoint = checkpoint;
+        movement = _movement;
+    }
+
+    public void NewMiniCheckpoint(Checkpoint checkpoint, out PlayerMovementManager movement) {
+        _miniCheckpoint = checkpoint;
+        movement = _movement;
+    }
+
+    private void Start() {
         _me = this;
         _transform = transform;
         _rigidbody = GetComponent<Rigidbody2D>();
