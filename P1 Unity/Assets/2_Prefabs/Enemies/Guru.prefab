@@ -86,6 +86,7 @@ GameObject:
   - component: {fileID: 2899549418259024976}
   - component: {fileID: 2899549418259024970}
   - component: {fileID: 8000717764045183549}
+  - component: {fileID: -7785146853616563466}
   m_Layer: 0
   m_Name: Guru
   m_TagString: Untagged
@@ -234,7 +235,7 @@ MonoBehaviour:
   placeObjet: {x: 0, y: 0}
   dir: {x: 0, y: 0}
   derecha: 0
-  playerPosition: {fileID: 0}
+  playerPosition: {fileID: 4600615353497502613, guid: e2195f58334ba974ea95373f6667f4db, type: 3}
   _trigger: {fileID: 2899549416831567103}
   _col: {fileID: 2899549418705234218}
 --- !u!114 &2899549418259024976
@@ -283,6 +284,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a5a2f4bc8b06ad44a0bff53f82c77b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &-7785146853616563466
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2899549418259024979}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 39565e9c5f1dc9e4dae39cf9a7ae6217, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  p_health: {fileID: 7757121337761391269, guid: f9bb47fb6a1edfe4b83c1d7026a04fc7, type: 3}
+  p_recharge: {fileID: 2678302075247602889, guid: 7425a9b7a59fdf248a5f35a7a41cbf47, type: 3}
 --- !u!1 &2899549418705234229
 GameObject:
   m_ObjectHideFlags: 0

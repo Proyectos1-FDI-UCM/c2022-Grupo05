@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 5649645381434309489}
   - component: {fileID: 5247089829554818642}
   - component: {fileID: 1077457507859897385}
+  - component: {fileID: -2200605862429496583}
   m_Layer: 0
   m_Name: Piedra
   m_TagString: Untagged
@@ -142,3 +143,16 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &-2200605862429496583
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 22509633385967373}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5791b05a6bed74147935fd457e2170fe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _speed: 1

@@ -49,7 +49,6 @@ public class PickupComponent : MonoBehaviour
             }
 
             Destroy(gameObject);
-            // Añadir más tags para los kits de vida, setas, o sobrecargas de energía
         }
     }
         #endregion
