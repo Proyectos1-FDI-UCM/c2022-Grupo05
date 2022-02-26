@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 7232928370904684764}
   - component: {fileID: -3074784522556017458}
   - component: {fileID: 8488777201527867146}
+  - component: {fileID: 6852021725230940862}
   m_Layer: 7
   m_Name: Slime
   m_TagString: Untagged
@@ -186,7 +187,7 @@ MonoBehaviour:
   placeObjet: {x: 0, y: 0}
   dir: {x: 0, y: 0}
   derecha: 0
-  playerPosition: {fileID: 0}
+  playerPosition: {fileID: 4600615353497502613, guid: e2195f58334ba974ea95373f6667f4db, type: 3}
   _trigger: {fileID: 0}
   _col: {fileID: 0}
 --- !u!50 &8488777201527867146
@@ -210,6 +211,20 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 6
+--- !u!114 &6852021725230940862
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 160816}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 39565e9c5f1dc9e4dae39cf9a7ae6217, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  p_health: {fileID: 7757121337761391269, guid: f9bb47fb6a1edfe4b83c1d7026a04fc7, type: 3}
+  p_recharge: {fileID: 2678302075247602889, guid: 7425a9b7a59fdf248a5f35a7a41cbf47, type: 3}
 --- !u!1 &2301677792082731349
 GameObject:
   m_ObjectHideFlags: 0

@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: -2986554560900092208}
   - component: {fileID: -4211234340944229601}
   - component: {fileID: 7056882392680953450}
+  - component: {fileID: 1877671212173485658}
   m_Layer: 7
   m_Name: Flee
   m_TagString: Untagged
@@ -189,6 +190,20 @@ MonoBehaviour:
   playerPosition: {fileID: 4600615353497502613, guid: e2195f58334ba974ea95373f6667f4db, type: 3}
   _trigger: {fileID: 4655376555461583597}
   _col: {fileID: 274028881597465961}
+--- !u!114 &1877671212173485658
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 890952661986792628}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 39565e9c5f1dc9e4dae39cf9a7ae6217, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  p_health: {fileID: 7757121337761391269, guid: f9bb47fb6a1edfe4b83c1d7026a04fc7, type: 3}
+  p_recharge: {fileID: 2678302075247602889, guid: 7425a9b7a59fdf248a5f35a7a41cbf47, type: 3}
 --- !u!1 &3697962997454896997
 GameObject:
   m_ObjectHideFlags: 0

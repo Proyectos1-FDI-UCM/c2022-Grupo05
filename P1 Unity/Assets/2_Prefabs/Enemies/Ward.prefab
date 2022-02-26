@@ -85,6 +85,7 @@ GameObject:
   - component: {fileID: 9070967826039229305}
   - component: {fileID: -5693510234524771659}
   - component: {fileID: 9070967826039229310}
+  - component: {fileID: -5287017015343822289}
   m_Layer: 7
   m_Name: Ward
   m_TagString: Untagged
@@ -222,7 +223,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _shootTime: 0.8
-  _playerPos: {fileID: 0}
+  _playerPos: {fileID: 4600615353497502613, guid: e2195f58334ba974ea95373f6667f4db, type: 3}
   _shotPrefab: {fileID: 74152955096108359, guid: 088d8a5c37c82dc4380005888f3c0115, type: 3}
   _detection: {fileID: 953276352}
 --- !u!114 &-5693510234524771659
@@ -250,3 +251,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   vida: 3
+--- !u!114 &-5287017015343822289
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9070967826244969167}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 39565e9c5f1dc9e4dae39cf9a7ae6217, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  p_health: {fileID: 7757121337761391269, guid: f9bb47fb6a1edfe4b83c1d7026a04fc7, type: 3}
+  p_recharge: {fileID: 2678302075247602889, guid: 7425a9b7a59fdf248a5f35a7a41cbf47, type: 3}
