@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyShotCollisionController : MonoBehaviour
+public class ShotCollisionController : MonoBehaviour
 {
     #region references 
     private EnemyLifeComponent enemy;

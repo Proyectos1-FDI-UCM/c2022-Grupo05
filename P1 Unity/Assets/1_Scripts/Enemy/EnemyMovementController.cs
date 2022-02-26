@@ -61,13 +61,11 @@ public class EnemyMovementController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
-
         enemy = GetComponent<Rigidbody2D>();
         _myTransform = transform;
         placeOrigin = enemy.position;
         placeObjet = enemy.position + new Vector2(d, 0);
-        dir = placeObjet - enemy.position;
+        dir = placeObjet - placeOrigin;
         _trigger.accionEntrar += DetectionPlayer;
         _trigger.accionSalir += RetrunPlace;
         _col.accionEntrar += R1;
@@ -88,16 +86,15 @@ public class EnemyMovementController : MonoBehaviour
     void FixedUpdate()
     {
 
-
         if (!detection && !ret)   //ruta normal
         {
             if (Vector2.Distance(enemy.position, placeObjet) < 1 && placeObjet.x < enemy.position.x)
             {
-                dir = placeOrigin - enemy.position;
+                dir = placeOrigin - placeObjet;
             }
             else if (Vector2.Distance(enemy.position, placeOrigin) < 1 && placeOrigin.x < enemy.position.x)
             {
-                dir = placeObjet - enemy.position;
+                dir = placeObjet - placeOrigin;
             }
         }
 
@@ -108,7 +105,7 @@ public class EnemyMovementController : MonoBehaviour
         else if (ret)     //volver
         {
             dir = placeOrigin - enemy.position;
-            if (Vector2.Distance(enemy.position, placeOrigin) > 1)
+            if (Vector2.Distance(enemy.position, placeOrigin) < 1)
             {
                 ret = false;
             }

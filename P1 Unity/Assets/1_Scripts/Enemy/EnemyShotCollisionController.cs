@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ShotCollisionController : MonoBehaviour
+public class EnemyShotCollisionController : MonoBehaviour
 {
     #region references 
     private PlayerLifeComponent player;
@@ -14,9 +14,9 @@ public class ShotCollisionController : MonoBehaviour
         player = collision.GetComponent<PlayerLifeComponent>();
         if (player != null)
         {
-            player.Damage();
-            Destroy(gameObject);
+            player.Damage();         
         }
+        Destroy(gameObject);
     }
     #endregion
 }
