@@ -29,6 +29,10 @@ public class PlayerLifeComponent : MonoBehaviour
     private int _currentEnergy;       // Energía restante
     #endregion
 
+    #region references
+    [SerializeField] private HUDController _hud;
+    #endregion
+
 
     #region methods
     // Método que daña al jugador
@@ -38,6 +42,7 @@ public class PlayerLifeComponent : MonoBehaviour
         if (_timer <= _gracePeriod && !_activeGracePeriod)
         {
             _currentLife--;
+            _hud.UpdateHP(_currentLife);
 
             Debug.Log("Damaged");
 
@@ -60,6 +65,8 @@ public class PlayerLifeComponent : MonoBehaviour
             _currentLife = _maxLife;
         }
 
+        _hud.UpdateHP(_currentLife);
+
         Debug.Log("Healed");
 
         //GameManager.Instance.OnPlayerDamage(_currentLife);
@@ -73,6 +80,8 @@ public class PlayerLifeComponent : MonoBehaviour
         if (_currentEnergy > 0)
         {
             _currentEnergy -= 1;
+
+            _hud.UpdateEnergy(_currentEnergy);
 
             Debug.Log("Energy used");
 
@@ -90,20 +99,22 @@ public class PlayerLifeComponent : MonoBehaviour
             _currentEnergy = _maxEnergy;
         }
 
+        _hud.UpdateEnergy(_currentEnergy);
+
         Debug.Log("Energy recharged");
 
         //GameManager.Instance.OnPlayerDamage(_currentEnergy);
     }
     #endregion
 
-
     // Start is called before the first frame update
     void Start()
     {
         // Inicializa la vida y energía restante con sus valores máximos
         _currentLife = _maxLife;
-
+        _hud.UpdateHP(_currentLife);
         _currentEnergy = _maxEnergy;
+        _hud.UpdateEnergy(_currentEnergy);
 
         // Inicializa la vida inicial en el GameManager
         //GameManager.Instance.OnPlayerDamage(_maxLife);
