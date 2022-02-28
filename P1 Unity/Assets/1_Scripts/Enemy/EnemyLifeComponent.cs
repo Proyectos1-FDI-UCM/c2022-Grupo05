@@ -5,6 +5,7 @@ using UnityEngine;
 public class EnemyLifeComponent : MonoBehaviour
 {
     #region parametros
+    private bool _damage;
     [SerializeField]
     private int vida = 3;
     #endregion
@@ -17,7 +18,7 @@ public class EnemyLifeComponent : MonoBehaviour
     public void Damage()
     {
         vida--;
-
+        _damage = true;
         if (vida <= 0)
         {
             _dropItem.DropItem();
