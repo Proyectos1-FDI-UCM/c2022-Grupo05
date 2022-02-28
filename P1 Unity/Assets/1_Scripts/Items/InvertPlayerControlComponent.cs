@@ -7,22 +7,21 @@ using UnityEngine;
 public class InvertPlayerControlComponent : MonoBehaviour
 {
     #region references 
-    private InputManager1 player;
+    private InputManager player;
     #endregion
 
     #region methods
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        player = collision.GetComponent<InputManager1>();
+        player = collision.GetComponent<InputManager>();
         if (player != null)
         {
             player.InvertControl();
             
         }
         
-
         Destroy(gameObject);
-        Debug.Log(collision.name);
+       // Debug.Log(collision.name);
     }
     #endregion
 }
