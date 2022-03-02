@@ -11,17 +11,17 @@ public class EnemyMovementController : MonoBehaviour
     private bool detection = false;           //si hay jugador en el campo de vision del enemigo
     [SerializeField]
     private bool ret = false;                 //volver a posicion de origen
-
     [SerializeField]
     private Vector2 placeOrigin;     //posicion originen
     [SerializeField]
     private int d = 8;               //distancia de movimiento 
     [SerializeField]
     private Vector2 placeObjet;      // posicion final
-    [SerializeField]
     private Vector2 dir;             //vector de direccion de enemigo
-    [SerializeField]
     private bool derecha;            //si mira hacia derecha el enemigo
+    [SerializeField]
+    private bool fly=false;
+    private Vector2 _fly;
     #endregion
 
     #region references
@@ -80,6 +80,14 @@ public class EnemyMovementController : MonoBehaviour
         {
             derecha = true;
         }
+        if (fly)
+        {
+            _fly = Vector2.one;
+        }
+        else
+        {
+            _fly = Vector2.right;
+        }
     }
 
     // Update is called once per frame
@@ -116,7 +124,7 @@ public class EnemyMovementController : MonoBehaviour
             Derecha();
         }
 
-        enemy.MovePosition(enemy.position + dir.normalized* _speed * Time.fixedDeltaTime);
+        enemy.MovePosition(enemy.position + dir.normalized* _speed * Time.fixedDeltaTime*_fly);
 
 
 

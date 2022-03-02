@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2899549416831567101}
   - component: {fileID: 2899549416831567100}
   - component: {fileID: 2899549416831567103}
-  m_Layer: 3
+  m_Layer: 11
   m_Name: Detection
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -107,6 +107,7 @@ Transform:
   m_Children:
   - {fileID: 2899549416831567101}
   - {fileID: 2899549418705234216}
+  - {fileID: 6267829704775001420}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -227,15 +228,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ed2896c3f3ed1e43933ae8636f9ea31, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _speed: 1
+  _speed: 2
   detection: 0
   ret: 0
   placeOrigin: {x: 0, y: 0}
   d: 15
   placeObjet: {x: 0, y: 0}
-  dir: {x: 0, y: 0}
-  derecha: 0
-  playerPosition: {fileID: 4600615353497502613, guid: e2195f58334ba974ea95373f6667f4db, type: 3}
+  fly: 0
+  playerPosition: {fileID: 0}
   _trigger: {fileID: 2899549416831567103}
   _col: {fileID: 2899549418705234218}
 --- !u!114 &2899549418259024976
@@ -266,7 +266,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 9.8
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
@@ -325,7 +325,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2899549418705234229}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.117, y: -0.049, z: 0}
+  m_LocalPosition: {x: -0.097, y: -0.049, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2899549418259024981}
