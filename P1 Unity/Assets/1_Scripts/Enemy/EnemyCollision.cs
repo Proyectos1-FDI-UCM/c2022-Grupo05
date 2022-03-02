@@ -7,8 +7,10 @@ public class EnemyCollision : MonoBehaviour
 {
     public UnityAction accionEntrar;
 
-    private void OnTriggerEnter2D(Collider2D other)
+    private void OnTriggerEnter2D(Collider2D collider)
     {
         accionEntrar();
+        Debug.Log(collider);
     }
+   
 }
