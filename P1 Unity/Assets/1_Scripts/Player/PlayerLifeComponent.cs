@@ -29,10 +29,6 @@ public class PlayerLifeComponent : MonoBehaviour
     private int _currentEnergy;       // Energía restante
     #endregion
 
-    #region references
-    [SerializeField] private HUDController _hud;
-    #endregion
-
 
     #region methods
     // Método que daña al jugador
@@ -42,8 +38,6 @@ public class PlayerLifeComponent : MonoBehaviour
         if (_timer <= _gracePeriod && !_activeGracePeriod)
         {
             _currentLife--;
-            _hud.UpdateHP(_currentLife);
-
             Debug.Log("Damaged");
 
             //GameManager.Instance.OnPlayerDamage(_currentLife);
@@ -52,6 +46,14 @@ public class PlayerLifeComponent : MonoBehaviour
 
             // Activa el contador del periodo de gracia
             _timer = _gracePeriod;
+
+            if (_currentLife <= 0)
+            {
+                _currentLife = 0;
+                GameManager.Instance.OnPlayerDeath();
+            }
+
+            HUDController.Instance.UpdateHP(_currentLife);
         }
     }
 
@@ -65,7 +67,7 @@ public class PlayerLifeComponent : MonoBehaviour
             _currentLife = _maxLife;
         }
 
-        _hud.UpdateHP(_currentLife);
+        HUDController.Instance.UpdateHP(_currentLife);
 
         Debug.Log("Healed");
 
@@ -81,7 +83,7 @@ public class PlayerLifeComponent : MonoBehaviour
         {
             _currentEnergy -= 1;
 
-            _hud.UpdateEnergy(_currentEnergy);
+            HUDController.Instance.UpdateEnergy(_currentEnergy);
 
             Debug.Log("Energy used");
 
@@ -99,7 +101,7 @@ public class PlayerLifeComponent : MonoBehaviour
             _currentEnergy = _maxEnergy;
         }
 
-        _hud.UpdateEnergy(_currentEnergy);
+        HUDController.Instance.UpdateEnergy(_currentEnergy);
 
         Debug.Log("Energy recharged");
 
@@ -112,12 +114,9 @@ public class PlayerLifeComponent : MonoBehaviour
     {
         // Inicializa la vida y energía restante con sus valores máximos
         _currentLife = _maxLife;
-        _hud.UpdateHP(_currentLife);
+        HUDController.Instance.UpdateHP(_currentLife);
         _currentEnergy = _maxEnergy;
-        _hud.UpdateEnergy(_currentEnergy);
-
-        // Inicializa la vida inicial en el GameManager
-        //GameManager.Instance.OnPlayerDamage(_maxLife);
+        HUDController.Instance.UpdateEnergy(_currentEnergy);
     }
 
 

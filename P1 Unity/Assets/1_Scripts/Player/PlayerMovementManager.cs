@@ -113,6 +113,7 @@ public class PlayerMovementManager : MonoBehaviour
             _facingRight = !_facingRight;
             _changingGravity = _canChangeGravity = false;
             _isGravityChanged = !_isGravityChanged;
+            HUDController.Instance.ChangePosition(_isGravityChanged);
         }
 
         // Salto y doble salto

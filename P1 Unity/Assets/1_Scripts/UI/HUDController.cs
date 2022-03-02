@@ -7,6 +7,13 @@ public class HUDController : MonoBehaviour
 {
 
     #region references
+    static private HUDController _instance;
+    static public HUDController Instance
+    {
+        get => _instance;
+    }
+
+    [SerializeField] private Transform _hudElements;
     [SerializeField] private Sprite[] _hpBars;
     [SerializeField] private Sprite[] _energyBars;
     [SerializeField] private Image _hpBar;
@@ -32,13 +39,21 @@ public class HUDController : MonoBehaviour
         _energyShards.text = shards.ToString("D3");
     }
 
+    public void ChangePosition(bool changed)
+    {
+        _hudElements.Translate(new Vector2(0, changed ? -900 : 900));
+    }
 
+    private void Awake()
+    {
+        _instance = this;
+
+    }
     #endregion
 
 
     // Start is called before the first frame update
     void Start()
     {
-
     }
 }

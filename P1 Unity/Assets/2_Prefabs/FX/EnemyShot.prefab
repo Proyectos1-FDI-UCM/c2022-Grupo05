@@ -13,9 +13,8 @@ GameObject:
   - component: {fileID: 74152955088952989}
   - component: {fileID: 877302407367730088}
   - component: {fileID: 1313892743956679297}
-  - component: {fileID: 3326449389699446934}
   - component: {fileID: 7231896564286351068}
-  - component: {fileID: 8492124521293512520}
+  - component: {fileID: 5811321975780954293}
   m_Layer: 8
   m_Name: EnemyShot
   m_TagString: Untagged
@@ -133,18 +132,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _shootSpeed: 10
---- !u!114 &3326449389699446934
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 74152955096108359}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2ad714b61ecde47488a4ab00951a0aa5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!60 &7231896564286351068
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -179,7 +166,7 @@ PolygonCollider2D:
       - {x: 0.049999997, y: -0.02}
       - {x: 0.049999997, y: 0.01}
       - {x: 0.03, y: 0.04}
---- !u!114 &8492124521293512520
+--- !u!114 &5811321975780954293
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

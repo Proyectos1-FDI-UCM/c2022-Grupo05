@@ -28,8 +28,7 @@ public class PickupComponent : MonoBehaviour
         {
             if (_myTransform.tag == "Energy")
             {
-                // Añadir contador de energía en el GameManager
-                //GameManager.Instance.AddEnergy(1);
+                GameManager.Instance.AddEnergy(1);
 
                 Debug.Log("Energy picked");
             }
