@@ -19,7 +19,7 @@ TagManager:
   - EnemyShot
   - PlayerShot
   - Terrain
-  - PlayerDetection
+  - 
   - 
   - 
   - 
@@ -47,18 +47,18 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
-  - name: Foreground
-    uniqueID: 2029011629
-    locked: 0
   - name: Decorate
     uniqueID: 3437370001
+    locked: 0
+  - name: Foreground
+    uniqueID: 341091569
+    locked: 0
+  - name: GameObject
+    uniqueID: 233844901
     locked: 0
   - name: Terrain
     uniqueID: 792585897
     locked: 0
   - name: ForeTerrain
-    uniqueID: 1161887
-    locked: 0
-  - name: GameObject
-    uniqueID: 2420385963
+    uniqueID: 3445958281
     locked: 0
