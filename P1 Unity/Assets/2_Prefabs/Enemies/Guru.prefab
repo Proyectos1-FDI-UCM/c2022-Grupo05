@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2899549416831567101}
   - component: {fileID: 2899549416831567100}
   - component: {fileID: 2899549416831567103}
-  m_Layer: 11
+  m_Layer: 3
   m_Name: Detection
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -107,7 +107,6 @@ Transform:
   m_Children:
   - {fileID: 2899549416831567101}
   - {fileID: 2899549418705234216}
-  - {fileID: 6267829704775001420}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -232,7 +231,7 @@ MonoBehaviour:
   detection: 0
   ret: 0
   placeOrigin: {x: 0, y: 0}
-  d: 15
+  d: 5
   placeObjet: {x: 0, y: 0}
   fly: 0
   playerPosition: {fileID: 0}
@@ -266,7 +265,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 9.8
+  m_GravityScale: 3
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1

@@ -19,7 +19,7 @@ TagManager:
   - EnemyShot
   - PlayerShot
   - Terrain
-  - 
+  - Item
   - 
   - 
   - 
@@ -41,6 +41,9 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: Sky
+    uniqueID: 3338063437
+    locked: 0
   - name: Background
     uniqueID: 3436352445
     locked: 0
