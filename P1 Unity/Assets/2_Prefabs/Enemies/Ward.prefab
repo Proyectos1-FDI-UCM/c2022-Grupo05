@@ -112,7 +112,7 @@ CapsuleCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: -0.1492454, y: 0.20189445}
@@ -250,7 +250,7 @@ PolygonCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -265,13 +265,13 @@ PolygonCollider2D:
   m_AutoTiling: 1
   m_Points:
     m_Paths:
-    - - {x: 0.049251113, y: 0.057715554}
-      - {x: -0.07539333, y: 0.040824447}
-      - {x: -0.073089994, y: -0.03927001}
-      - {x: -0.046124466, y: -0.05966526}
-      - {x: 0.0454311, y: -0.056179993}
-      - {x: 0.08153554, y: -0.038502224}
-      - {x: 0.08460666, y: 0.036198884}
+    - - {x: -0.0020750798, y: 0.049938858}
+      - {x: -0.058284592, y: 0.03771377}
+      - {x: -0.08086669, y: -0.0003865324}
+      - {x: -0.04767981, y: -0.04722255}
+      - {x: 0.050097115, y: -0.045292612}
+      - {x: 0.08464623, y: -0.010506112}
+      - {x: 0.058165897, y: 0.043975577}
 --- !u!114 &9070967826039229305
 MonoBehaviour:
   m_ObjectHideFlags: 0

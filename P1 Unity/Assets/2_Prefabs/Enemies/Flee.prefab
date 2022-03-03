@@ -316,7 +316,7 @@ GameObject:
   - component: {fileID: 3742490863410566376}
   - component: {fileID: 140031722590165917}
   - component: {fileID: 4655376555461583597}
-  m_Layer: 3
+  m_Layer: 11
   m_Name: Detection
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -407,7 +407,7 @@ CircleCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: -0.028456638}
