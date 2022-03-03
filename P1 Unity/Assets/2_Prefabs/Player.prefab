@@ -111,12 +111,12 @@ GameObject:
   - component: {fileID: 4600615353497502613}
   - component: {fileID: 4600615353497502614}
   - component: {fileID: -5151274990437153834}
-  - component: {fileID: -3745561480783216984}
   - component: {fileID: 4600615353497502600}
   - component: {fileID: 4600615353497502601}
   - component: {fileID: 4600615353497502602}
   - component: {fileID: 4600615353497502603}
   - component: {fileID: 4600615353497502612}
+  - component: {fileID: 1205220341}
   m_Layer: 6
   m_Name: Player
   m_TagString: Untagged
@@ -204,7 +204,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.23179644, y: -0.24252152}
+  m_Offset: {x: -0.057334542, y: -0.24252152}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -215,24 +215,8 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 1
   serializedVersion: 2
-  m_Size: {x: 0.6829597, y: 2.5097613}
+  m_Size: {x: 1.2612216, y: 2.5097613}
   m_EdgeRadius: 0
---- !u!70 &-3745561480783216984
-CapsuleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4600615353497502604}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 6200000, guid: b968f250901682d49a891efa67b142e8, type: 2}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: -0.09674542, y: -0.26186132}
-  m_Size: {x: 1.1918397, y: 2.4133034}
-  m_Direction: 0
 --- !u!50 &4600615353497502600
 Rigidbody2D:
   serializedVersion: 4
@@ -249,7 +233,7 @@ Rigidbody2D:
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 3
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: b968f250901682d49a891efa67b142e8, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
@@ -266,6 +250,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fafc1dc57f60d8e48a320dfd04fd3e58, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _invertDuration: 5
 --- !u!114 &4600615353497502602
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -285,7 +270,7 @@ MonoBehaviour:
   _dashDistance: 3
   _dashTime: 0.125
   _airJumpNumber: 1
-  _hasAntigravity: 1
+  _hasAntigravity: 0
   _trigger: {fileID: 4600615352017307880}
 --- !u!114 &4600615353497502603
 MonoBehaviour:
@@ -303,8 +288,8 @@ MonoBehaviour:
   _maxEnergy: 3
   _activeGracePeriod: 0
   _gracePeriod: 3
-  _currentLife: 0
-  _currentEnergy: 0
+  _currentLife: 4
+  _currentEnergy: 1
 --- !u!114 &4600615353497502612
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -320,3 +305,16 @@ MonoBehaviour:
   _shootTime: 0.5
   _shootPoint: {fileID: 4600615353091072486}
   _shotPrefab: {fileID: 5947758736218559249, guid: 285cd7ba4f11d6a488f3feabb15d5af5, type: 3}
+--- !u!114 &1205220341
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4600615353497502604}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f950ca0ffa6f4514b813d010a756a75b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _timer: 0

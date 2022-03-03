@@ -562,34 +562,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: -5151274990437153834, guid: e2195f58334ba974ea95373f6667f4db, type: 3}
-      propertyPath: m_Size.x
-      value: 1.2612216
-      objectReference: {fileID: 0}
-    - target: {fileID: -5151274990437153834, guid: e2195f58334ba974ea95373f6667f4db, type: 3}
-      propertyPath: m_Offset.x
-      value: -0.057334542
-      objectReference: {fileID: 0}
-    - target: {fileID: 4600615353497502600, guid: e2195f58334ba974ea95373f6667f4db, type: 3}
-      propertyPath: m_Material
-      value: 
-      objectReference: {fileID: 6200000, guid: b968f250901682d49a891efa67b142e8, type: 2}
-    - target: {fileID: 4600615353497502601, guid: e2195f58334ba974ea95373f6667f4db, type: 3}
-      propertyPath: _invertDuration
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 4600615353497502602, guid: e2195f58334ba974ea95373f6667f4db, type: 3}
-      propertyPath: _hasAntigravity
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4600615353497502603, guid: e2195f58334ba974ea95373f6667f4db, type: 3}
-      propertyPath: _currentLife
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 4600615353497502603, guid: e2195f58334ba974ea95373f6667f4db, type: 3}
-      propertyPath: _currentEnergy
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 4600615353497502604, guid: e2195f58334ba974ea95373f6667f4db, type: 3}
       propertyPath: m_Name
       value: Player
@@ -638,13 +610,7 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4600615353497502615, guid: e2195f58334ba974ea95373f6667f4db, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 0}
-    - {fileID: -3745561480783216984, guid: e2195f58334ba974ea95373f6667f4db, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e2195f58334ba974ea95373f6667f4db, type: 3}
 --- !u!1001 &102966704
 PrefabInstance:
@@ -2032,7 +1998,7 @@ TilemapRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -857597295
-  m_SortingLayer: 1
+  m_SortingLayer: 2
   m_SortingOrder: 0
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 0, y: 0, z: 0}
@@ -3681,7 +3647,7 @@ TilemapRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 792585897
-  m_SortingLayer: 2
+  m_SortingLayer: 3
   m_SortingOrder: 0
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 0, y: 0, z: 0}
@@ -75306,24 +75272,6 @@ Transform:
   m_Father: {fileID: 1452955052}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1205220333 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4600615353497502604, guid: e2195f58334ba974ea95373f6667f4db, type: 3}
-  m_PrefabInstance: {fileID: 98164304}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1205220341
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1205220333}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f950ca0ffa6f4514b813d010a756a75b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _timer: 0
 --- !u!4 &1222793044 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 9055747629585596213, guid: cf53f0a377f7e204c817577c3df44f7c, type: 3}
