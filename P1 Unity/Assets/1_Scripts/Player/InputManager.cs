@@ -15,7 +15,7 @@ public class InputManager : MonoBehaviour
     //invert controls properties
     private float _invertElapsedTime = 0f;
     [SerializeField]
-    private float _invertDuration;
+    private float _invertDuration = 5f;
 
     private bool _gravButtonDown = false, _jumpButtonDown = false, _invertControl = false;
 
@@ -86,6 +86,6 @@ public class InputManager : MonoBehaviour
 
 
 
-        if (Input.GetKeyDown(KeyCode.C)) _movementManager.Dash(); // Deslizamiento / Dash
+        if (Input.GetKeyDown(KeyCode.LeftShift)) _movementManager.Dash(); // Deslizamiento / Dash
     }
 }

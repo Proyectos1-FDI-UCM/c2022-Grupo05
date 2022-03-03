@@ -17,10 +17,9 @@ public class InvertPlayerControlComponent : MonoBehaviour
         if (player != null)
         {
             player.InvertControl();
-            
+            Destroy(gameObject);
         }
         
-        Destroy(gameObject);
        // Debug.Log(collision.name);
     }
     #endregion
