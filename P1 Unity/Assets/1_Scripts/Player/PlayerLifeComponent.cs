@@ -50,7 +50,7 @@ public class PlayerLifeComponent : MonoBehaviour
             if (_currentLife <= 0)
             {
                 _currentLife = 0;
-                GameManager.Instance.OnPlayerDeath();
+                GameManager.Instance.OnPlayerDeath(gameObject);
             }
 
             HUDController.Instance.UpdateHP(_currentLife);
