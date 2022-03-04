@@ -11,6 +11,7 @@ public class ControlTextDetection : MonoBehaviour
     {
         if (collision.GetComponent<PlayerMovementManager>() != null) 
         {
+            Debug.Log("Control");
             _controlText.ShowControl();
         }
         Destroy(gameObject);
