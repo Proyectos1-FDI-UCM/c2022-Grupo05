@@ -305,6 +305,7 @@ MonoBehaviour:
   _shootTime: 0.5
   _shootPoint: {fileID: 4600615353091072486}
   _shotPrefab: {fileID: 5947758736218559249, guid: 285cd7ba4f11d6a488f3feabb15d5af5, type: 3}
+  _amplifiedShotPrefab: {fileID: 5947758736218559249, guid: 5f947d5ced8f72f4193282e6a971309e, type: 3}
 --- !u!114 &1205220341
 MonoBehaviour:
   m_ObjectHideFlags: 0

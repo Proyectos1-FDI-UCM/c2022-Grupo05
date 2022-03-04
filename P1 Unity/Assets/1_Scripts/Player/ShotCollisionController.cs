@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class ShotCollisionController : MonoBehaviour
 {
+    [SerializeField]
+    private bool _isUpgraded = false;
+
     #region references 
     private EnemyLifeComponent enemy;
     #endregion
@@ -13,11 +16,7 @@ public class ShotCollisionController : MonoBehaviour
     {
         enemy = collision.GetComponent<EnemyLifeComponent>();
 
-        if (enemy != null)
-        {
-            enemy.Damage();
-            Debug.Log("Enemy damaged");
-        }
+        if (enemy != null) enemy.Damage(_isUpgraded);
 
         Destroy(gameObject);
     }
