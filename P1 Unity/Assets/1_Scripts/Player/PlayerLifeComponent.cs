@@ -16,7 +16,7 @@ public class PlayerLifeComponent : MonoBehaviour
     private bool _activeGracePeriod = false;  // Indica si se ha activado el periodo de gracia 
 
     [SerializeField]
-    private float _gracePeriod = 1f;          // Tiempo que dura el periodo de gracia
+    private float _gracePeriod = 3f;          // Tiempo que dura el periodo de gracia
     private float _timer = 0f;                // Tiempo que lleva activo el periodo de gracia
     #endregion
 
@@ -38,6 +38,7 @@ public class PlayerLifeComponent : MonoBehaviour
         if (_timer <= _gracePeriod && !_activeGracePeriod)
         {
             _currentLife--;
+            Debug.Log("Damaged");
 
             //GameManager.Instance.OnPlayerDamage(_currentLife);
 
@@ -49,9 +50,7 @@ public class PlayerLifeComponent : MonoBehaviour
             if (_currentLife <= 0)
             {
                 _currentLife = 0;
-
-                Debug.Log(gameObject.name);
-                GameManager.Instance.OnPlayerDeath(gameObject);
+                GameManager.Instance.OnPlayerDeath();
             }
 
             HUDController.Instance.UpdateHP(_currentLife);

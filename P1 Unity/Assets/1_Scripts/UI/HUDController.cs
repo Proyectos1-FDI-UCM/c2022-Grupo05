@@ -20,7 +20,6 @@ public class HUDController : MonoBehaviour
     [SerializeField] private Image _energyBar;
     [SerializeField] private Image _bossBar;
     [SerializeField] private Text _energyShards;
-    [SerializeField] private GameObject _gameOverText;
     #endregion
 
 
@@ -43,11 +42,6 @@ public class HUDController : MonoBehaviour
     public void ChangePosition(bool changed)
     {
         _hudElements.Translate(new Vector2(0, changed ? -900 : 900));
-    }
-
-    public void ShowGameOverText() 
-    {
-        _gameOverText.SetActive(true);
     }
 
     private void Awake()
