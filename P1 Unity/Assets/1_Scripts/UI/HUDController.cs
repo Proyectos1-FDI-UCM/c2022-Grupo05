@@ -20,6 +20,9 @@ public class HUDController : MonoBehaviour
     [SerializeField] private Image _energyBar;
     [SerializeField] private Image _bossBar;
     [SerializeField] private Text _energyShards;
+
+    [SerializeField]
+    private GameObject _pauseMenuObject;
     #endregion
 
 
@@ -44,6 +47,19 @@ public class HUDController : MonoBehaviour
         _hudElements.Translate(new Vector2(0, changed ? -900 : 900));
     }
 
+    public void PauseMenu()
+    {
+        if (Time.timeScale <= 0)
+        {
+            _pauseMenuObject.SetActive(true);
+        }
+
+        else
+        {
+            _pauseMenuObject.SetActive(false);
+        }
+    }
+
     private void Awake()
     {
         _instance = this;
@@ -55,5 +71,7 @@ public class HUDController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        _pauseMenuObject.SetActive(false);
+
     }
 }

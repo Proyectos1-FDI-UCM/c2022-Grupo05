@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 7774416625253505705}
   - component: {fileID: 2363718082336722032}
   - component: {fileID: 8628704754368949419}
+  - component: {fileID: -4359560842243489074}
   m_Layer: 0
   m_Name: heart-item
   m_TagString: Health
@@ -133,3 +134,16 @@ PolygonCollider2D:
       - {x: 0.23983543, y: -0.44261354}
       - {x: 0.36830044, y: -0.42575368}
       - {x: 0.37373728, y: 0.15694389}
+--- !u!114 &-4359560842243489074
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7757121337761391269}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7597a136b8a66d445adb9a413a6d6467, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _lifetime: 10

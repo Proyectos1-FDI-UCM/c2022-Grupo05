@@ -6,6 +6,7 @@ public class GameManager : MonoBehaviour
 {
 
     #region parameters
+
     #endregion
 
     #region properties
@@ -18,6 +19,8 @@ public class GameManager : MonoBehaviour
     {
         get => _instance;
     }
+
+    private HUDController _hudController;
     #endregion
 
     #region methods
@@ -31,6 +34,21 @@ public class GameManager : MonoBehaviour
         _energy += energy;
         HUDController.Instance.UpdateShards(_energy);
     }
+
+    public void Pause()
+    {
+        if (Time.timeScale > 0)
+        {
+            Time.timeScale = 0;
+        }
+        else
+        {
+            Time.timeScale = 1;
+        }
+        HUDController.Instance.PauseMenu();
+
+    }
+
 
     private void Awake()
     {
