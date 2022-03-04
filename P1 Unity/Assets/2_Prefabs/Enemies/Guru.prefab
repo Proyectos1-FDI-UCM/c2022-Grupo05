@@ -191,7 +191,7 @@ PolygonCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -238,6 +238,9 @@ MonoBehaviour:
   playerPosition: {fileID: 0}
   _trigger: {fileID: 2899549416831567103}
   _col: {fileID: 2899549418705234218}
+  haylimite: 0
+  limite1: {x: 0, y: 0}
+  limite2: {x: 0, y: 0}
 --- !u!114 &2899549418259024976
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -266,7 +269,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 3
+  m_GravityScale: 0
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1

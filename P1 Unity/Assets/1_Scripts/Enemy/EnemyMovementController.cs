@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class EnemyMovementController : MonoBehaviour
 {
+    
     #region parameters
     [SerializeField]
     private float _speed = 2;                 //velocidad de movimineto 
@@ -33,6 +34,13 @@ public class EnemyMovementController : MonoBehaviour
     [SerializeField]
     private EnemyCollision _col;          //trigger que gestinar cunado el enemigo choca cotra otras cosas 
     private Transform _myTransform;
+    [SerializeField]
+    private bool haylimite = false;
+    [SerializeField]
+    private Vector2 limite1;
+    [SerializeField]
+    private Vector2 limite2;
+
     #endregion
 
     #region methods
@@ -109,6 +117,10 @@ public class EnemyMovementController : MonoBehaviour
         else if (detection)  //detectado el jugador
         {
             dir = new Vector2(playerPosition.position.x,playerPosition.position.y)-enemy.position;
+            if(haylimite&&(enemy.position.x<limite1.x || enemy.position.x > limite2.x))
+            {
+                RetrunPlace();
+            }
         }
         else if (ret)     //volver
         {
@@ -125,9 +137,5 @@ public class EnemyMovementController : MonoBehaviour
         }
 
         enemy.MovePosition(enemy.position + dir.normalized* _speed * Time.fixedDeltaTime*_fly);
-
-
-
-
     }
 }
