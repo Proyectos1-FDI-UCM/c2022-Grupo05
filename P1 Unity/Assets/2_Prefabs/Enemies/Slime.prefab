@@ -306,7 +306,7 @@ GameObject:
   - component: {fileID: 3049487290649916650}
   - component: {fileID: 6357387283218644579}
   - component: {fileID: 4239852197496558618}
-  m_Layer: 11
+  m_Layer: 3
   m_Name: Damage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -379,7 +379,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2891932129264185976}
   - component: {fileID: 464311717165700342}
-  m_Layer: 11
+  m_Layer: 3
   m_Name: Detection
   m_TagString: Untagged
   m_Icon: {fileID: 0}

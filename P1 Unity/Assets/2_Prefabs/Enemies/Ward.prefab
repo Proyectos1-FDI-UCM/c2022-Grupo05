@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 953276350}
   - component: {fileID: 953276351}
   - component: {fileID: 953276352}
-  m_Layer: 7
+  m_Layer: 3
   m_Name: DetectRange
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -81,7 +81,7 @@ GameObject:
   - component: {fileID: 8925617940906135978}
   - component: {fileID: 6478044672879176202}
   - component: {fileID: 238785471389953459}
-  m_Layer: 11
+  m_Layer: 3
   m_Name: Damage
   m_TagString: Untagged
   m_Icon: {fileID: 0}

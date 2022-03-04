@@ -9,9 +9,11 @@ public class GameManager : MonoBehaviour
     #region parameters
     #endregion
 
+
     #region properties
     private int _energy;
     #endregion
+
 
     #region references
     static private GameManager _instance;
@@ -20,6 +22,7 @@ public class GameManager : MonoBehaviour
         get => _instance;
     }
     #endregion
+
 
     #region methods
     public void OnPlayerDeath(GameObject player)
@@ -48,7 +51,25 @@ public class GameManager : MonoBehaviour
     {
         _instance = this;
     }
+
+    public void PauseMenu()
+    {
+        if (Time.timeScale <= 0)
+        {
+            Time.timeScale = 1;
+        }
+
+        else
+        {
+            Time.timeScale = 0;
+        }
+
+        PauseManager.Instance.PauseMenu();
+    }
+
     #endregion
+
+
     // Start is called before the first frame update
     void Start()
     {

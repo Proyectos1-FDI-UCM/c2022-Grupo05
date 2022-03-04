@@ -40,8 +40,6 @@ public class PlayerLifeComponent : MonoBehaviour
             _currentLife--;
             Debug.Log("Damaged");
 
-            //GameManager.Instance.OnPlayerDamage(_currentLife);
-
             // ** LA COMPROBACI�N DE SI EL JUGADOR HA MUERTO LA REALIZA EL GAMEMANAGER **
 
             // Activa el contador del periodo de gracia
@@ -50,7 +48,7 @@ public class PlayerLifeComponent : MonoBehaviour
             if (_currentLife <= 0)
             {
                 _currentLife = 0;
-                GameManager.Instance.OnPlayerDeath();
+                GameManager.Instance.OnPlayerDeath(gameObject);
             }
 
             HUDController.Instance.UpdateHP(_currentLife);
@@ -70,8 +68,6 @@ public class PlayerLifeComponent : MonoBehaviour
         HUDController.Instance.UpdateHP(_currentLife);
 
         Debug.Log("Healed");
-
-        //GameManager.Instance.OnPlayerDamage(_currentLife);
     }
 
 
@@ -86,8 +82,6 @@ public class PlayerLifeComponent : MonoBehaviour
             HUDController.Instance.UpdateEnergy(_currentEnergy);
 
             Debug.Log("Energy used");
-
-            //GameManager.Instance.OnPlayerDamage(_currentEnergy);
         }
     }
 
@@ -104,8 +98,6 @@ public class PlayerLifeComponent : MonoBehaviour
         HUDController.Instance.UpdateEnergy(_currentEnergy);
 
         Debug.Log("Energy recharged");
-
-        //GameManager.Instance.OnPlayerDamage(_currentEnergy);
     }
     #endregion
 
@@ -123,14 +115,17 @@ public class PlayerLifeComponent : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        _activeGracePeriod = false;
-
         // Desactiva el da�o que recibe el jugador y actualiza el temporizador
         if (_timer > 0)
         {
             _activeGracePeriod = true;
 
             _timer -= Time.deltaTime;
+        }
+
+        else if (_activeGracePeriod)
+        {
+            _activeGracePeriod = false;
         }
     }
    

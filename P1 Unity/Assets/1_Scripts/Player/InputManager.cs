@@ -67,6 +67,9 @@ public class InputManager : MonoBehaviour
 
         ControlManager(); // decide el control a usar
 
+        if (Input.GetKeyDown(KeyCode.Escape)) GameManager.Instance.PauseMenu(); // Deslizamiento / Dash
+
+
         // Si la pausa no est� activada, recoge el input
         if (Time.timeScale > 0)
         {

@@ -264,7 +264,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _speed: 1
-  _jumpForce: 750
+  _jumpForce: 800
   _movementSmoothing: 0.05
   _facingRight: 1
   _dashDistance: 3
