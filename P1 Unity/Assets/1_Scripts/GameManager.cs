@@ -1,12 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
 
     #region parameters
-
     #endregion
 
     #region properties
@@ -19,14 +19,23 @@ public class GameManager : MonoBehaviour
     {
         get => _instance;
     }
-
-    private HUDController _hudController;
     #endregion
 
     #region methods
-    public void OnPlayerDeath()
+    public void OnPlayerDeath(GameObject player)
     {
-        
+        Destroy(player); 
+        HUDController.Instance.ShowGameOverText();
+        StartCoroutine(RestarLevel());
+
+    }
+
+    public IEnumerator RestarLevel() 
+    {
+        yield return new WaitForSeconds(1.5f);
+        yield return new WaitUntil(() => Input.anyKeyDown);
+        SceneManager.LoadScene("");
+
     }
 
     public void AddEnergy(int energy)
@@ -34,21 +43,6 @@ public class GameManager : MonoBehaviour
         _energy += energy;
         HUDController.Instance.UpdateShards(_energy);
     }
-
-    public void Pause()
-    {
-        if (Time.timeScale > 0)
-        {
-            Time.timeScale = 0;
-        }
-        else
-        {
-            Time.timeScale = 1;
-        }
-        HUDController.Instance.PauseMenu();
-
-    }
-
 
     private void Awake()
     {
