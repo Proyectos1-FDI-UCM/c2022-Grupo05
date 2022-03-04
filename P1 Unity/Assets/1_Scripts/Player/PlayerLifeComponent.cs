@@ -10,7 +10,7 @@ public class PlayerLifeComponent : MonoBehaviour
     private int _maxLife = 5;           // Vida inicial
 
     [SerializeField]
-    private int _maxEnergy = 3;         //Energía del traje
+    private int _maxEnergy = 3;         // Energía inicial
 
     [SerializeField]
     private bool _activeGracePeriod = false;  // Indica si se ha activado el periodo de gracia 
@@ -24,9 +24,8 @@ public class PlayerLifeComponent : MonoBehaviour
     #region properties
     [SerializeField]
     private int _currentLife;          // Vida restante
-
     [SerializeField]
-    private int _currentEnergy;       // Energía restante
+    private int _currentEnergy;        // Energía restante
     #endregion
 
 
@@ -70,43 +69,21 @@ public class PlayerLifeComponent : MonoBehaviour
 
         HUDController.Instance.UpdateHP(_currentLife);
 
-        Debug.Log("Healed");
-
         //GameManager.Instance.OnPlayerDamage(_currentLife);
     }
 
-
-    // Método que daña al jugador
-    public void UseEnergy()
-    {
-        // Si el periodo de gracia no está activo, se activa y baja la vida del jugador
-        if (_currentEnergy > 0)
-        {
-            _currentEnergy -= 1;
-
-            HUDController.Instance.UpdateEnergy(_currentEnergy);
-
-            Debug.Log("Energy used");
-
-            //GameManager.Instance.OnPlayerDamage(_currentEnergy);
-        }
-    }
-
-    // Método que cura al jugador
-    public void GetEnergy()
-    {
-        _currentEnergy += 1;
-
-        if (_currentEnergy > _maxEnergy)
-        {
-            _currentEnergy = _maxEnergy;
-        }
+    public void GetEnergy() {
+        if(_currentEnergy < _maxEnergy)_currentEnergy += 1;
 
         HUDController.Instance.UpdateEnergy(_currentEnergy);
+    }
 
-        Debug.Log("Energy recharged");
-
-        //GameManager.Instance.OnPlayerDamage(_currentEnergy);
+    public bool UseEnergy() {
+        if(_currentEnergy > 0) {
+            _currentEnergy--;
+            HUDController.Instance.UpdateEnergy(_currentEnergy);
+            return true;
+        } else return false;
     }
     #endregion
 

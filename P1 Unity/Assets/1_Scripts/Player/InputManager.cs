@@ -6,19 +6,17 @@ public class InputManager : MonoBehaviour
 {
     private PlayerMovementManager _movementManager;
     private PlayerAttackController _attackController;
-    private Transform _transform;
+    private PlayerLifeComponent _playerLife;
 
-    private float _horizontal;
-    private float _changeGravity;
-    private float _jump;
+    private float _horizontal, _changeGravity, _jump;
 
     //invert controls properties
     private float _invertElapsedTime = 0f;
     [SerializeField]
     private float _invertDuration = 5f;
 
-    private bool _gravButtonDown = false, _jumpButtonDown = false, _invertControl = false;
-
+    private bool _gravButtonDown = false, _jumpButtonDown = false, _invertControl = false, _dashButtonDown = false, _shootButtonDown = false;
+    
     #region methods
     public void InvertControl()
     {
@@ -36,7 +34,7 @@ public class InputManager : MonoBehaviour
             _changeGravity = Input.GetAxis("Jump");
             _jump = Input.GetAxis("ChangeGravity");
 
-            _invertElapsedTime += 1 * Time.deltaTime;
+            _invertElapsedTime += Time.deltaTime;
 
             if (_invertElapsedTime >= _invertDuration)
             {
@@ -51,41 +49,49 @@ public class InputManager : MonoBehaviour
         }
     }
     #endregion 
+
     void Start()
     {
         _movementManager = GetComponent<PlayerMovementManager>();
         _attackController = GetComponent<PlayerAttackController>();
-        _transform = transform;
-
-
+        _playerLife = GetComponent<PlayerLifeComponent>();
     }
 
 
     void Update()
     {
-
         ControlManager(); // decide el control a usar
+        
+        if (Input.GetKeyDown(KeyCode.Q)) GameManager.Instance.Pause();  // Activar pausa
 
-        _movementManager.Move(new Vector2(_horizontal, 0)); // Desplazamiento horizontal
+        // Si la pausa no est� activada, recoge el input
+        if (Time.timeScale > 0)
+        {
+            _movementManager.Move(new Vector2(_horizontal, 0)); // Desplazamiento horizontal
 
-        if (_changeGravity > 0 && !_gravButtonDown)
-        { // Cambio de gravedad
-            _movementManager.ChangeGravity();
-            _gravButtonDown = true;
+            if (_changeGravity > 0 && !_gravButtonDown) // Cambio de gravedad
+            {
+                _movementManager.ChangeGravity();
+                _gravButtonDown = true;
+            }
+            else if (_changeGravity == 0) _gravButtonDown = false;
+
+            if (_jump > 0 && !_jumpButtonDown) // Salto
+            {
+                _movementManager.Jump();
+                _jumpButtonDown = true;
+            }
+            else if (_jump == 0) _jumpButtonDown = false;
+
+            if(Input.GetAxis("Shoot") > 0 && !_shootButtonDown) { // Disparo
+                _attackController.Shoot(Input.GetAxis("AmpPower") > 0 && _playerLife.UseEnergy()); 
+                _shootButtonDown = true;
+            } else if(Input.GetAxis("Shoot") == 0) _shootButtonDown = false;
+
+            if(Input.GetAxis("Dash") > 0 && !_dashButtonDown) { // Deslizamiento / Dash
+                _movementManager.Dash();
+                _dashButtonDown = true;
+            } else if(Input.GetAxis("Dash") == 0) _dashButtonDown = false;
         }
-        else if (_changeGravity == 0) _gravButtonDown = false;
-
-        if (_jump > 0 && !_jumpButtonDown)
-        { // Salto
-            _movementManager.Jump();
-            _jumpButtonDown = true;
-        }
-        else if (_jump == 0) _jumpButtonDown = false;
-
-        if (Input.GetAxis("Shoot") > 0) _attackController.Shoot(); // Disparo
-
-
-
-        if (Input.GetKeyDown(KeyCode.LeftShift)) _movementManager.Dash(); // Deslizamiento / Dash
     }
 }
