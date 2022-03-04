@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -21,9 +22,20 @@ public class GameManager : MonoBehaviour
     #endregion
 
     #region methods
-    public void OnPlayerDeath()
+    public void OnPlayerDeath(GameObject player)
     {
-        
+        Destroy(player); 
+        HUDController.Instance.ShowGameOverText();
+        StartCoroutine(RestarLevel());
+
+    }
+
+    public IEnumerator RestarLevel() 
+    {
+        yield return new WaitForSeconds(1.5f);
+        yield return new WaitUntil(() => Input.anyKeyDown);
+        SceneManager.LoadScene("");
+
     }
 
     public void AddEnergy(int energy)
