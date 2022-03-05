@@ -38,12 +38,12 @@ public class PlayerLifeComponent : MonoBehaviour
     public void Damage()
     {
         // Si el periodo de gracia no est� activo, se activa y baja la vida del jugador
-        if (_timer <= _gracePeriod && !_activeGracePeriod)
+        if (!_activeGracePeriod)
         {
-          //  _animator.SetTrigger("enemy");
+            _animator.SetBool("_damage", true);
             _currentLife--;
             Debug.Log("Damaged");
-
+            _activeGracePeriod = true;
             // ** LA COMPROBACI�N DE SI EL JUGADOR HA MUERTO LA REALIZA EL GAMEMANAGER **
 
             // Activa el contador del periodo de gracia
@@ -122,17 +122,15 @@ public class PlayerLifeComponent : MonoBehaviour
     void Update()
     {
         // Desactiva el da�o que recibe el jugador y actualiza el temporizador
-        if (_timer > 0)
+        if (_activeGracePeriod)
         {
-            _activeGracePeriod = true;
-
             _timer -= Time.deltaTime;
-        }
-
-        else if (_activeGracePeriod)
-        {
-            _activeGracePeriod = false;
+            if (_timer < 0)
+            {
+                _activeGracePeriod = false;
+            }
+           
         }
     }
-   
+
 }

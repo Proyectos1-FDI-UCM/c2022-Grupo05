@@ -6,28 +6,23 @@ public class PlayerAnimation : MonoBehaviour
 {
     #region references 
     private Animator animator;
+    private DamagePlayerController _enemy;
     #endregion
     #region methods
-    public void Run(bool c)
+    
+    public void OffDamager()
     {
-        animator.SetBool("run", c);
+        animator.SetBool("_damage", false);
     }
-    public void Jump(bool c)
+   /* private void OnTriggerEnter2D(Collider2D collision)
     {
-        animator.SetBool("_jump", c);
-    }
-    public void Shot(bool c)
-    {
-        animator.SetBool("_shot", c);
-    }
-    public void Damager(bool c)
-    {
-        animator.SetBool("_damage", c);
-    }
-    public void Jump2(bool c)
-    {
-        animator.SetBool("_jump2", c);
-    }
+        _enemy = collision.GetComponent<DamagePlayerController>();
+        if(_enemy!=null||collision.gameObject.layer==8)
+        {
+            animator.SetTrigger("enemy");
+        }
+       // Invoke("Damager", 1f);
+    }*/
     #endregion
     // Start is called before the first frame update
     void Start()
@@ -35,9 +30,4 @@ public class PlayerAnimation : MonoBehaviour
         animator = GetComponent<Animator>();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }

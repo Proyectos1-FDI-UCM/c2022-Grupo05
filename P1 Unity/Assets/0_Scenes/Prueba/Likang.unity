@@ -324,6 +324,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4600615352017307894, guid: e2195f58334ba974ea95373f6667f4db, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 2.4047384
+      objectReference: {fileID: 0}
+    - target: {fileID: 4600615352017307894, guid: e2195f58334ba974ea95373f6667f4db, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.1192
+      objectReference: {fileID: 0}
     - target: {fileID: 4600615353497502602, guid: e2195f58334ba974ea95373f6667f4db, type: 3}
       propertyPath: _hasAntigravity
       value: 1
@@ -332,6 +340,10 @@ PrefabInstance:
       propertyPath: _hud
       value: 
       objectReference: {fileID: 1518438251}
+    - target: {fileID: 4600615353497502603, guid: e2195f58334ba974ea95373f6667f4db, type: 3}
+      propertyPath: _maxLife
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 4600615353497502604, guid: e2195f58334ba974ea95373f6667f4db, type: 3}
       propertyPath: m_Name
       value: Player
