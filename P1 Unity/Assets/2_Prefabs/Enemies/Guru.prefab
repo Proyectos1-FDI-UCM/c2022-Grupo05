@@ -251,6 +251,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   vidaMaxima: 3
+  _dust: {fileID: 999515858420764311, guid: 0f2164e95f465a445afdd0511fc79b0a, type: 3}
 --- !u!50 &2899549418259024970
 Rigidbody2D:
   serializedVersion: 4

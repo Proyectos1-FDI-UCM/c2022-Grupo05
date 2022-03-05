@@ -301,6 +301,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   vidaMaxima: 4
+  _dust: {fileID: 7780560758418292987, guid: 0372f224d386a934291f62ad5656808e, type: 3}
 --- !u!114 &-5287017015343822289
 MonoBehaviour:
   m_ObjectHideFlags: 0

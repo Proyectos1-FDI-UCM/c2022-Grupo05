@@ -16,6 +16,9 @@ public class EnemyLifeComponent : MonoBehaviour
 
     #region references
     private DropItems _dropItem;
+    [SerializeField]
+    private GameObject _dust;
+    private Transform _myTransfrom;
     #endregion
 
     #region methods
@@ -28,6 +31,7 @@ public class EnemyLifeComponent : MonoBehaviour
             GameManager.Instance.OnEnemyDeath(this);
             _dropItem.DropItem();
             gameObject.SetActive(false);
+            Instantiate(_dust,_myTransfrom.position,Quaternion.identity);
         }
     }
 
@@ -44,5 +48,6 @@ public class EnemyLifeComponent : MonoBehaviour
     {
         vida = vidaMaxima;
         _dropItem = gameObject.GetComponent<DropItems>();
+        _myTransfrom = transform;
     }
 }
