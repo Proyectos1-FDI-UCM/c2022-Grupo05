@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class PlayerLifeComponent : MonoBehaviour
 {
+    #region references 
+    private Animator _animator;
+    #endregion
 
     #region parameters
     [SerializeField]
@@ -37,6 +40,7 @@ public class PlayerLifeComponent : MonoBehaviour
         // Si el periodo de gracia no est� activo, se activa y baja la vida del jugador
         if (_timer <= _gracePeriod && !_activeGracePeriod)
         {
+          //  _animator.SetTrigger("enemy");
             _currentLife--;
             Debug.Log("Damaged");
 
@@ -77,6 +81,7 @@ public class PlayerLifeComponent : MonoBehaviour
         // Si el periodo de gracia no est� activo, se activa y baja la vida del jugador
         if (_currentEnergy > 0)
         {
+
             _currentEnergy -= 1;
 
             HUDController.Instance.UpdateEnergy(_currentEnergy);
@@ -109,6 +114,7 @@ public class PlayerLifeComponent : MonoBehaviour
         HUDController.Instance.UpdateHP(_currentLife);
         _currentEnergy = _maxEnergy;
         HUDController.Instance.UpdateEnergy(_currentEnergy);
+        _animator = GetComponent<Animator>();
     }
 
 

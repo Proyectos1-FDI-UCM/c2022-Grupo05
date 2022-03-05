@@ -46,6 +46,7 @@ public class PlayerMovementManager : MonoBehaviour
     private Rigidbody2D _rigidbody;
     [SerializeField]
     private FloorTrigger _trigger;
+    private Animator _animation;
     #endregion
 
     #region methods
@@ -62,8 +63,12 @@ public class PlayerMovementManager : MonoBehaviour
         if(_hasAntigravity && _canChangeGravity) _changingGravity = true;
     }
 
-    public void Jump() {
-        if(_jumpsLeft > 0 && !_dashing) _jumping = true;
+    public void Jump() 
+    {
+        if (_jumpsLeft > 0 && !_dashing)
+        {
+            _jumping = true;
+        }
     }
 
     public void Dash() {
@@ -86,6 +91,7 @@ public class PlayerMovementManager : MonoBehaviour
         _transform = transform;
         _rigidbody = GetComponent<Rigidbody2D>();
         _trigger.accionEntrar = EnterGround; _trigger.accionSalir = ExitGround;
+        _animation = GetComponent<Animator>();
     }
     #endregion
 
@@ -102,6 +108,8 @@ public class PlayerMovementManager : MonoBehaviour
         }
 
         if (_isGrounded) { // Si toca el suelo, se recargan sus saltos, el cambio de gravedad y el deslizamiento
+            _animation.SetBool("_jump", false);
+            _animation.SetBool("_jump2", false);
             _canChangeGravity = _canDash = true;
             _jumpsLeft = _airJumpNumber;
         }
@@ -117,8 +125,16 @@ public class PlayerMovementManager : MonoBehaviour
         }
 
         // Salto y doble salto
-        if(_jumping) {
-            if (!_isGrounded) _jumpsLeft--;
+        if(_jumping) 
+        {
+            _animation.SetBool("_jump",true);
+            if (!_isGrounded)
+            {
+                _jumpsLeft--;
+                
+                _animation.SetBool("_jump2", _jumpsLeft == 0);
+                          
+            }
             _rigidbody.velocity = new Vector2(_rigidbody.velocity.x, 0);
             if(_isGravityChanged) _rigidbody.AddForce(new Vector2(0, -_jumpForce));
             else _rigidbody.AddForce(new Vector2(0, _jumpForce));

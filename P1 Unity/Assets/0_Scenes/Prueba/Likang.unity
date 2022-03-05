@@ -382,30 +382,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e2195f58334ba974ea95373f6667f4db, type: 3}
---- !u!1 &98164305 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4600615353497502604, guid: e2195f58334ba974ea95373f6667f4db, type: 3}
-  m_PrefabInstance: {fileID: 98164304}
-  m_PrefabAsset: {fileID: 0}
---- !u!95 &98164306
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 98164305}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: cc92d16c1de82564c82ce03429693b10, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1001 &112215600
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2660,7 +2636,6 @@ MonoBehaviour:
   _bossBar: {fileID: 808395012}
   _energyShards: {fileID: 380409324}
   _gameOverText: {fileID: 0}
-  _pauseMenuObject: {fileID: 0}
 --- !u!1 &1600037042
 GameObject:
   m_ObjectHideFlags: 0

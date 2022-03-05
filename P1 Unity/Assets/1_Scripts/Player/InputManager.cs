@@ -7,6 +7,7 @@ public class InputManager : MonoBehaviour
     private PlayerMovementManager _movementManager;
     private PlayerAttackController _attackController;
     private Transform _transform;
+    private Animator _animator;
 
     private float _horizontal;
     private float _changeGravity;
@@ -57,10 +58,9 @@ public class InputManager : MonoBehaviour
         _movementManager = GetComponent<PlayerMovementManager>();
         _attackController = GetComponent<PlayerAttackController>();
         _transform = transform;
-
+        _animator = GetComponent<Animator>();
 
     }
-
 
     void Update()
     {
@@ -69,12 +69,11 @@ public class InputManager : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Escape)) GameManager.Instance.PauseMenu(); // Deslizamiento / Dash
 
-
         // Si la pausa no est� activada, recoge el input
         if (Time.timeScale > 0)
         {
             _movementManager.Move(new Vector2(_horizontal, 0)); // Desplazamiento horizontal
-
+            _animator.SetBool("run", _horizontal != 0);
             if (_changeGravity > 0 && !_gravButtonDown)
             { // Cambio de gravedad
                 _movementManager.ChangeGravity();
@@ -89,14 +88,18 @@ public class InputManager : MonoBehaviour
             }
             else if (_jump == 0) _jumpButtonDown = false;
 
-            if (Input.GetAxis("Shoot") > 0) _attackController.Shoot(); // Disparo
-
-
+            if (Input.GetAxis("Shoot") > 0)
+            {
+                _animator.SetBool("_shot", true);
+                _attackController.Shoot(); // Disparo
+                
+            }
+            else
+            {
+                _animator.SetBool("_shot", false);
+            }
 
             if (Input.GetKeyDown(KeyCode.LeftShift)) _movementManager.Dash(); // Deslizamiento / Dash
-        }
-        
-
-        
+        }             
     }
 }
