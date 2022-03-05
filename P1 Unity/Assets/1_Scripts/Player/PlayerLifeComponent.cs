@@ -6,6 +6,7 @@ public class PlayerLifeComponent : MonoBehaviour
 {
     #region references 
     private Animator _animator;
+    private SpriteRenderer _playerRenderer;
     #endregion
 
     #region parameters
@@ -21,6 +22,9 @@ public class PlayerLifeComponent : MonoBehaviour
     [SerializeField]
     private float _gracePeriod = 3f;          // Tiempo que dura el periodo de gracia
     private float _timer = 0f;                // Tiempo que lleva activo el periodo de gracia
+
+    private bool _parpadea = true;
+    private float _frequencyFlash = 0;
     #endregion
 
 
@@ -115,6 +119,7 @@ public class PlayerLifeComponent : MonoBehaviour
         _currentEnergy = _maxEnergy;
         HUDController.Instance.UpdateEnergy(_currentEnergy);
         _animator = GetComponent<Animator>();
+        _playerRenderer = GetComponent<SpriteRenderer>();
     }
 
 
@@ -125,9 +130,17 @@ public class PlayerLifeComponent : MonoBehaviour
         if (_activeGracePeriod)
         {
             _timer -= Time.deltaTime;
+            _frequencyFlash += Time.deltaTime;
+            if (_frequencyFlash > 0.2)
+            {
+                _parpadea = !_parpadea;
+                _playerRenderer.enabled = _parpadea;
+                _frequencyFlash = 0;
+            }
             if (_timer < 0)
             {
                 _activeGracePeriod = false;
+                _playerRenderer.enabled = true;
             }
            
         }

@@ -10,7 +10,7 @@ public class EnemyAnimation : MonoBehaviour
     #endregion
 
     #region methods
-    private void Deactivate()
+    public void DeactivateDamagerE()
     {
         animator.SetBool("damaged", false);
     }
@@ -20,16 +20,13 @@ public class EnemyAnimation : MonoBehaviour
         if (_pShot != null)
         {    
             animator.SetBool("damaged", true);
-        }
-        Invoke("Deactivate", 0.01f);
-       
+        }     
     }
     #endregion
     // Start is called before the first frame update
     void Start()
     {
         animator = GetComponent<Animator>();
-        Invoke("Deactivate", 1f);
     }
 
     // Update is called once per frame
