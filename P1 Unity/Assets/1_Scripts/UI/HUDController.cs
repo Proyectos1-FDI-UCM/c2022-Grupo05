@@ -48,9 +48,9 @@ public class HUDController : MonoBehaviour
     }
 
 
-    public void ShowGameOverText() 
+    public void ShowGameOverText(bool value) 
     {
-        _gameOverText.SetActive(true);
+        _gameOverText.SetActive(value);
     }
 
     private void Awake()

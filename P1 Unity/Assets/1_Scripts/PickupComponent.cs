@@ -35,7 +35,7 @@ public class PickupComponent : MonoBehaviour
 
             else if (_myTransform.tag == "Health")
             {
-                _playerLife.Heal();
+                _playerLife.Heal(1);
 
                 Debug.Log("Health picked");
             }

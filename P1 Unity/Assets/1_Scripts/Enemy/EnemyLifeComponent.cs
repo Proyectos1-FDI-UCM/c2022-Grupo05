@@ -7,7 +7,11 @@ public class EnemyLifeComponent : MonoBehaviour
     #region parametros
     private bool _damage;
     [SerializeField]
-    private int vida = 3;
+    private int vidaMaxima;
+    #endregion
+
+    #region properties
+      private int vida;
     #endregion
 
     #region references
@@ -21,9 +25,16 @@ public class EnemyLifeComponent : MonoBehaviour
         _damage = true;
         if (vida <= 0)
         {
+            GameManager.Instance.OnEnemyDeath(this);
             _dropItem.DropItem();
-            Destroy(gameObject);
+            gameObject.SetActive(false);
         }
+    }
+
+    public void Respawn() 
+    {
+        gameObject.SetActive(true);
+        vida = vidaMaxima;
     }
     #endregion
 
@@ -31,6 +42,7 @@ public class EnemyLifeComponent : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        vida = vidaMaxima;
         _dropItem = gameObject.GetComponent<DropItems>();
     }
 }

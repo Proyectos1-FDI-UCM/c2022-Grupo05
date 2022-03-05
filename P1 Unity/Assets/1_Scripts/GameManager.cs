@@ -12,6 +12,7 @@ public class GameManager : MonoBehaviour
 
     #region properties
     private int _energy;
+    private List<EnemyLifeComponent> _enemyList;
     #endregion
 
 
@@ -27,18 +28,26 @@ public class GameManager : MonoBehaviour
     #region methods
     public void OnPlayerDeath(GameObject player)
     {
-        Destroy(player); 
-        HUDController.Instance.ShowGameOverText();
-        StartCoroutine(RestarLevel());
-
+        player.SetActive(false); 
+        HUDController.Instance.ShowGameOverText(true);
+        StartCoroutine(RestarLevel(player));
     }
 
-    public IEnumerator RestarLevel() 
+    public void OnEnemyDeath(EnemyLifeComponent enemy) 
     {
-        yield return new WaitForSeconds(1.5f);
-        yield return new WaitUntil(() => Input.anyKeyDown);
-        SceneManager.LoadScene("");
+        _enemyList.Add(enemy);
+    }
 
+    public IEnumerator RestarLevel(GameObject player) 
+    {
+        yield return new WaitForSeconds(0.5f);
+        yield return new WaitUntil(() => Input.anyKeyDown);
+        foreach (EnemyLifeComponent enemy in _enemyList) enemy.Respawn();
+        _enemyList = new List<EnemyLifeComponent>();
+        HUDController.Instance.ShowGameOverText(false);
+        CheckpointManager.Instance.GoToCheckpoint();
+        player.GetComponent<PlayerLifeComponent>().Heal(5);
+        player.SetActive(true);
     }
 
     public void AddEnergy(int energy)
@@ -74,6 +83,7 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         _energy = 0;
+        _enemyList = new List<EnemyLifeComponent>();
     }
 
     // Update is called once per frame

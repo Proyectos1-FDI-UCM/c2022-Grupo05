@@ -60,9 +60,9 @@ public class PlayerLifeComponent : MonoBehaviour
     }
 
     // M�todo que cura al jugador
-    public void Heal()
+    public void Heal(int amount)
     {
-        _currentLife += 1;
+        _currentLife += amount;
 
         if (_currentLife > _maxLife)
         {
