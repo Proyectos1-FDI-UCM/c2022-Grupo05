@@ -39,6 +39,9 @@ public class PlayerMovementManager : MonoBehaviour
     public bool IsGravityChanged {
         get => _isGravityChanged;
     }
+    public bool Dashing {
+        get => _dashing;
+    }
     #endregion
 
     #region references

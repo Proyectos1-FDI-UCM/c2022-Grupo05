@@ -34,13 +34,18 @@ public class PlayerLifeComponent : MonoBehaviour
 
     [SerializeField]
     private int _currentEnergy;        // Energía restante
+
+    public bool ActivateGrace {
+        set => _activeGracePeriod = value;
+    }
     #endregion
 
 
     #region methods
-    // M�todo que daña al jugador
-    public void Damage()
+    // Método que daña al jugador
+    public bool Damage()
     {
+        bool returning = !_activeGracePeriod;
         // Si el periodo de gracia no está activo, se activa y baja la vida del jugador
         if (!_activeGracePeriod)
         {
@@ -48,7 +53,6 @@ public class PlayerLifeComponent : MonoBehaviour
             _currentLife--;
             Debug.Log("Damaged");
             _activeGracePeriod = true;
-            // ** LA COMPROBACIÓN DE SI EL JUGADOR HA MUERTO LA REALIZA EL GAMEMANAGER **
 
             // Activa el contador del periodo de gracia
             _timer = _gracePeriod;
@@ -61,6 +65,7 @@ public class PlayerLifeComponent : MonoBehaviour
 
             HUDController.Instance.UpdateHP(_currentLife);
         }
+        return returning;
     }
 
     // Método que cura al jugador
@@ -98,7 +103,7 @@ public class PlayerLifeComponent : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        // Inicializa la vida y energ�a restante con sus valores m�ximos
+        // Inicializa la vida y energía restante con sus valores m�ximos
         _currentLife = _maxLife;
         HUDController.Instance.UpdateHP(_currentLife);
         _currentEnergy = _maxEnergy;

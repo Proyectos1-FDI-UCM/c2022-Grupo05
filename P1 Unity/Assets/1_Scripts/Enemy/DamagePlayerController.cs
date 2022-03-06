@@ -6,6 +6,7 @@ public class DamagePlayerController : MonoBehaviour
 {
     #region references 
     private PlayerLifeComponent player;
+    private EnemyLifeComponent _life;
     #endregion
 
     #region methods
@@ -15,9 +16,14 @@ public class DamagePlayerController : MonoBehaviour
 
         if (player != null)
         {
-            player.Damage();
-            Debug.Log("Damage the player by " + gameObject);
+            if(!player.Damage()) { // Hacer daño al jugador, si no hace daño se ejecuta el bloque de comandos
+                _life.Damage(false);
+            }
         }
+    }
+
+    private void Start() {
+        _life = GetComponentInParent<EnemyLifeComponent>();
     }
     #endregion
 }
