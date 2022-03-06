@@ -16,14 +16,18 @@ public class PlayerAttackController : MonoBehaviour
     #region references
     [SerializeField] private Transform _shootPoint;
     [SerializeField] private GameObject _shotPrefab;
+    [SerializeField] private GameObject _upgradedShotPrefab;
     #endregion
 
     #region methods
-    public void Shoot() 
+    public void Shoot(bool ampPower) 
     {
         if (_shootCooldown <= 0)
         {
-            GameObject shot = Instantiate(_shotPrefab, _shootPoint.position, _shootPoint.rotation);
+            GameObject shot;
+            if(ampPower) shot = Instantiate(_upgradedShotPrefab, _shootPoint.position, _shootPoint.rotation);
+            else shot = Instantiate(_shotPrefab, _shootPoint.position, _shootPoint.rotation);
+
             shot.GetComponent<ShotMovementController>().SetDirection(_shootPoint.rotation.y == 180 ? Vector2.left : Vector2.right);
             _shootCooldown = _shootTime;
         }

@@ -14,7 +14,7 @@ public class PlayerLifeComponent : MonoBehaviour
     private int _maxLife = 5;           // Vida inicial
 
     [SerializeField]
-    private int _maxEnergy = 3;         // Energ�a inicial
+    private int _maxEnergy = 3;         // Energía inicial
 
     [SerializeField]
     private bool _activeGracePeriod = false;  // Indica si se ha activado el periodo de gracia 
@@ -33,22 +33,22 @@ public class PlayerLifeComponent : MonoBehaviour
     private int _currentLife;          // Vida restante
 
     [SerializeField]
-    private int _currentEnergy;        // Energ�a restante
+    private int _currentEnergy;        // Energía restante
     #endregion
 
 
     #region methods
-    // M�todo que da�a al jugador
+    // M�todo que daña al jugador
     public void Damage()
     {
-        // Si el periodo de gracia no est� activo, se activa y baja la vida del jugador
+        // Si el periodo de gracia no está activo, se activa y baja la vida del jugador
         if (!_activeGracePeriod)
         {
             _animator.SetBool("_damage", true);
             _currentLife--;
             Debug.Log("Damaged");
             _activeGracePeriod = true;
-            // ** LA COMPROBACI�N DE SI EL JUGADOR HA MUERTO LA REALIZA EL GAMEMANAGER **
+            // ** LA COMPROBACIÓN DE SI EL JUGADOR HA MUERTO LA REALIZA EL GAMEMANAGER **
 
             // Activa el contador del periodo de gracia
             _timer = _gracePeriod;
@@ -63,7 +63,7 @@ public class PlayerLifeComponent : MonoBehaviour
         }
     }
 
-    // M�todo que cura al jugador
+    // Método que cura al jugador
     public void Heal(int amount)
     {
         _currentLife += amount;
@@ -79,34 +79,19 @@ public class PlayerLifeComponent : MonoBehaviour
     }
 
 
-    // M�todo que da�a al jugador
-    public void UseEnergy()
-    {
-        // Si el periodo de gracia no est� activo, se activa y baja la vida del jugador
-        if (_currentEnergy > 0)
-        {
-
-            _currentEnergy -= 1;
-
-            HUDController.Instance.UpdateEnergy(_currentEnergy);
-
-            Debug.Log("Energy used");
-        }
-    }
-
-    // M�todo que cura al jugador
-    public void GetEnergy()
-    {
-        _currentEnergy += 1;
-
-        if (_currentEnergy > _maxEnergy)
-        {
-            _currentEnergy = _maxEnergy;
-        }
+    public void GetEnergy() {
+        if(_currentEnergy < _maxEnergy) _currentEnergy += 1;
 
         HUDController.Instance.UpdateEnergy(_currentEnergy);
+    }
 
-        Debug.Log("Energy recharged");
+    public bool UseEnergy() {
+        if(_currentEnergy > 0) {
+            _currentEnergy--;
+            HUDController.Instance.UpdateEnergy(_currentEnergy);
+            return true;
+        }
+        return false;
     }
     #endregion
 

@@ -5,7 +5,6 @@ using UnityEngine;
 public class EnemyLifeComponent : MonoBehaviour
 {
     #region parametros
-    private bool _damage;
     [SerializeField]
     private int vidaMaxima;
     #endregion
@@ -22,10 +21,10 @@ public class EnemyLifeComponent : MonoBehaviour
     #endregion
 
     #region methods
-    public void Damage()
+    public void Damage(bool isShotUpgraded)
     {
         vida--;
-        _damage = true;
+        if(isShotUpgraded) vida--;
         if (vida <= 0)
         {
             GameManager.Instance.OnEnemyDeath(this);
