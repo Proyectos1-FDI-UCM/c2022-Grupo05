@@ -61,6 +61,8 @@ public class GameManager : MonoBehaviour
         _instance = this;
     }
 
+
+
     public void PauseMenu()
     {
         if (Time.timeScale <= 0)
@@ -74,8 +76,14 @@ public class GameManager : MonoBehaviour
         }
 
         PauseManager.Instance.PauseMenu();
+
     }
 
+
+    public void MainMenu()
+    {
+        SceneManager.LoadScene("Main Menu");
+    }
     #endregion
 
 
