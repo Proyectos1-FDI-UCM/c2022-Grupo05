@@ -84,10 +84,10 @@ public class InputManager : MonoBehaviour
             }
             else if (_jump == 0) _jumpButtonDown = false;
 
-            if (Input.GetAxis("Shoot") > 0 && !_shootButtonDown)  // Disparo
+            if (Input.GetAxis("Shoot") > 0)  // Disparo
             {
                 _animator.SetBool("_shot", true);
-                _attackController.Shoot(Input.GetAxis("AmpPower") > 0 && _playerLife.UseEnergy());
+                _attackController.Shoot(Input.GetAxis("AmpPower") > 0 && !_shootButtonDown && _playerLife.UseEnergy());
                 _shootButtonDown = true;
             }
             else if(Input.GetAxis("Shoot") == 0)
@@ -96,7 +96,7 @@ public class InputManager : MonoBehaviour
                 _shootButtonDown = false;
             }
 
-            if(Input.GetAxis("Dash") > 0 && !_dashButtonDown) { // Deslizamiento / Dash
+            if (Input.GetAxis("Dash") > 0 && !_dashButtonDown) { // Deslizamiento / Dash
                 _movementManager.Dash();
                 if(Input.GetAxis("AmpPower") > 0 && _playerLife.UseEnergy()) _ampDash = true;
                 _dashButtonDown = true;

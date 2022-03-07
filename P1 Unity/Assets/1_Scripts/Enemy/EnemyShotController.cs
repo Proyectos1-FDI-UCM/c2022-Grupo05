@@ -50,11 +50,7 @@ public class EnemyShotController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (_playerinRange)
-        {
-            if (_shootCooldown > 0) _shootCooldown -= Time.deltaTime;
-            else Shoot();
-        }
-        
+        if (_shootCooldown > 0) _shootCooldown -= Time.deltaTime;
+        else if (_playerinRange) Shoot();
     }
 }

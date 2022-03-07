@@ -13,10 +13,10 @@ GameObject:
   - component: {fileID: 9501840}
   - component: {fileID: 135181440167841906}
   - component: {fileID: 7232928370904684764}
-  - component: {fileID: -3074784522556017458}
-  - component: {fileID: 8488777201527867146}
   - component: {fileID: 6852021725230940862}
   - component: {fileID: 1477807034410417777}
+  - component: {fileID: 650975092684600485}
+  - component: {fileID: 1614502189508817874}
   m_Layer: 7
   m_Name: Slime
   m_TagString: Untagged
@@ -31,8 +31,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 160816}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.0047914, y: 0, z: 0}
+  m_LocalRotation: {x: 0, y: 0, z: -0.7071068, w: 0.7071068}
+  m_LocalPosition: {x: 103.5, y: -6.4, z: 0}
   m_LocalScale: {x: 6.2975883, y: 6.2975883, z: 0.83967847}
   m_Children:
   - {fileID: 2891932129264185976}
@@ -40,7 +40,7 @@ Transform:
   - {fileID: 3049487290649916650}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -90}
 --- !u!212 &21296824
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -157,49 +157,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   vidaMaxima: 3
   _dust: {fileID: 999515858420764311, guid: 0f2164e95f465a445afdd0511fc79b0a, type: 3}
---- !u!114 &-3074784522556017458
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 160816}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3ed2896c3f3ed1e43933ae8636f9ea31, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _speed: 2
-  detection: 0
-  ret: 0
-  placeOrigin: {x: 0, y: 0}
-  d: 8
-  placeObjet: {x: 0, y: 0}
-  fly: 0
-  playerPosition: {fileID: 4600615353497502613, guid: e2195f58334ba974ea95373f6667f4db, type: 3}
-  _trigger: {fileID: 464311717165700342}
-  _col: {fileID: 574038558121264980}
---- !u!50 &8488777201527867146
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 160816}
-  m_BodyType: 0
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 9.8
-  m_Material: {fileID: 0}
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 4
 --- !u!114 &6852021725230940862
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -226,6 +183,45 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dde04903f3a7cf0459ccca15102c295e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &650975092684600485
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 160816}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cf443cd153c9e5748aa8c55f5ca7864f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _path:
+  - {x: 92.5, y: 4.5, z: 0}
+  - {x: 103.5, y: 4.5, z: 0}
+  - {x: 103.5, y: -6.5, z: 0}
+  - {x: 92.5, y: -6.5, z: 0}
+  _speed: 2
+--- !u!50 &1614502189508817874
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 160816}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1 &2301677792082731349
 GameObject:
   m_ObjectHideFlags: 0
