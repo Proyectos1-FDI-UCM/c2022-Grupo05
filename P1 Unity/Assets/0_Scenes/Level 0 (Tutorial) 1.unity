@@ -9436,6 +9436,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7408359361161758186, guid: 3504569479a63c54db3cd98cf0c50087, type: 3}
+      propertyPath: m_Name
+      value: CONTROLES
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3504569479a63c54db3cd98cf0c50087, type: 3}
 --- !u!224 &762145906 stripped
@@ -11209,6 +11213,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 815023956}
     m_Modifications:
+    - target: {fileID: 2899549418259024977, guid: 99b94a8c7b6ef264aa89ebfe075b12b7, type: 3}
+      propertyPath: playerPosition
+      value: 
+      objectReference: {fileID: 1065267712}
     - target: {fileID: 2899549418259024979, guid: 99b94a8c7b6ef264aa89ebfe075b12b7, type: 3}
       propertyPath: m_Name
       value: Guru
