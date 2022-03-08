@@ -83,6 +83,9 @@ public class GameManager : MonoBehaviour
     public void MainMenu()
     {
         SceneManager.LoadScene("Main Menu");
+        Time.timeScale = 1;
+
+
     }
     #endregion
 
