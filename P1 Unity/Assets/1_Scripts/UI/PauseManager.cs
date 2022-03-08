@@ -20,7 +20,9 @@ public class PauseManager : MonoBehaviour
     [SerializeField] private GameObject _normalPause;
     [SerializeField] private GameObject _controlsPause;
     [SerializeField] private Button _normalReturnButton;
+    [SerializeField] private GameObject _normalReturnObject;
     [SerializeField] private Button _controlsReturnButton;
+    [SerializeField] private GameObject _controlsReturnObject;
     [SerializeField] private Button _mainMenuButton;
     [SerializeField] private Button _controlsButton;
 
@@ -35,6 +37,12 @@ public class PauseManager : MonoBehaviour
             _pauseMenu.SetActive(true);
             _normalPause.SetActive(true);
             _controlsPause.SetActive(false);
+            _normalReturnObject.SetActive(true);
+            _controlsReturnObject.SetActive(false);
+
+            _normalReturnButton.onClick.AddListener(GameManager.Instance.PauseMenu);
+            _mainMenuButton.onClick.AddListener(GameManager.Instance.MainMenu);
+            _controlsButton.onClick.AddListener(ControlsMenu);
         }
 
         else
@@ -42,16 +50,21 @@ public class PauseManager : MonoBehaviour
             _pauseMenu.SetActive(false);
         }
 
-        _normalReturnButton.onClick.AddListener(GameManager.Instance.PauseMenu);
-        _mainMenuButton.onClick.AddListener(GameManager.Instance.MainMenu);
-        _controlsButton.onClick.AddListener(ControlsMenu);
+        
     }
 
     public void ControlsMenu()
     {
-        _normalPause.SetActive(false);
-        _controlsPause.SetActive(true);
-        _controlsReturnButton.onClick.AddListener(PauseMenu);
+        if (Time.timeScale <= 0)
+        {
+            _normalPause.SetActive(false);
+            _controlsPause.SetActive(true);
+            _normalReturnObject.SetActive(false);
+            _controlsReturnObject.SetActive(true);
+
+            _controlsReturnButton.onClick.AddListener(PauseMenu);
+        }
+        
     }
 
 
