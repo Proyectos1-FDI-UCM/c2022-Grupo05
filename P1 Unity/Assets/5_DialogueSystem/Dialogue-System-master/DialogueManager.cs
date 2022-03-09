@@ -31,6 +31,9 @@ public class DialogueManager : MonoBehaviour
 
     public void StartDialogue(Dialogue dialogue)
     {
+        // Impide activar la pausa
+        GameManager.Instance.DialogueOpened();
+
         animator.SetBool("IsOpen", true);
 
         enabled = true;
@@ -94,16 +97,16 @@ public class DialogueManager : MonoBehaviour
     }
 
 
-
     /// <summary>
     /// Acaba la conversación
     /// </summary>
-    void EndDialogue()
+    public void EndDialogue()
     {
-        Time.timeScale = 1f; //resume la escena
-      
         animator.SetBool("IsOpen", false);
+        Time.timeScale = 1f; //resume la escena
 
+        // Activa de nuevo la pausa
+        GameManager.Instance.DialogueOpened();
     }
 
     private void Update()

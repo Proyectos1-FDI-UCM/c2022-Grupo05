@@ -7,6 +7,7 @@ public class GameManager : MonoBehaviour
 {
 
     #region parameters
+    private bool _dialogueOpen = false;
     #endregion
 
 
@@ -62,18 +63,26 @@ public class GameManager : MonoBehaviour
     }
 
 
+    public void DialogueOpened()
+    {
+        _dialogueOpen = !_dialogueOpen;
+    }
 
     public void PauseMenu()
     {
-        if (Time.timeScale <= 0)
+        if (!_dialogueOpen)
         {
-            PauseManager.Instance.QuitPause();
+            if (Time.timeScale <= 0)
+            {
+                PauseManager.Instance.QuitPause();
+            }
+
+            else
+            {
+                PauseManager.Instance.SetPause();
+            }
         }
 
-        else
-        {
-            PauseManager.Instance.SetPause();
-        }
     }
 
 
