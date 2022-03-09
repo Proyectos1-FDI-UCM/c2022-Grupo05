@@ -20,9 +20,7 @@ public class PauseManager : MonoBehaviour
     [SerializeField] private GameObject _normalPause;
     [SerializeField] private GameObject _controlsPause;
     [SerializeField] private Button _normalReturnButton;
-    [SerializeField] private GameObject _normalReturnObject;
     [SerializeField] private Button _controlsReturnButton;
-    [SerializeField] private GameObject _controlsReturnObject;
     [SerializeField] private Button _mainMenuButton;
     [SerializeField] private Button _controlsButton;
 
@@ -30,43 +28,43 @@ public class PauseManager : MonoBehaviour
 
 
     #region methods
-    public void PauseMenu()
+
+    public void SetPause()
     {
-        if (Time.timeScale <= 0)
-        {
-            _pauseMenu.SetActive(true);
-            _normalPause.SetActive(true);
-            _controlsPause.SetActive(false);
-            _normalReturnObject.SetActive(true);
-            _controlsReturnObject.SetActive(false);
+        _pauseMenu.SetActive(true);
+        NormalPause();
 
-            _normalReturnButton.onClick.AddListener(GameManager.Instance.PauseMenu);
-            _mainMenuButton.onClick.AddListener(GameManager.Instance.MainMenu);
-            _controlsButton.onClick.AddListener(ControlsMenu);
-        }
-
-        else
-        {
-            _pauseMenu.SetActive(false);
-        }
-
-        
+        Time.timeScale = 0;
     }
 
-    public void ControlsMenu()
+    public void NormalPause()
     {
-        if (Time.timeScale <= 0)
-        {
-            _normalPause.SetActive(false);
-            _controlsPause.SetActive(true);
-            _normalReturnObject.SetActive(false);
-            _controlsReturnObject.SetActive(true);
+        _normalPause.SetActive(true);
+        _controlsPause.SetActive(false);
 
-            _controlsReturnButton.onClick.AddListener(PauseMenu);
-        }
-        
+        _normalReturnButton.onClick.AddListener(QuitPause);
+        _mainMenuButton.onClick.AddListener(GameManager.Instance.MainMenu);
+        _controlsButton.onClick.AddListener(ControlsPause);
+
     }
 
+    public void ControlsPause()
+    {
+        _normalPause.SetActive(false);
+        _controlsPause.SetActive(true);
+
+        _controlsReturnButton.onClick.AddListener(NormalPause);
+    }
+
+
+    public void QuitPause()
+    {
+        _pauseMenu.SetActive(false);
+        _normalPause.SetActive(false);
+        _controlsPause.SetActive(false);
+        Time.timeScale = 1;
+
+    }
 
     #endregion
 

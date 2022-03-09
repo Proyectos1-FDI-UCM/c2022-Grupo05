@@ -67,16 +67,13 @@ public class GameManager : MonoBehaviour
     {
         if (Time.timeScale <= 0)
         {
-            Time.timeScale = 1;
+            PauseManager.Instance.QuitPause();
         }
 
         else
         {
-            Time.timeScale = 0;
+            PauseManager.Instance.SetPause();
         }
-
-        PauseManager.Instance.PauseMenu();
-
     }
 
 
