@@ -986,7 +986,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4600615353497502602, guid: e2195f58334ba974ea95373f6667f4db, type: 3}
       propertyPath: _jumpForce
-      value: 800
+      value: 760
       objectReference: {fileID: 0}
     - target: {fileID: 4600615353497502602, guid: e2195f58334ba974ea95373f6667f4db, type: 3}
       propertyPath: _hasAntigravity
@@ -13917,7 +13917,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1394165484}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 13.74, y: -17.47, z: 0}
+  m_LocalPosition: {x: 13.74, y: -17.8, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 958104435}
@@ -19103,7 +19103,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1646074263}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 20.01, y: -17.47, z: 0}
+  m_LocalPosition: {x: 20.01, y: -17.77, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 162886434}
