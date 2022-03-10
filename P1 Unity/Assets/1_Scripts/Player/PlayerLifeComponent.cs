@@ -63,7 +63,7 @@ public class PlayerLifeComponent : MonoBehaviour
                 GameManager.Instance.OnPlayerDeath(gameObject);
             }
 
-            HUDController.Instance.UpdateHP(_currentLife);
+            HUDController.Instance.UpdatePlayerHP(_currentLife);
         }
         return returning;
     }
@@ -78,7 +78,7 @@ public class PlayerLifeComponent : MonoBehaviour
             _currentLife = _maxLife;
         }
 
-        HUDController.Instance.UpdateHP(_currentLife);
+        HUDController.Instance.UpdatePlayerHP(_currentLife);
 
         Debug.Log("Healed");
     }
@@ -105,7 +105,7 @@ public class PlayerLifeComponent : MonoBehaviour
     {
         // Inicializa la vida y energía restante con sus valores m�ximos
         _currentLife = _maxLife;
-        HUDController.Instance.UpdateHP(_currentLife);
+        HUDController.Instance.UpdatePlayerHP(_currentLife);
         _currentEnergy = _maxEnergy;
         HUDController.Instance.UpdateEnergy(_currentEnergy);
         _animator = GetComponent<Animator>();

@@ -27,7 +27,7 @@ public class ControlText : MonoBehaviour
     {
         animator.SetBool("Control", false);
         enabled = false;
-        
+        Destroy(gameObject, 3f);
     }
     // Start is called before the first frame update
     void Start()

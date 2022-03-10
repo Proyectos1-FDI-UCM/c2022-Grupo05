@@ -16,21 +16,29 @@ public class HUDController : MonoBehaviour
     [SerializeField] private Transform _hudElements;
     [SerializeField] private Sprite[] _hpBars;
     [SerializeField] private Sprite[] _energyBars;
+
+    //Sistema de vida Boss
+    [SerializeField] private GameObject[] _hpBoss;
     [SerializeField] private Image _hpBar;
     [SerializeField] private Image _energyBar;
-    [SerializeField] private Image _bossBar;
+    [SerializeField] private GameObject _bossBar;
     [SerializeField] private Text _energyShards;
     [SerializeField] private GameObject _gameOverText;
 
-    
     #endregion
 
 
     #region methods
-    public void UpdateHP(int life) 
+    public void UpdatePlayerHP(int life)
     {
         _hpBar.sprite = _hpBars[life];
     }
+
+    public void UpdateBossHP(int life)
+    {
+        _hpBoss[life].SetActive(false) ;
+    }
+
 
     public void UpdateEnergy(int energy)
     {
@@ -47,8 +55,12 @@ public class HUDController : MonoBehaviour
         _hudElements.Translate(new Vector2(0, changed ? -900 : 900));
     }
 
+    public void ShowBossBar(bool value)
+    {
+        _bossBar.SetActive (value);
+    }
 
-    public void ShowGameOverText(bool value) 
+    public void ShowGameOverText(bool value)
     {
         _gameOverText.SetActive(value);
     }
@@ -64,5 +76,6 @@ public class HUDController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        ShowBossBar(false);
     }
 }
