@@ -34,9 +34,10 @@ public class HUDController : MonoBehaviour
         _hpBar.sprite = _hpBars[life];
     }
 
-    public void UpdateBossHP(int life)
+    public void UpdateBossHP(int life,bool shotUpdated)
     {
         _hpBoss[life].SetActive(false) ;
+        if (shotUpdated) _hpBoss[life+1].SetActive(false);
     }
 
 
