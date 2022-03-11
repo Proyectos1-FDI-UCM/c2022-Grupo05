@@ -17,7 +17,7 @@ public class BossLifeComponent : MonoBehaviour
     [SerializeField] private GameObject _fullBody;
 
     [SerializeField] private GameObject _weakPoint;
-    private Transform _myTransfrom;
+    [SerializeField] private GameObject _bossObject;
     #endregion
 
     #region methods
@@ -25,24 +25,23 @@ public class BossLifeComponent : MonoBehaviour
     {
         _currentLife--;
         if (isShotUpgraded) _currentLife--;
-            if (_currentLife <= 20 && !_secondPhase)
+        if (_currentLife <= 20 && !_secondPhase)
         {
             _currentLife = 20;
-           
+
             _weakPoint.GetComponent<Collider2D>().enabled = true;
             _fullBody.GetComponent<Collider2D>().enabled = false;
             _weakPoint.SetActive(true);
             _secondPhase = true;
-           
 
         } //cambio fase
         if (_currentLife <= 0)
         {
             HUDController.Instance.ShowBossBar(false);
-            gameObject.SetActive(false);
-            Instantiate(_DieFX, _myTransfrom.position, Quaternion.identity);
+            _bossObject.SetActive(false);
+            Instantiate(_DieFX, _bossObject.transform.position, Quaternion.identity);
         }
-        HUDController.Instance.UpdateBossHP(_currentLife,isShotUpgraded);
+        HUDController.Instance.UpdateBossHP(_currentLife);
     }
     #endregion
 
@@ -52,9 +51,10 @@ public class BossLifeComponent : MonoBehaviour
     {
         _currentLife = _maxLife;
         _secondPhase = false;
-        _myTransfrom = transform;
+
         _weakPoint.SetActive(false);
         _weakPoint.GetComponent<Collider2D>().enabled = false;
         _fullBody.GetComponent<Collider2D>().enabled = true;
+        _bossObject.SetActive(false);
     }
 }

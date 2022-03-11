@@ -86,6 +86,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _hudController: {fileID: 0}
+  _bossObject: {fileID: 0}
 --- !u!212 &6700054000210800126
 SpriteRenderer:
   m_ObjectHideFlags: 0

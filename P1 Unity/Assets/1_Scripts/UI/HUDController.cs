@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -18,7 +16,7 @@ public class HUDController : MonoBehaviour
     [SerializeField] private Sprite[] _energyBars;
 
     //Sistema de vida Boss
-    [SerializeField] private GameObject[] _hpBoss;
+    [SerializeField] private RectTransform _hpBoss;
     [SerializeField] private Image _hpBar;
     [SerializeField] private Image _energyBar;
     [SerializeField] private GameObject _bossBar;
@@ -34,10 +32,10 @@ public class HUDController : MonoBehaviour
         _hpBar.sprite = _hpBars[life];
     }
 
-    public void UpdateBossHP(int life,bool shotUpdated)
+    public void UpdateBossHP(int life)
     {
-        _hpBoss[life].SetActive(false) ;
-        if (shotUpdated) _hpBoss[life+1].SetActive(false);
+        _hpBoss.sizeDelta = new Vector2(2.1f * life, _hpBoss.sizeDelta.y);
+
     }
 
 
@@ -58,7 +56,7 @@ public class HUDController : MonoBehaviour
 
     public void ShowBossBar(bool value)
     {
-        _bossBar.SetActive (value);
+        _bossBar.SetActive(value);
     }
 
     public void ShowGameOverText(bool value)

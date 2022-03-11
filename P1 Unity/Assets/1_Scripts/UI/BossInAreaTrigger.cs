@@ -5,6 +5,7 @@ public class BossInAreaTrigger : MonoBehaviour
     #region references 
     private InputManager player;
     [SerializeField] private HUDController _hudController;
+    [SerializeField] private GameObject _bossObject;
     #endregion
 
     #region methods
@@ -13,11 +14,10 @@ public class BossInAreaTrigger : MonoBehaviour
         player = collision.GetComponent<InputManager>();
         if (player != null)
         {
+            _bossObject.SetActive(true);
             _hudController.ShowBossBar(true);
             Destroy(gameObject);
         }
-
-        // Debug.Log(collision.name);
     }
     #endregion
 }
