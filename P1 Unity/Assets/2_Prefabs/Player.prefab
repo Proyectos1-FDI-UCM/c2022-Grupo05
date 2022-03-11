@@ -45,7 +45,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.007877171, y: 0}
+  m_Offset: {x: -0.057808667, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -56,7 +56,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.85311747, y: 1}
+  m_Size: {x: 0.98448914, y: 1}
   m_EdgeRadius: 0
 --- !u!114 &4600615352017307880
 MonoBehaviour:
@@ -110,7 +110,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4600615353497502613}
   - component: {fileID: 4600615353497502614}
-  - component: {fileID: -5151274990437153834}
   - component: {fileID: 4600615353497502600}
   - component: {fileID: 4600615353497502601}
   - component: {fileID: 4600615353497502602}
@@ -119,6 +118,7 @@ GameObject:
   - component: {fileID: 1205220341}
   - component: {fileID: 4731094736172883946}
   - component: {fileID: 8505381147303285411}
+  - component: {fileID: 508762859438029998}
   m_Layer: 6
   m_Name: Player
   m_TagString: Untagged
@@ -193,32 +193,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!61 &-5151274990437153834
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4600615353497502604}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 6200000, guid: b968f250901682d49a891efa67b142e8, type: 2}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: -0.057334542, y: -0.24252152}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 5, y: 5}
-    newSize: {x: 1, y: 1}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 1
-  serializedVersion: 2
-  m_Size: {x: 1.2612216, y: 2.5097613}
-  m_EdgeRadius: 0
 --- !u!50 &4600615353497502600
 Rigidbody2D:
   serializedVersion: 4
@@ -266,7 +240,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _speed: 1
-  _jumpForce: 800
+  _jumpForce: 750
   _movementSmoothing: 0.05
   _facingRight: 1
   _dashDistance: 4
@@ -352,3 +326,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 302a5dab95b375b46a89c4367ce56cc4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!70 &508762859438029998
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4600615353497502604}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.06299806, y: -0.2519897}
+  m_Size: {x: 1.2086987, y: 2.571735}
+  m_Direction: 0
