@@ -25,7 +25,7 @@ public class BossLifeComponent : MonoBehaviour
     {
         _currentLife--;
         if (isShotUpgraded) _currentLife--;
-        if (_currentLife <= 20 && !_secondPhase)
+            if (_currentLife <= 20 && !_secondPhase)
         {
             _currentLife = 20;
            
@@ -42,7 +42,7 @@ public class BossLifeComponent : MonoBehaviour
             gameObject.SetActive(false);
             Instantiate(_DieFX, _myTransfrom.position, Quaternion.identity);
         }
-        HUDController.Instance.UpdateBossHP(_currentLife);
+        HUDController.Instance.UpdateBossHP(_currentLife,isShotUpgraded);
     }
     #endregion
 
