@@ -14,6 +14,11 @@ public class PlayerAnimation : MonoBehaviour
     {
         animator.SetBool("_damage", false);
     }
+
+    public void OffShot()
+    {
+        animator.SetBool("_shot", false);
+    }
  
     #endregion
     // Start is called before the first frame update
