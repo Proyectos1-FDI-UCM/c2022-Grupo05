@@ -8,16 +8,12 @@ public class Checkpoint : MonoBehaviour
     private bool _isMiniCheckpoint = true;
     private Transform _transform;
     private PlayerMovementManager _movement;
+    [SerializeField]
     private bool _isGravityChanged;
 
     private void OnTriggerEnter2D(Collider2D collision) {
         if(_isMiniCheckpoint) CheckpointManager.Instance.NewMiniCheckpoint(this, out _movement);
         else CheckpointManager.Instance.NewCheckpoint(this, out _movement);
-        _isGravityChanged = _movement.IsGravityChanged;
-    }
-
-    private void OnTriggerExit2D(Collider2D collision) {
-        _isGravityChanged = _movement.IsGravityChanged;
     }
 
     public void GoToCheckpoint(Transform playerTransform, Rigidbody2D rigidbody) {
