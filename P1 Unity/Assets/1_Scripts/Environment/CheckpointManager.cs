@@ -5,6 +5,7 @@ using UnityEngine;
 public class CheckpointManager : MonoBehaviour
 {
     [SerializeField]
+    private GameObject _player;
     private float _timer = 0;
     private Transform _transform;
     private Rigidbody2D _rigidbody;
@@ -37,9 +38,9 @@ public class CheckpointManager : MonoBehaviour
 
     private void Start() {
         _me = this;
-        _transform = transform;
-        _rigidbody = GetComponent<Rigidbody2D>();
-        _movement = GetComponent<PlayerMovementManager>();
+        _transform = _player.transform;
+        _rigidbody = _player.GetComponent<Rigidbody2D>();
+        _movement = _player.GetComponent<PlayerMovementManager>();
     }
 
     private void Update() {

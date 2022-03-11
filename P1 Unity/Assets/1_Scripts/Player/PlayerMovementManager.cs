@@ -119,9 +119,8 @@ public class PlayerMovementManager : MonoBehaviour
 
         // Cambio de gravedad
         if(_changingGravity) {
-            _rigidbody.rotation += 180;
+            _transform.localScale = new Vector3(_transform.localScale.x, -_transform.localScale.y, _transform.localScale.z);
             _rigidbody.gravityScale = -_rigidbody.gravityScale;
-            _facingRight = !_facingRight;
             _changingGravity = _canChangeGravity = false;
             _isGravityChanged = !_isGravityChanged;
             HUDController.Instance.ChangePosition(_isGravityChanged);
