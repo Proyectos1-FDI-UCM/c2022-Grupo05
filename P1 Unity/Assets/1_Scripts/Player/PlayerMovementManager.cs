@@ -66,6 +66,10 @@ public class PlayerMovementManager : MonoBehaviour
         if(_hasAntigravity && _canChangeGravity) _changingGravity = true;
     }
 
+    public void ForceChangeGravity() {
+        _changingGravity = true;
+    }
+
     public void Jump() 
     {
         if (_jumpsLeft > 0 && !_dashing)

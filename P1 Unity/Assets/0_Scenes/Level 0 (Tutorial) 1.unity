@@ -2810,6 +2810,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Mini Checkpoint (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 9055747629585596212, guid: cf53f0a377f7e204c817577c3df44f7c, type: 3}
+      propertyPath: _forceGravity
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9055747629585596212, guid: cf53f0a377f7e204c817577c3df44f7c, type: 3}
+      propertyPath: _isGravityChanged
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 9055747629585596213, guid: cf53f0a377f7e204c817577c3df44f7c, type: 3}
       propertyPath: m_RootOrder
       value: 5
@@ -4512,6 +4520,10 @@ PrefabInstance:
     - target: {fileID: 9055747629585596211, guid: cf53f0a377f7e204c817577c3df44f7c, type: 3}
       propertyPath: m_Name
       value: Mini Checkpoint
+      objectReference: {fileID: 0}
+    - target: {fileID: 9055747629585596212, guid: cf53f0a377f7e204c817577c3df44f7c, type: 3}
+      propertyPath: _isGravityChanged
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9055747629585596213, guid: cf53f0a377f7e204c817577c3df44f7c, type: 3}
       propertyPath: m_RootOrder
@@ -11465,6 +11477,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 9125591456241922101, guid: 3ec81056405d3424890f5bc466e3b463, type: 3}
   m_PrefabInstance: {fileID: 922757465}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &937196575 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4600615353497502604, guid: e2195f58334ba974ea95373f6667f4db, type: 3}
+  m_PrefabInstance: {fileID: 1735904672}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &940672644
 GameObject:
   m_ObjectHideFlags: 0
@@ -11616,6 +11633,10 @@ PrefabInstance:
     - target: {fileID: 9055747629585596211, guid: cf53f0a377f7e204c817577c3df44f7c, type: 3}
       propertyPath: m_Name
       value: Mini Checkpoint
+      objectReference: {fileID: 0}
+    - target: {fileID: 9055747629585596212, guid: cf53f0a377f7e204c817577c3df44f7c, type: 3}
+      propertyPath: _forceGravity
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9055747629585596213, guid: cf53f0a377f7e204c817577c3df44f7c, type: 3}
       propertyPath: m_RootOrder
@@ -13027,6 +13048,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1175483542}
   - component: {fileID: 1175483541}
+  - component: {fileID: 1175483543}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -13060,6 +13082,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1175483543
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1175483540}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f950ca0ffa6f4514b813d010a756a75b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _player: {fileID: 937196575}
 --- !u!1001 &1188483435
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -139643,7 +139678,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9055747629585596213, guid: cf53f0a377f7e204c817577c3df44f7c, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 4.5
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 9055747629585596213, guid: cf53f0a377f7e204c817577c3df44f7c, type: 3}
       propertyPath: m_LocalPosition.z
@@ -140182,6 +140217,10 @@ PrefabInstance:
     - target: {fileID: 9055747629585596211, guid: cf53f0a377f7e204c817577c3df44f7c, type: 3}
       propertyPath: m_Name
       value: Mini Checkpoint (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 9055747629585596212, guid: cf53f0a377f7e204c817577c3df44f7c, type: 3}
+      propertyPath: _isGravityChanged
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9055747629585596213, guid: cf53f0a377f7e204c817577c3df44f7c, type: 3}
       propertyPath: m_RootOrder
