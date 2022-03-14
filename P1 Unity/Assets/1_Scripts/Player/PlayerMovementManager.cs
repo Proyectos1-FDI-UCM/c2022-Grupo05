@@ -63,7 +63,7 @@ public class PlayerMovementManager : MonoBehaviour
     }
 
     public void ChangeGravity() {
-        if(_hasAntigravity && _canChangeGravity) _changingGravity = true;
+        if(_hasAntigravity && _canChangeGravity && !_dashing) _changingGravity = true;
     }
 
     public void ForceChangeGravity() {
