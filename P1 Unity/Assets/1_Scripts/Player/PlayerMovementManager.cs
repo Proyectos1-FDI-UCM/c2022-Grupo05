@@ -91,7 +91,8 @@ public class PlayerMovementManager : MonoBehaviour
     }
 
     public void StopDashing() {
-        _dashCont = _dashTime;
+        _dashing = false;
+        _dashCont = 0;
     }
 
     void Start() {

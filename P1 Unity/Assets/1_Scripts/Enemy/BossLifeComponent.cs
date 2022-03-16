@@ -13,7 +13,7 @@ public class BossLifeComponent : MonoBehaviour
     #endregion
 
     #region references
-    [SerializeField] private GameObject _DieFX; //pendiente
+    [SerializeField] private GameObject _DieFX;
     [SerializeField] private GameObject _fullBody;
 
     [SerializeField] private GameObject _weakPoint;

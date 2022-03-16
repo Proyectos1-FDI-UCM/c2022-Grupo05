@@ -29,7 +29,7 @@ public class BossMovementController : MonoBehaviour
     #region methods
     private void Action() 
     {
-        if (_gravityHasChanged == _gravityCheck.IsGravityChanged)
+        if (_gravityHasChanged != _gravityCheck.IsGravityChanged)
         {
             _changingGravity = true;
         }

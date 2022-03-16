@@ -35,6 +35,8 @@ public class PlayerLifeComponent : MonoBehaviour
     [SerializeField]
     private int _currentEnergy;        // Energía restante
 
+    private int _hitDamage = 1;
+
     public bool ActivateGrace {
         set => _activeGracePeriod = value;
     }
@@ -50,7 +52,7 @@ public class PlayerLifeComponent : MonoBehaviour
         if (!_activeGracePeriod)
         {
             _animator.SetBool("_damage", true);
-            _currentLife--;
+            _currentLife -= _hitDamage;
             Debug.Log("Damaged");
             _activeGracePeriod = true;
 
