@@ -7,12 +7,13 @@ public class SlimeMovementComponent : MonoBehaviour
 
     #region parameters
     [SerializeField] private Vector3[] _path;
-    [SerializeField] private float _speed = 2; 
+    [SerializeField] private float _speed = 2;
+    [SerializeField] private bool _inverted = false;
 
     #endregion
 
     #region properties
-    private int _pointer;
+    [SerializeField] private int _pointer;
     #endregion
 
     #region references
@@ -33,13 +34,27 @@ public class SlimeMovementComponent : MonoBehaviour
 
     private bool PositionReached() 
     {
-        switch (_myTransform.eulerAngles.z) 
+        if (_inverted)
         {
-            case 0: return (_myTransform.position.x > _path[_pointer].x);
-            case 270: return (_myTransform.position.y < _path[_pointer].y);
-            case 180: return (_myTransform.position.x < _path[_pointer].x);
-            case 90: return (_myTransform.position.y > _path[_pointer].y);
-            default: return false;
+            switch (_myTransform.eulerAngles.z)
+            {
+                case 0: return (_myTransform.position.x < _path[_pointer].x);
+                case 270: return (_myTransform.position.y < _path[_pointer].y);
+                case 180: return (_myTransform.position.x > _path[_pointer].x);
+                case 90: return (_myTransform.position.y > _path[_pointer].y);
+                default: return false;
+            }
+        }
+        else
+        {
+            switch (_myTransform.eulerAngles.z)
+            {
+                case 0: return (_myTransform.position.x > _path[_pointer].x);
+                case 270: return (_myTransform.position.y < _path[_pointer].y);
+                case 180: return (_myTransform.position.x < _path[_pointer].x);
+                case 90: return (_myTransform.position.y > _path[_pointer].y);
+                default: return false;
+            }
         }
     }
     #endregion
@@ -52,6 +67,7 @@ public class SlimeMovementComponent : MonoBehaviour
         _pointer = 0;
         _myTransform.position = _path[_pointer];
         _myTransform.rotation = Quaternion.identity;
+        if (_inverted) _myTransform.Rotate(0, 180, 0);
         _pointer++;
     }
 
