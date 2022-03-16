@@ -43,6 +43,11 @@ public class BossLifeComponent : MonoBehaviour
         }
         HUDController.Instance.UpdateBossHP(_currentLife);
     }
+
+    public int ActualLife() 
+    {
+        return _currentLife;
+    }
     #endregion
 
 

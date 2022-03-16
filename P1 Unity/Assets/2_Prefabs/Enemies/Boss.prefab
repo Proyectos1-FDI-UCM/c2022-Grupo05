@@ -111,6 +111,7 @@ MonoBehaviour:
   _DieFX: {fileID: 7408318839932606042, guid: 3d1b18cb3f0ccaf4ba552c5c8fc3047b, type: 3}
   _fullBody: {fileID: 2372093727530410873}
   _weakPoint: {fileID: 4454539820611307084}
+  _bossObject: {fileID: 0}
 --- !u!1 &4454539820567201528
 GameObject:
   m_ObjectHideFlags: 0
@@ -266,6 +267,7 @@ MonoBehaviour:
   _DieFX: {fileID: 7408318839932606042, guid: 3d1b18cb3f0ccaf4ba552c5c8fc3047b, type: 3}
   _fullBody: {fileID: 2372093727530410873}
   _weakPoint: {fileID: 4454539820611307084}
+  _bossObject: {fileID: 0}
 --- !u!60 &4508916240227227575
 PolygonCollider2D:
   m_ObjectHideFlags: 0
