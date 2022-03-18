@@ -7,6 +7,7 @@ public class ShotMovementController : MonoBehaviour
     #region parameters
     [SerializeField]
     private float _shootSpeed = 15.0f;
+    private Vector2 dir = Vector2.right;
     #endregion
 
     #region properties
@@ -28,6 +29,10 @@ public class ShotMovementController : MonoBehaviour
         else if(direction.x < 0 && direction.y < 0) _myTransform.rotation = Quaternion.AngleAxis(180 - Mathf.Rad2Deg * Mathf.Asin(_direction.y), Vector3.forward);
         else _myTransform.rotation = Quaternion.AngleAxis(Mathf.Rad2Deg * Mathf.Asin(_direction.y), Vector3.forward);
     }
+    public void SetDirectionPlayerShot(Vector2 direction)
+    {
+        dir = direction;
+    }
     #endregion
 
 
@@ -40,6 +45,6 @@ public class ShotMovementController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        _myTransform.Translate(new Vector3(1, 0) * _shootSpeed * Time.deltaTime);
+        _myTransform.Translate(dir* _shootSpeed * Time.deltaTime);
     }
 }

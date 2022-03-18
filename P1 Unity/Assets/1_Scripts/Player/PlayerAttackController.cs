@@ -31,7 +31,7 @@ public class PlayerAttackController : MonoBehaviour
             if(ampPower) shot = Instantiate(_upgradedShotPrefab, _shootPoint.position, _shootPoint.rotation);
             else shot = Instantiate(_shotPrefab, _shootPoint.position, _shootPoint.rotation);
 
-            shot.GetComponent<ShotMovementController>().SetDirection(_shootPoint.rotation.y == 180 ? Vector2.left : Vector2.right);
+            shot.GetComponent<ShotMovementController>().SetDirectionPlayerShot(_shootPoint.rotation.y == 180 ? Vector2.left : Vector2.right);
             _shootCooldown = _shootTime;
 
             SoundManager.Instance.PlaySound(_clip);
