@@ -282,6 +282,7 @@ MonoBehaviour:
   _shootPoint: {fileID: 4600615353091072486}
   _shotPrefab: {fileID: 5947758736218559249, guid: 285cd7ba4f11d6a488f3feabb15d5af5, type: 3}
   _upgradedShotPrefab: {fileID: 5947758736218559249, guid: 26aa8b6710ac47947aeccb4d45005d9d, type: 3}
+  _clip: {fileID: 8300000, guid: 4310474905e266640852f43bd609a1a4, type: 3}
 --- !u!95 &4731094736172883946
 Animator:
   serializedVersion: 3

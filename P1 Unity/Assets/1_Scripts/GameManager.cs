@@ -63,9 +63,9 @@ public class GameManager : MonoBehaviour
     }
 
 
-    public void DialogueOpened()
+    public void DialogueOpened(bool isOpened)
     {
-        _dialogueOpen = !_dialogueOpen;
+        _dialogueOpen = isOpened;
     }
 
     public void PauseMenu()

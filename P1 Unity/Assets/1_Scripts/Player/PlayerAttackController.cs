@@ -17,6 +17,9 @@ public class PlayerAttackController : MonoBehaviour
     [SerializeField] private Transform _shootPoint;
     [SerializeField] private GameObject _shotPrefab;
     [SerializeField] private GameObject _upgradedShotPrefab;
+
+    [SerializeField] private AudioClip _clip;
+
     #endregion
 
     #region methods
@@ -30,6 +33,8 @@ public class PlayerAttackController : MonoBehaviour
 
             shot.GetComponent<ShotMovementController>().SetDirection(_shootPoint.rotation.y == 180 ? Vector2.left : Vector2.right);
             _shootCooldown = _shootTime;
+
+            SoundManager.Instance.PlaySound(_clip);
         }
     }
     #endregion
