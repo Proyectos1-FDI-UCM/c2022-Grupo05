@@ -32,7 +32,7 @@ public class DialogueManager : MonoBehaviour
     public void StartDialogue(Dialogue dialogue)
     {
         // Impide activar la pausa
-        GameManager.Instance.DialogueOpened();
+        GameManager.Instance.DialogueOpened(true);
 
         animator.SetBool("IsOpen", true);
 
@@ -106,7 +106,7 @@ public class DialogueManager : MonoBehaviour
         Time.timeScale = 1f; //resume la escena
 
         // Activa de nuevo la pausa
-        GameManager.Instance.DialogueOpened();
+        GameManager.Instance.DialogueOpened(false);
     }
 
     private void Update()
