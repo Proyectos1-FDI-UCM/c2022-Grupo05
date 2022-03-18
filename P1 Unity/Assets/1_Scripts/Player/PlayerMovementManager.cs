@@ -53,9 +53,9 @@ public class PlayerMovementManager : MonoBehaviour
     #endregion
 
     #region methods
-    public void HasAntigravity()
+    public void HasAntigravity(bool enable)
     {
-        _hasAntigravity = true;
+        _hasAntigravity = enable;
     }
     
     public void Move(Vector2 v) {

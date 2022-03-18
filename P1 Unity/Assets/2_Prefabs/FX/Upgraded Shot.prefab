@@ -132,6 +132,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _shootSpeed: 15.57
+  _direction: {x: 0, y: 0}
+  _myTransform: {fileID: 5947758736218559255}
 --- !u!114 &575961613714142123
 MonoBehaviour:
   m_ObjectHideFlags: 0
