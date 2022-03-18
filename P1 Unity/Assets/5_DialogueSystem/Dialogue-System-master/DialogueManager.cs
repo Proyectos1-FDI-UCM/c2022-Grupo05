@@ -6,22 +6,26 @@ using UnityEngine.UI;
 public class DialogueManager : MonoBehaviour
 {
 
+
+    [SerializeField]
+    private float waitTime = 1.0f;
+
     [SerializeField]
     private Text nameText; //nombre del hablante
     [SerializeField]
     private Text dialogueText;
     [SerializeField]
-    private Animator animator; //animación
+    private Animator animator; //animaciï¿½n
     [SerializeField]
     private float TypingTime; //tiempo de tecleo de cada letra
 
     /// <summary>
-    /// contiene los diálogos que va a aparecer en el text box en orden, carga nuevos sentences en la parte final del Queue a medida que el jugador va leyendo el texto
+    /// contiene los diï¿½logos que va a aparecer en el text box en orden, carga nuevos sentences en la parte final del Queue a medida que el jugador va leyendo el texto
     /// </summary>
     private Queue<string> sentences;
     private Queue<string> speakers; //hablante
 
-    //  initialización
+    //  initializaciï¿½n
     void Start()
     {
         sentences = new Queue<string>();
@@ -37,14 +41,14 @@ public class DialogueManager : MonoBehaviour
         animator.SetBool("IsOpen", true);
 
         enabled = true;
-        sentences.Clear(); //borra texto de cualquier conversación previa
+        sentences.Clear(); //borra texto de cualquier conversaciï¿½n previa
 
-        foreach (string sentence in dialogue.sentences) //añade cada frase (sentence) al Queue para ser reproducida
+        foreach (string sentence in dialogue.sentences) //aï¿½ade cada frase (sentence) al Queue para ser reproducida
         {
 
             sentences.Enqueue(sentence);
         }
-        foreach (string speaker in dialogue.name) //añade en la cola los nombres de los hablantes en orden
+        foreach (string speaker in dialogue.name) //aï¿½ade en la cola los nombres de los hablantes en orden
         {
 
             speakers.Enqueue(speaker);
@@ -57,18 +61,18 @@ public class DialogueManager : MonoBehaviour
 
     public void DisplayNextSentence()
     {
-        if (sentences.Count == 0) //si se han reproducido todas las frases, se acaba la conversación
+        if (sentences.Count == 0) //si se han reproducido todas las frases, se acaba la conversaciï¿½n
         {
             enabled = false;
             EndDialogue();
             return;
         }
 
-        Time.timeScale = 0f; //pausa la escena hasta terminar el diálogo
+        Time.timeScale = 0f; //pausa la escena hasta terminar el diï¿½logo
         string sentence = sentences.Dequeue();
         string speaker = speakers.Dequeue();
         StopAllCoroutines(); //limpiar corutinas anteriores
-        StartCoroutine(TypeSentence(sentence, speaker)); //le pasa el nombre del hablante y la frase del diálogo para luego trocear en caracteres
+        StartCoroutine(TypeSentence(sentence, speaker)); //le pasa el nombre del hablante y la frase del diï¿½logo para luego trocear en caracteres
 
     }
 
@@ -83,7 +87,7 @@ public class DialogueManager : MonoBehaviour
 
 
     /// <summary>
-    ///escribe en el text box la línea de diálogo correspondiente
+    ///escribe en el text box la lï¿½nea de diï¿½logo correspondiente
     /// </summary>
     IEnumerator TypeSentence(string sentence, string speaker)
     {
@@ -92,26 +96,38 @@ public class DialogueManager : MonoBehaviour
         foreach (char letter in sentence.ToCharArray())
         {
             dialogueText.text += letter;
-            yield return new WaitForSecondsRealtime(TypingTime); //el diálogo ignora la pausa y seguirá escribiendo con normalidad
+            yield return new WaitForSecondsRealtime(TypingTime); //el diï¿½logo ignora la pausa y seguirï¿½ escribiendo con normalidad
         }
     }
 
 
     /// <summary>
-    /// Acaba la conversación
+    /// Acaba la conversaciï¿½n
     /// </summary>
     public void EndDialogue()
     {
         animator.SetBool("IsOpen", false);
-        Time.timeScale = 1f; //resume la escena
 
         // Activa de nuevo la pausa
         GameManager.Instance.DialogueOpened(false);
-    }
+        StartCoroutine(ResumeGame());
 
+    }
+    public IEnumerator ResumeGame()
+    {
+
+        // yield return new WaitForSeconds(1f);
+
+        yield return new WaitUntil(() => Input.anyKeyDown);
+
+        Time.timeScale = 1f; //resume la escena
+       // Activa de nuevo la pausa
+        GameManager.Instance.DialogueOpened();
+
+    }
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonDown(0)) //espacio o botón izq del ratón
+        if (Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonDown(0)) //espacio o botï¿½n izq del ratï¿½n
             DisplayNextSentence();
     }
 

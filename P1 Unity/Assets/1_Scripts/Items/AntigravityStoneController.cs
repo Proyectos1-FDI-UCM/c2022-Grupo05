@@ -12,7 +12,7 @@ public class AntigravityStoneController : MonoBehaviour
         player = collider.GetComponent<PlayerMovementManager>();
         if (player != null)
         {
-            player.HasAntigravity();
+            player.HasAntigravity(true);
         }
     }
 }

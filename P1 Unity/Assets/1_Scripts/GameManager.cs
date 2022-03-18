@@ -56,6 +56,11 @@ public class GameManager : MonoBehaviour
         _energy += energy;
         HUDController.Instance.UpdateShards(_energy);
     }
+    public int CountEnergy()
+    {
+        return _energy;
+    }
+
 
     private void Awake()
     {
