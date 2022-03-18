@@ -10,6 +10,7 @@ public class InputManager : MonoBehaviour
     private Animator _animator;
 
     private float _horizontal, _changeGravity, _jump;
+    
 
     //invert controls properties
     private float _invertElapsedTime = 0f;
@@ -17,8 +18,14 @@ public class InputManager : MonoBehaviour
     private float _invertDuration = 5f;
 
     private bool _gravButtonDown = false, _jumpButtonDown = false, _invertControl = false, _dashButtonDown = false, _shootButtonDown = false, _ampDash = false;
+    private bool _shotEnabled;
 
     #region methods
+
+    public void HasShot(bool enable)
+    {
+        _shotEnabled=enable;
+    }
     public void InvertControl()
     {
         // invierte el control cada vez que recoja una seta
@@ -57,6 +64,7 @@ public class InputManager : MonoBehaviour
         _attackController = GetComponent<PlayerAttackController>();
         _playerLife = GetComponent<PlayerLifeComponent>();
         _animator = GetComponent<Animator>();
+        _shotEnabled=true;
     }
 
     void Update()
@@ -84,7 +92,7 @@ public class InputManager : MonoBehaviour
             }
             else if (_jump == 0) _jumpButtonDown = false;
 
-            if (Input.GetAxis("Shoot") > 0)  // Disparo
+            if (Input.GetAxis("Shoot") > 0 && _shotEnabled)  // Disparo
             {
                 _animator.SetBool("_shot", true);
                 _attackController.Shoot(Input.GetAxis("AmpPower") > 0 && !_shootButtonDown && _playerLife.UseEnergy());

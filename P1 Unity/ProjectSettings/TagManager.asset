@@ -21,7 +21,7 @@ TagManager:
   - Terrain
   - Item
   - Boss
-  - 
+  - Stone
   - 
   - 
   - 
@@ -64,4 +64,7 @@ TagManager:
     locked: 0
   - name: ForeTerrain
     uniqueID: 3445958281
+    locked: 0
+  - name: Stone
+    uniqueID: 586709293
     locked: 0

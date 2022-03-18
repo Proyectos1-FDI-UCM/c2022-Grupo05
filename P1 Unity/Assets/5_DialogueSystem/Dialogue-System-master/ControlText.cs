@@ -18,7 +18,7 @@ public class ControlText : MonoBehaviour
 
     public void ShowControl()
     {
-        Debug.Log("Open");
+        
         animator.SetBool("Control", true);
         _elapsedTime = 0;
         enabled = true;

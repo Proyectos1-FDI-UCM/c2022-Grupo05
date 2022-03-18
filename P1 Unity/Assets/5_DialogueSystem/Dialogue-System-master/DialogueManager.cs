@@ -6,10 +6,6 @@ using UnityEngine.UI;
 public class DialogueManager : MonoBehaviour
 {
 
-
-    [SerializeField]
-    private float waitTime = 1.0f;
-
     [SerializeField]
     private Text nameText; //nombre del hablante
     [SerializeField]
@@ -18,6 +14,9 @@ public class DialogueManager : MonoBehaviour
     private Animator animator; //animaci�n
     [SerializeField]
     private float TypingTime; //tiempo de tecleo de cada letra
+
+  
+    private GameObject player;
 
     /// <summary>
     /// contiene los di�logos que va a aparecer en el text box en orden, carga nuevos sentences en la parte final del Queue a medida que el jugador va leyendo el texto
@@ -31,6 +30,7 @@ public class DialogueManager : MonoBehaviour
         sentences = new Queue<string>();
         speakers = new Queue<string>();
         enabled = false;
+        player = GameObject.Find("Player");
     }
 
     public void StartDialogue(Dialogue dialogue)
@@ -64,6 +64,7 @@ public class DialogueManager : MonoBehaviour
         if (sentences.Count == 0) //si se han reproducido todas las frases, se acaba la conversaci�n
         {
             enabled = false;
+            
             EndDialogue();
             return;
         }
@@ -117,12 +118,13 @@ public class DialogueManager : MonoBehaviour
     {
 
         // yield return new WaitForSeconds(1f);
-
-        yield return new WaitUntil(() => Input.anyKeyDown);
-
         Time.timeScale = 1f; //resume la escena
-       // Activa de nuevo la pausa
+                             // Activa de nuevo la pausa
         GameManager.Instance.DialogueOpened(false);
+
+        yield return new WaitForSecondsRealtime(1.0f);
+        player.GetComponent<InputManager>().HasShot(true);
+       
 
     }
     private void Update()

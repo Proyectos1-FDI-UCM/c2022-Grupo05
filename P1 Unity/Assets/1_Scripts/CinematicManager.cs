@@ -5,7 +5,8 @@ using UnityEngine;
 public class CinematicManager : MonoBehaviour
 {
 
-    [SerializeField] private Vector3 _playerPosition;
+    [SerializeField] private Vector3 _playerPosition1;
+    [SerializeField] private Vector3 _playerPosition2;
     private Animator _animator;
 
     #region references
@@ -15,6 +16,10 @@ public class CinematicManager : MonoBehaviour
     [SerializeField] private GameObject _sendStoneAnim;
     [SerializeField] private GameObject _pointLight;
     [SerializeField] private GameObject _machine;
+    [SerializeField] private GameObject _happyEndTrigger;
+    [SerializeField] private GameObject _badEndTrigger;
+    [SerializeField] private GameObject _happyEndAnim;
+    [SerializeField] private GameObject _badEndAnim;
 
     [SerializeField] private GameObject _sentStoneDialogue;
 
@@ -35,8 +40,16 @@ public class CinematicManager : MonoBehaviour
         _sendStoneAnim.SetActive(false);
         _pointLight.SetActive(true);
         _playerAnim.SetActive(false);
+       
         _machine.SetActive(false);
-        
+        _happyEndTrigger.SetActive(false);
+        _badEndTrigger.SetActive(false);
+
+        _happyEndAnim.SetActive(false);
+        _badEndAnim.SetActive(false);
+
+        _player.GetComponent<InputManager>().HasShot(false);
+
     }
 
     public void DesactivateGravity()
@@ -56,9 +69,10 @@ public class CinematicManager : MonoBehaviour
         _sentStoneDialogue.GetComponent<DialogueTrigger>().TriggerDialogue();
         _sendStoneAnim.SetActive(false);
         _player.SetActive(true);
-        _player.transform.position = _playerPosition;
+        _player.transform.position = _playerPosition1;
         _machine.SetActive(true);
-
+        Branch();
+        
 
     }
 
@@ -68,20 +82,28 @@ public class CinematicManager : MonoBehaviour
     {
         if (GameManager.Instance.CountEnergy() >= minEnergy)
         {
-            HappyEnding();
+            _happyEndTrigger.SetActive(true);
+            _badEndTrigger.SetActive(false);
         }
         else
-            BadEnding();
-        
-    }
-
-    private void HappyEnding()
-    {
+        {
+            _badEndTrigger.SetActive(true);
+            _happyEndTrigger.SetActive(false);
+        }
 
     }
-    private void BadEnding()
+    public void BadEnd()
     {
+        _player.transform.position = _playerPosition2;
+        _player.SetActive(false);
+        _badEndAnim.SetActive(true);
+    }
 
+    public void HappyEnd()
+    {
+        _player.transform.position = _playerPosition2;
+        _player.SetActive(false);
+        _happyEndAnim.SetActive(true);
     }
 
     // Update is called once per frame
