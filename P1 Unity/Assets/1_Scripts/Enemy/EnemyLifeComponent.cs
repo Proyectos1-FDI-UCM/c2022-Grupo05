@@ -18,15 +18,24 @@ public class EnemyLifeComponent : MonoBehaviour
     [SerializeField]
     private GameObject _dust;
     private Transform _myTransfrom;
+
+    [SerializeField] private AudioClip _damageClip;
+    [SerializeField] private AudioClip _deathClip;
+
+
     #endregion
 
     #region methods
     public void Damage(bool isShotUpgraded)
     {
+        SoundManager.Instance.PlaySound(_damageClip);
+
         vida--;
         if(isShotUpgraded) vida--;
         if (vida <= 0)
         {
+            SoundManager.Instance.PlaySound(_deathClip);
+
             GameManager.Instance.OnEnemyDeath(this);
             _dropItem.DropItem();
             gameObject.SetActive(false);

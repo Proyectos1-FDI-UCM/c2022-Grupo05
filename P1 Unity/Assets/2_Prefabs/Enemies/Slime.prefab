@@ -155,6 +155,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   vidaMaxima: 3
   _dust: {fileID: 999515858420764311, guid: 0f2164e95f465a445afdd0511fc79b0a, type: 3}
+  _damageClip: {fileID: 8300000, guid: a5a5905429ad44617a98743b2f870fa6, type: 3}
+  _deathClip: {fileID: 8300000, guid: 9570aaffe63ad4ffbac4fe2b193f8cbb, type: 3}
 --- !u!114 &6852021725230940862
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -199,6 +201,8 @@ MonoBehaviour:
   - {x: 103.5, y: -6.5, z: 0}
   - {x: 92.5, y: -6.5, z: 0}
   _speed: 2
+  _inverted: 0
+  _pointer: 0
 --- !u!50 &1614502189508817874
 Rigidbody2D:
   serializedVersion: 4

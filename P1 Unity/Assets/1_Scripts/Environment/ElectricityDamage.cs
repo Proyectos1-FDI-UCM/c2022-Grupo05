@@ -6,6 +6,7 @@ public class ElectricityDamage : MonoBehaviour
 {
     #region references 
     private PlayerLifeComponent _playerLife;
+
     #endregion
 
     #region methods

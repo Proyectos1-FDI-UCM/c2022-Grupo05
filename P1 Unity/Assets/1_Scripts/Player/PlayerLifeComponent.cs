@@ -7,7 +7,14 @@ public class PlayerLifeComponent : MonoBehaviour
     #region references 
     private Animator _animator;
     private SpriteRenderer _playerRenderer;
+
+    [SerializeField] private AudioClip _damageClip;
+    [SerializeField] private AudioClip _gameOverClip;
+    [SerializeField] private AudioClip _healClip;
+    [SerializeField] private AudioClip _rechargeClip;
+
     #endregion
+
 
     #region parameters
     [SerializeField]
@@ -51,6 +58,8 @@ public class PlayerLifeComponent : MonoBehaviour
         // Si el periodo de gracia no está activo, se activa y baja la vida del jugador
         if (!_activeGracePeriod)
         {
+            SoundManager.Instance.PlaySound(_damageClip);
+
             _animator.SetBool("_damage", true);
             _currentLife -= _hitDamage;
             Debug.Log("Damaged");
@@ -61,6 +70,8 @@ public class PlayerLifeComponent : MonoBehaviour
 
             if (_currentLife <= 0)
             {
+                SoundManager.Instance.PlaySound(_gameOverClip);
+
                 _currentLife = 0;
                 GameManager.Instance.OnPlayerDeath(gameObject);
             }
@@ -73,6 +84,9 @@ public class PlayerLifeComponent : MonoBehaviour
     // Método que cura al jugador
     public void Heal(int amount)
     {
+        SoundManager.Instance.PlaySound(_healClip);
+
+
         _currentLife += amount;
 
         if (_currentLife > _maxLife)
@@ -86,8 +100,15 @@ public class PlayerLifeComponent : MonoBehaviour
     }
 
 
-    public void GetEnergy() {
-        if(_currentEnergy < _maxEnergy) _currentEnergy += 1;
+    public void GetEnergy(int amount) {
+
+        SoundManager.Instance.PlaySound(_rechargeClip);
+
+        _currentEnergy += amount;
+        if (_currentEnergy > _maxEnergy)
+        {
+            _currentEnergy = _maxEnergy;
+        }
 
         HUDController.Instance.UpdateEnergy(_currentEnergy);
     }
@@ -101,6 +122,7 @@ public class PlayerLifeComponent : MonoBehaviour
         return false;
     }
     #endregion
+
 
     // Start is called before the first frame update
     void Start()

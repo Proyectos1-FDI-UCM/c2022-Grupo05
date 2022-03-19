@@ -50,6 +50,8 @@ public class PlayerMovementManager : MonoBehaviour
     [SerializeField]
     private FloorTrigger _trigger;
     private Animator _animation;
+
+    [SerializeField] private AudioClip _dashClip;
     #endregion
 
     #region methods
@@ -151,6 +153,8 @@ public class PlayerMovementManager : MonoBehaviour
         // Deslizamiento
         if(_dashing) {
             if(_rigidbody.gravityScale != 0) { // Inicio
+                SoundManager.Instance.PlaySound(_dashClip);
+
                 _gravityScale = _rigidbody.gravityScale;
                 _rigidbody.gravityScale = 0;
                 _rigidbody.velocity = new Vector2(_rigidbody.velocity.x, 0);

@@ -302,6 +302,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   vidaMaxima: 4
   _dust: {fileID: 7780560758418292987, guid: 0372f224d386a934291f62ad5656808e, type: 3}
+  _damageClip: {fileID: 8300000, guid: a5a5905429ad44617a98743b2f870fa6, type: 3}
+  _deathClip: {fileID: 8300000, guid: f3beda935d7d247bfa659577907ba78d, type: 3}
 --- !u!114 &-5287017015343822289
 MonoBehaviour:
   m_ObjectHideFlags: 0

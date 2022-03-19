@@ -23,6 +23,9 @@ public class PauseManager : MonoBehaviour
     [SerializeField] private Button _controlsReturnButton;
     [SerializeField] private Button _mainMenuButton;
     [SerializeField] private Button _controlsButton;
+    [SerializeField] private GameObject _volumeSlider;
+
+    [SerializeField] private AudioClip _clip;
 
     #endregion
 
@@ -39,8 +42,11 @@ public class PauseManager : MonoBehaviour
 
     public void NormalPause()
     {
+        SoundManager.Instance.PlaySound(_clip);
+
         _normalPause.SetActive(true);
         _controlsPause.SetActive(false);
+        _volumeSlider.SetActive(true);
 
         _normalReturnButton.onClick.AddListener(QuitPause);
         _mainMenuButton.onClick.AddListener(GameManager.Instance.MainMenu);
@@ -50,8 +56,11 @@ public class PauseManager : MonoBehaviour
 
     public void ControlsPause()
     {
+        SoundManager.Instance.PlaySound(_clip);
+
         _normalPause.SetActive(false);
         _controlsPause.SetActive(true);
+        _volumeSlider.SetActive(false);
 
         _controlsReturnButton.onClick.AddListener(NormalPause);
     }
@@ -59,6 +68,8 @@ public class PauseManager : MonoBehaviour
 
     public void QuitPause()
     {
+        SoundManager.Instance.PlaySound(_clip);
+
         _pauseMenu.SetActive(false);
         _normalPause.SetActive(false);
         _controlsPause.SetActive(false);

@@ -116,6 +116,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5791b05a6bed74147935fd457e2170fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _energyClip: {fileID: 8300000, guid: 3cd33786ea8c04c65a99918066a87684, type: 3}
   _speed: 1
 --- !u!60 &5615100806092322910
 PolygonCollider2D:
@@ -134,7 +135,7 @@ PolygonCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.16, y: 0.16}
+    oldSize: {x: 0.2, y: 0.2}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0

@@ -8,6 +8,9 @@ public class PickupComponent : MonoBehaviour
     private PlayerLifeComponent _playerLife;
 
     private Transform _myTransform;
+
+
+    [SerializeField] private AudioClip _energyClip;
     #endregion
 
 
@@ -28,6 +31,8 @@ public class PickupComponent : MonoBehaviour
         {
             if (_myTransform.tag == "Energy")
             {
+                SoundManager.Instance.PlaySound(_energyClip);
+
                 GameManager.Instance.AddEnergy(1);
 
                 Debug.Log("Energy picked");
@@ -42,7 +47,7 @@ public class PickupComponent : MonoBehaviour
 
             else if (_myTransform.tag == "Recharge")
             {
-                _playerLife.GetEnergy();
+                _playerLife.GetEnergy(1);
 
                 Debug.Log("Recharge picked");
             }

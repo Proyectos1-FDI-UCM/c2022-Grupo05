@@ -248,6 +248,7 @@ MonoBehaviour:
   _airJumpNumber: 1
   _hasAntigravity: 0
   _trigger: {fileID: 4600615352017307880}
+  _dashClip: {fileID: 8300000, guid: a245ee5d75348c84a89ffb7992f1dc82, type: 3}
 --- !u!114 &4600615353497502603
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -260,6 +261,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67d7b7b92eb3c914fb161be6d5f079c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _damageClip: {fileID: 8300000, guid: a5a5905429ad44617a98743b2f870fa6, type: 3}
+  _gameOverClip: {fileID: 8300000, guid: 2100c8a0b42b44f28b7e1e7dd7b72374, type: 3}
+  _healClip: {fileID: 8300000, guid: c48a972d3d024c2408a3331750786a29, type: 3}
+  _rechargeClip: {fileID: 8300000, guid: f3379d7c990fe4e6b9215fd0a4c19103, type: 3}
   _maxLife: 5
   _maxEnergy: 3
   _activeGracePeriod: 0
