@@ -176,7 +176,7 @@ GameObject:
   - component: {fileID: 1049319323}
   - component: {fileID: 1049319324}
   - component: {fileID: 1049319322}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Plataformas moviles
   m_TagString: Untagged
   m_Icon: {fileID: 0}

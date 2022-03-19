@@ -145,7 +145,7 @@ MonoBehaviour:
   placeOrigin: {x: 0, y: 0}
   d: 8
   placeObjet: {x: 0, y: 0}
-  fly: 0
+  fly: 1
   playerPosition: {fileID: 4600615353497502613, guid: e2195f58334ba974ea95373f6667f4db, type: 3}
   _trigger: {fileID: 4655376555461583597}
   _col: {fileID: 274028881597465961}
@@ -269,15 +269,15 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: 0.03256187, y: 0.0694543}
-      - {x: -0.04373704, y: 0.060933135}
+    - - {x: 0.02098318, y: 0.09261168}
+      - {x: -0.04042884, y: 0.0907069}
       - {x: -0.04614776, y: 0.02327989}
       - {x: -0.046722148, y: 0.0018043593}
       - {x: -0.066967726, y: -0.0601644}
       - {x: -0.04696773, y: -0.07631217}
       - {x: 0.036312167, y: -0.08163995}
       - {x: 0.05418105, y: -0.06909885}
-      - {x: 0.070164405, y: -0.03901562}
+      - {x: 0.09497588, y: -0.043977924}
       - {x: 0.04057439, y: 0.02647657}
 --- !u!114 &274028881597465961
 MonoBehaviour:
@@ -336,9 +336,9 @@ CircleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: -0.01582985, y: 0}
   serializedVersion: 2
-  m_Radius: 0.5
+  m_Radius: 0.8482564
 --- !u!114 &4655376555461583597
 MonoBehaviour:
   m_ObjectHideFlags: 0
