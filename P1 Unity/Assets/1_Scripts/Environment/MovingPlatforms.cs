@@ -24,13 +24,13 @@ public class MovingPlatforms : MonoBehaviour {
 
     private void Start() {
         _platform = transform;
+        _player = PlayerAccess.Instance.Rigidbody;
         _placeOrigin = _platform.position;
         _placeObject = (Vector2)_platform.position + new Vector2(_distance, 0);
         _dir = _placeObject - _placeOrigin;
     }
 
     private void OnTriggerEnter2D(Collider2D collision) {
-        _player = collision.GetComponentInParent<Rigidbody2D>();
         if(collision.GetComponentInParent<PlayerMovementManager>() != null) {
             _playerOn = true;
         }

@@ -14,20 +14,21 @@ public class Checkpoint : MonoBehaviour
     private bool _forceGravity;
 
     private void OnTriggerEnter2D(Collider2D collision) {
-        if(_isMiniCheckpoint) CheckpointManager.Instance.NewMiniCheckpoint(this, out _movement);
-        else CheckpointManager.Instance.NewCheckpoint(this, out _movement);
+        if(_isMiniCheckpoint) CheckpointManager.Instance.NewMiniCheckpoint(this);
+        else CheckpointManager.Instance.NewCheckpoint(this);
         if(!_forceGravity) _isGravityChanged = _movement.IsGravityChanged;
     }
 
-    public void GoToCheckpoint(Transform playerTransform, Rigidbody2D rigidbody) {
+    public void GoToCheckpoint() {
         if(_isGravityChanged != _movement.IsGravityChanged) _movement.ForceChangeGravity();
-        playerTransform.position = _transform.position;
-        rigidbody.velocity = Vector2.zero;
+        PlayerAccess.Instance.Transform.position = _transform.position;
+        PlayerAccess.Instance.Rigidbody.velocity = Vector2.zero;
         _movement.enabled = false;
         _movement.StopDashing();
     }
 
     private void Start() {
         _transform = transform;
+        _movement = PlayerAccess.Instance.Movement;
     }
 }

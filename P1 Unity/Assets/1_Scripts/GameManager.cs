@@ -14,6 +14,7 @@ public class GameManager : MonoBehaviour
     #region properties
     private int _energy;
     private List<EnemyLifeComponent> _enemyList;
+    private System.Random rnd = new System.Random();
     #endregion
 
 
@@ -47,8 +48,8 @@ public class GameManager : MonoBehaviour
         _enemyList = new List<EnemyLifeComponent>();
         HUDController.Instance.ShowGameOverText(false);
         CheckpointManager.Instance.GoToCheckpoint();
-        player.GetComponent<PlayerLifeComponent>().Heal(5);
-        player.GetComponent<PlayerLifeComponent>().GetEnergy(3);
+        PlayerAccess.Instance.Life.Heal(5);
+        PlayerAccess.Instance.Life.GetEnergy(3);
         player.SetActive(true);
     }
 
@@ -98,6 +99,10 @@ public class GameManager : MonoBehaviour
         Time.timeScale = 1;
 
 
+    }
+
+    public float RNG(float minInclusive, float maxExclusive) {
+        return (float)rnd.NextDouble() * (maxExclusive - minInclusive) + minInclusive;
     }
     #endregion
 

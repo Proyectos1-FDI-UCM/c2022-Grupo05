@@ -16,7 +16,7 @@ public class EnemyShotController : MonoBehaviour
 
     #region references
     private Transform _shootPoint;
-    [SerializeField] private Transform _playerPos;
+    private Transform _playerPos;
     [SerializeField] private GameObject _shotPrefab;
     [SerializeField] private EnemyDetection _detection;
     #endregion
@@ -45,6 +45,7 @@ public class EnemyShotController : MonoBehaviour
         _shootCooldown = 0;
         _detection.accionEntrar += Detectplayer;
         _detection.accionSalir += F;
+        _playerPos = PlayerAccess.Instance.Transform;
     }
 
     // Update is called once per frame

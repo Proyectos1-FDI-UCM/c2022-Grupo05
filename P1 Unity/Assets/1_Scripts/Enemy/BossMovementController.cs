@@ -20,8 +20,8 @@ public class BossMovementController : MonoBehaviour
     #endregion
 
     #region references
-    [SerializeField] private Transform _playerPos;
-    [SerializeField] private PlayerMovementManager _gravityCheck;
+    private Transform _playerPos;
+    private PlayerMovementManager _gravityCheck;
     private Transform _myTransform;
     private Rigidbody2D _myRB;
     #endregion
@@ -54,7 +54,9 @@ public class BossMovementController : MonoBehaviour
         _myTransform = transform;
         _myRB = GetComponent<Rigidbody2D>();
         _timer = 0;
+        _playerPos = PlayerAccess.Instance.Transform;
         _direction = _playerPos.position.x > _myTransform.position.x ? 1 : -1;
+        _gravityCheck = PlayerAccess.Instance.Movement;
     }
 
     private void FixedUpdate()

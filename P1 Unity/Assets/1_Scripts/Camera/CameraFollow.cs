@@ -9,7 +9,7 @@ public class CameraFollow : MonoBehaviour
     void Start()
     {
         cameraBox = GetComponent<BoxCollider2D>();
-        player = GameObject.Find("Player").GetComponent<Transform>();
+        player = PlayerAccess.Instance.Transform;
         _myTransform = transform;
     }
 

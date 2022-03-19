@@ -10,7 +10,7 @@ public class BoundaryManager : MonoBehaviour
     void Start()
     {
         managerBox = GetComponent<BoxCollider2D>();
-        player = GameObject.Find("Player").GetComponent<Transform>();
+        player = PlayerAccess.Instance.Transform;
         
     }
 

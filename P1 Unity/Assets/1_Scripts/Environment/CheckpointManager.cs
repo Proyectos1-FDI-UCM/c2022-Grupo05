@@ -4,11 +4,7 @@ using UnityEngine;
 
 public class CheckpointManager : MonoBehaviour
 {
-    [SerializeField]
-    private GameObject _player;
     private float _timer = 0;
-    private Transform _transform;
-    private Rigidbody2D _rigidbody;
     private PlayerMovementManager _movement;
     private Checkpoint _checkpoint;
     private Checkpoint _miniCheckpoint;
@@ -17,30 +13,25 @@ public class CheckpointManager : MonoBehaviour
         get => _me;
     }
 
-
     public void GoToCheckpoint() {
-        _checkpoint.GoToCheckpoint(_transform, _rigidbody);
+        _checkpoint.GoToCheckpoint();
     }
 
     public void GoToMiniCheckpoint() {
-        _miniCheckpoint.GoToCheckpoint(_transform, _rigidbody);
+        _miniCheckpoint.GoToCheckpoint();
     }
 
-    public void NewCheckpoint(Checkpoint checkpoint, out PlayerMovementManager movement) {
+    public void NewCheckpoint(Checkpoint checkpoint) {
         _checkpoint = checkpoint;
-        movement = _movement;
     }
 
-    public void NewMiniCheckpoint(Checkpoint checkpoint, out PlayerMovementManager movement) {
+    public void NewMiniCheckpoint(Checkpoint checkpoint) {
         _miniCheckpoint = checkpoint;
-        movement = _movement;
     }
 
     private void Start() {
         _me = this;
-        _transform = _player.transform;
-        _rigidbody = _player.GetComponent<Rigidbody2D>();
-        _movement = _player.GetComponent<PlayerMovementManager>();
+        _movement = PlayerAccess.Instance.Movement;
     }
 
     private void Update() {

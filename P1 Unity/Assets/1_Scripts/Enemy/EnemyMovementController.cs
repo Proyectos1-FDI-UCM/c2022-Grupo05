@@ -25,7 +25,6 @@ public class EnemyMovementController : MonoBehaviour
     #endregion
 
     #region references
-    [SerializeField]
     private Transform playerPosition;
     private Rigidbody2D enemy;
     [SerializeField]
@@ -61,6 +60,7 @@ public class EnemyMovementController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        playerPosition = PlayerAccess.Instance.Transform;
         enemy = GetComponent<Rigidbody2D>();
         _myTransform = transform;
         placeOrigin = enemy.position;

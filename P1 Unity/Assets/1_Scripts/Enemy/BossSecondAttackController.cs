@@ -30,7 +30,6 @@ public class BossSecondAttackController : MonoBehaviour
     private GameObject _8balas;
     [SerializeField]
     private GameObject _bala;
-    [SerializeField]
     private Transform _player;
     #endregion
 
@@ -99,6 +98,7 @@ public class BossSecondAttackController : MonoBehaviour
         _MyTransfrom = transform;
         _life = GetComponent<BossLifeComponent>();
         _bosslife = _life.ActualLife();
+        _player = PlayerAccess.Instance.Transform;
     }
 
     // Update is called once per frame
