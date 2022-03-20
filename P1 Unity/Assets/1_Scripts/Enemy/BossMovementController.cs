@@ -5,8 +5,8 @@ using UnityEngine;
 public class BossMovementController : MonoBehaviour
 {
     #region parameters
-    [SerializeField] private float _speed = 5f;
-    [SerializeField] private float _dashSpeed = 12f;
+    [SerializeField] private float _speed = 3f;
+    [SerializeField] private float _dashSpeed = 10f;
     [SerializeField] private float _actionTime = 3f;
     [SerializeField] private float _dashTime = 1f;
     #endregion
@@ -20,6 +20,7 @@ public class BossMovementController : MonoBehaviour
     #endregion
 
     #region references
+    [SerializeField] GameObject _shotPrefab;
     private Transform _playerPos;
     private PlayerMovementManager _gravityCheck;
     private Transform _myTransform;
@@ -32,20 +33,38 @@ public class BossMovementController : MonoBehaviour
         if (_gravityHasChanged != _gravityCheck.IsGravityChanged)
         {
             _changingGravity = true;
+            _timer = _actionTime/2;
+
         }
-        else _dashTimer = _dashTime;
-        _timer = 0;
+        else 
+        {
+            _dashTimer = _dashTime;
+            _timer = 0;
+        }
     }
 
-    private void SetDirection() 
+    private void SetDirection()
     {
         int dir = _playerPos.position.x > _myTransform.position.x ? 1 : -1;
-        if (dir != _direction) 
+        if (dir != _direction)
         {
             _myTransform.Rotate(0, 180, 0);
             _direction = dir;
         }
     }
+
+    private void Shoot()
+    {
+        {
+            GameObject shotA = Instantiate(_shotPrefab, _myTransform.position, _myTransform.rotation);
+            GameObject shotB = Instantiate(_shotPrefab, _myTransform.position, _myTransform.rotation);
+            GameObject shotC = Instantiate(_shotPrefab, _myTransform.position, _myTransform.rotation);
+            shotA.GetComponent<ShotMovementController>().SetDirection(Vector3.Normalize(_playerPos.position - transform.position));
+            shotB.GetComponent<ShotMovementController>().SetDirection(Vector3.Normalize(_playerPos.position - transform.position));
+            shotC.GetComponent<ShotMovementController>().SetDirection(Vector3.Normalize(_playerPos.position - transform.position));
+        }
+    }
+
     #endregion
 
     // Start is called before the first frame update
@@ -78,8 +97,11 @@ public class BossMovementController : MonoBehaviour
     void Update()
     {
         if (_timer < _actionTime) _timer += Time.deltaTime;
-        else Action();
-
+        else 
+        {
+            SetDirection();
+            Action();
+        }
         if (_dashTimer > 0) _dashTimer -= Time.deltaTime;
 
 
