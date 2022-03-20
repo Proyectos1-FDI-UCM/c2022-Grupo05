@@ -6,6 +6,9 @@ using UnityEngine.UI;
 public class DialogueManager : MonoBehaviour
 {
 
+    private bool resumeShot = true;
+
+    #region references
     [SerializeField]
     private Text nameText; //nombre del hablante
     [SerializeField]
@@ -14,9 +17,21 @@ public class DialogueManager : MonoBehaviour
     private Animator animator; //animaci�n
     [SerializeField]
     private float TypingTime; //tiempo de tecleo de cada letra
+    
+    #endregion
 
-  
-    private GameObject player;
+    #region singleton
+    static private DialogueManager _instance;
+    static public DialogueManager Instance
+    {
+        get => _instance;
+    }
+    private void Awake()
+    {
+        _instance = this;
+    }
+
+    #endregion
 
     /// <summary>
     /// contiene los di�logos que va a aparecer en el text box en orden, carga nuevos sentences en la parte final del Queue a medida que el jugador va leyendo el texto
@@ -30,7 +45,7 @@ public class DialogueManager : MonoBehaviour
         sentences = new Queue<string>();
         speakers = new Queue<string>();
         enabled = false;
-        player = GameObject.Find("Player");
+        resumeShot = true;
     }
 
     public void StartDialogue(Dialogue dialogue)
@@ -64,7 +79,7 @@ public class DialogueManager : MonoBehaviour
         if (sentences.Count == 0) //si se han reproducido todas las frases, se acaba la conversaci�n
         {
             enabled = false;
-            
+
             EndDialogue();
             return;
         }
@@ -77,7 +92,6 @@ public class DialogueManager : MonoBehaviour
 
     }
 
-
     public void SkipDialogue()
     {
         enabled = false;
@@ -85,7 +99,6 @@ public class DialogueManager : MonoBehaviour
         EndDialogue();
 
     }
-
 
     /// <summary>
     ///escribe en el text box la l�nea de di�logo correspondiente
@@ -101,7 +114,6 @@ public class DialogueManager : MonoBehaviour
         }
     }
 
-
     /// <summary>
     /// Acaba la conversaci�n
     /// </summary>
@@ -114,22 +126,29 @@ public class DialogueManager : MonoBehaviour
         StartCoroutine(ResumeGame());
 
     }
+
     public IEnumerator ResumeGame()
     {
 
-        // yield return new WaitForSeconds(1f);
         Time.timeScale = 1f; //resume la escena
                              // Activa de nuevo la pausa
         GameManager.Instance.DialogueOpened(false);
 
         yield return new WaitForSecondsRealtime(1.0f);
-        player.GetComponent<InputManager>().HasShot(true);
-       
+        if (resumeShot)
+           PlayerAccess.Instance.Input.HasShot(true);
+
 
     }
+
+    public void DesactivateShot ()
+    {
+        resumeShot = false;
+    }
+
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonDown(0)) //espacio o bot�n izq del rat�n
+        if (Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonDown(0)) //espacio o boton izq del raton
             DisplayNextSentence();
     }
 
