@@ -77,7 +77,7 @@ public class InputManager : MonoBehaviour
         if (Time.timeScale > 0)
         {
             _movementManager.Move(new Vector2(_horizontal, 0)); // Desplazamiento horizontal
-            _animator.SetBool("run", _horizontal != 0);
+            
             if (_changeGravity > 0 && !_gravButtonDown) // Cambio de gravedad
             {
                 _movementManager.ChangeGravity();

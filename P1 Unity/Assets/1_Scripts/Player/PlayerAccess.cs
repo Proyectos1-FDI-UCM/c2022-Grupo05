@@ -10,6 +10,7 @@ public class PlayerAccess : MonoBehaviour
     private PlayerMovementManager playerMovementManager;
     private Transform myTransform;
     private Rigidbody2D myRigidbody;
+    private InputManager input;
     static private PlayerAccess _me;
 
     public PlayerAnimation Animation { get => playerAnimation; }
@@ -18,6 +19,7 @@ public class PlayerAccess : MonoBehaviour
     public PlayerMovementManager Movement { get => playerMovementManager; }
     public Transform Transform { get => myTransform; }
     public Rigidbody2D Rigidbody { get => myRigidbody; }
+    public InputManager Input { get => input; }
     static public PlayerAccess Instance { get => _me; }
 
     void Awake() {
@@ -28,5 +30,6 @@ public class PlayerAccess : MonoBehaviour
         playerMovementManager = GetComponent<PlayerMovementManager>();
         myTransform = transform;
         myRigidbody = GetComponent<Rigidbody2D>();
+        input = GetComponent<InputManager>();
     }
 }

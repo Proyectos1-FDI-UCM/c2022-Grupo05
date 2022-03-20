@@ -10,13 +10,11 @@ public class BossSecondAttackController : MonoBehaviour
     [SerializeField]
     private float _timeofshot = 12; // tiempo para cada disparar
     [SerializeField]
-    private float _timeBetweenShots = 0;        // Intervalo entre balas (volea de balas)
+    private float _timeBetweenShots = 0.3f;        // Intervalo entre balas (volea de balas)
     #endregion
 
     #region properties
-    private int _bosslife;          // Guarda la vida que tiene el jefe
     private float _atackcont = 0;   // Contador para intervalo entre ataques
-    private bool _volley = false;   // Si está disparando una volea
     #endregion
 
     #region references
@@ -97,7 +95,6 @@ public class BossSecondAttackController : MonoBehaviour
     {
         _MyTransfrom = transform;
         _life = GetComponent<BossLifeComponent>();
-        _bosslife = _life.ActualLife();
         _player = PlayerAccess.Instance.Transform;
     }
 

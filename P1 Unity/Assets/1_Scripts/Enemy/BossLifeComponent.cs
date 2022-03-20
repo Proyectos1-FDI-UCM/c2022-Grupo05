@@ -5,7 +5,7 @@ public class BossLifeComponent : MonoBehaviour
     #region parameters
     [SerializeField] private int _maxLife = 40;
     [SerializeField] private int _breakPointLife = 20; //donde pasa a la segunda fase
-    private bool _secondPhase;
+    [SerializeField] private bool _secondPhase;
     #endregion
 
     #region properties
@@ -25,14 +25,15 @@ public class BossLifeComponent : MonoBehaviour
     {
         _currentLife--;
         if (isShotUpgraded) _currentLife--;
-        if (_currentLife <= 20 && !_secondPhase)
+        if (_currentLife <= _breakPointLife && !_secondPhase)
         {
-            _currentLife = 20;
+            _currentLife = _breakPointLife;
 
             _weakPoint.GetComponent<Collider2D>().enabled = true;
             _fullBody.GetComponent<Collider2D>().enabled = false;
             _weakPoint.SetActive(true);
             _secondPhase = true;
+            GetComponentInParent<BossTransitionAnimation>().enabled = true;
 
         } //cambio fase
         if (_currentLife <= 0)

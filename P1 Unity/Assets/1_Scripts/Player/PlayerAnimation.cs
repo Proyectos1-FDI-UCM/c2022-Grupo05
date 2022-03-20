@@ -6,26 +6,39 @@ public class PlayerAnimation : MonoBehaviour
 {
     #region references 
     private Animator animator;
-  
     #endregion
+
     #region methods
-    
-    public void OffDamager()
-    {
+    void Start() {
+        animator = GetComponent<Animator>();
+    }
+
+    public void OffDamager() {
         animator.SetBool("_damage", false);
     }
 
-    public void OffShot()
-    {
+    public void OffShot() {
         animator.SetBool("_shot", false);
     }
- 
-    #endregion
-    // Start is called before the first frame update
-    void Start()
-    {
-        animator = GetComponent<Animator>();
-        
+
+    public void Run(bool activate) {
+        animator.SetBool("run", activate);
     }
 
+    public void Jump(int numJump) {
+        switch(numJump) {
+            case 0:
+                animator.SetBool("_jump", false);
+                animator.SetBool("_jump2", false);
+                break;
+            case 1:
+                animator.SetBool("_jump", true);
+                break;
+            case 2:
+                animator.SetBool("_jump", false);
+                animator.SetBool("_jump2", true);
+                break;
+        }
+    }
+    #endregion
 }
