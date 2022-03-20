@@ -32,7 +32,6 @@ public class BossLifeComponent : MonoBehaviour
             _weakPoint.GetComponent<Collider2D>().enabled = true;
             _fullBody.GetComponent<Collider2D>().enabled = false;
             _weakPoint.SetActive(true);
-            _secondPhase = true;
             GetComponentInParent<BossTransitionAnimation>().enabled = true;
 
         } //cambio fase
@@ -56,11 +55,17 @@ public class BossLifeComponent : MonoBehaviour
     void Start()
     {
         _currentLife = _maxLife;
-        _secondPhase = false;
 
-        _weakPoint.SetActive(false);
-        _weakPoint.GetComponent<Collider2D>().enabled = false;
-        _fullBody.GetComponent<Collider2D>().enabled = true;
-        _bossObject.SetActive(false);
+        if(_secondPhase) {
+            _weakPoint.SetActive(true);
+            _weakPoint.GetComponent<Collider2D>().enabled = true;
+            _fullBody.GetComponent<Collider2D>().enabled = false;
+            _bossObject.SetActive(true);
+        } else {
+            _weakPoint.SetActive(false);
+            _weakPoint.GetComponent<Collider2D>().enabled = false;
+            _fullBody.GetComponent<Collider2D>().enabled = true;
+            _bossObject.SetActive(false);
+        }
     }
 }
