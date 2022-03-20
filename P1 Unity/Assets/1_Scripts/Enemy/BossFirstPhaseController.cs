@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BossMovementController : MonoBehaviour
+public class BossFirstPhaseController : MonoBehaviour
 {
     #region parameters
     [SerializeField] private float _speed = 3f;
@@ -30,16 +30,24 @@ public class BossMovementController : MonoBehaviour
     #region methods
     private void Action() 
     {
-        if (_gravityHasChanged != _gravityCheck.IsGravityChanged)
+        if (Random.Range(0,2) == 0) 
         {
-            _changingGravity = true;
-            _timer = _actionTime/2;
-
-        }
-        else 
-        {
-            _dashTimer = _dashTime;
+            Shoot();
             _timer = 0;
+        }
+        else
+        { 
+            if (_gravityHasChanged != _gravityCheck.IsGravityChanged)
+            {
+                _changingGravity = true;
+                _timer = _actionTime/2;
+
+            }
+            else 
+            {
+                _dashTimer = _dashTime;
+                _timer = 0;
+            }
         }
     }
 
@@ -59,9 +67,10 @@ public class BossMovementController : MonoBehaviour
             GameObject shotA = Instantiate(_shotPrefab, _myTransform.position, _myTransform.rotation);
             GameObject shotB = Instantiate(_shotPrefab, _myTransform.position, _myTransform.rotation);
             GameObject shotC = Instantiate(_shotPrefab, _myTransform.position, _myTransform.rotation);
-            shotA.GetComponent<ShotMovementController>().SetDirection(Vector3.Normalize(_playerPos.position - transform.position));
-            shotB.GetComponent<ShotMovementController>().SetDirection(Vector3.Normalize(_playerPos.position - transform.position));
-            shotC.GetComponent<ShotMovementController>().SetDirection(Vector3.Normalize(_playerPos.position - transform.position));
+            Vector3 dir = Vector3.Normalize(_playerPos.position - transform.position);
+            shotA.GetComponent<ShotMovementController>().SetDirection(dir);
+            shotB.GetComponent<ShotMovementController>().SetDirection(Quaternion.AngleAxis(20,Vector3.forward) * dir);
+            shotC.GetComponent<ShotMovementController>().SetDirection(Quaternion.AngleAxis(-20, Vector3.forward) * dir);
         }
     }
 
