@@ -136,11 +136,11 @@ public class PlayerMovementManager : MonoBehaviour
         // Salto y doble salto
         if(_jumping) 
         {
-            _animation.Jump(_jumpsLeft == 0 ? 2 : 1);
             if (!_isGrounded)
             {
                 _jumpsLeft--;
             }
+            _animation.Jump(_jumpsLeft == 0 ? 2 : 1);
             _rigidbody.velocity = new Vector2(_rigidbody.velocity.x, 0);
             if(_isGravityChanged) _rigidbody.AddForce(new Vector2(0, -_jumpForce));
             else _rigidbody.AddForce(new Vector2(0, _jumpForce));

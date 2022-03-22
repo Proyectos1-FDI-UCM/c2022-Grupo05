@@ -6,52 +6,62 @@ public class BossTransitionAnimation : MonoBehaviour
 {
     [SerializeField] Vector2 posiciónDeseada;
     [SerializeField] Vector2 velocidad = new Vector2(1, 1);
-    [SerializeField] float velocidadRetroceso = 1;
+    [SerializeField] GameObject jefeSegundaFase;
+    [SerializeField] GameObject pared; 
 
     private Transform _transform;
     private Rigidbody2D _rigidbody;
+    private Transform paredTransform;
 
     private uint state = 0;
-    private float cont;
-    float unPocoALaIzquierda;
+    private float cont = 0;
+    float alpha = 0;
+    Vector2 origin;
 
     private void Start() {
         _transform = transform;
         _rigidbody = GetComponent<Rigidbody2D>();
         _rigidbody.simulated = false;
-        _transform.localScale = new Vector3(-_transform.localScale.x, _transform.localScale.y, _transform.localScale.z);
+        paredTransform = pared.transform;
         PlayerAccess.Instance.Input.enabled = false;
         PlayerAccess.Instance.Movement.Move(Vector2.zero);
         PlayerAccess.Instance.Animation.Run(false);
+        PlayerAccess.Instance.Animation.OffShot();
     }
 
     private void Update() {
         switch(state) {
             case 0:
-                _transform.Translate(Vector3.Normalize(new Vector3(0, posiciónDeseada.y - _transform.position.y, 0)) * velocidad.y * Time.deltaTime);
+                cont += Time.deltaTime;
+                if(cont >= 0.75f) {
+                    state++;
+                    _transform.localScale = new Vector3(-_transform.localScale.x, _transform.localScale.y, _transform.localScale.z);
+                    origin = new Vector2(_transform.position.x - Mathf.Abs(posiciónDeseada.y - _transform.position.y), _transform.position.y);
+                }
+                break;
+            case 1:
+                alpha = Mathf.Lerp(alpha, Mathf.PI/2, velocidad.y * Time.deltaTime);
+                Vector2 c = new Vector2(origin.x + Mathf.Abs(posiciónDeseada.y - origin.y) * Mathf.Cos(alpha), origin.y + (posiciónDeseada.y - origin.y) * Mathf.Sin(alpha));
+                _transform.position = c;
                 if(Mathf.Abs(_transform.position.y - posiciónDeseada.y) < 0.005) {
                     state++;
                     cont = 0;
                 }
                 break;
-            case 1:
-                cont += Time.deltaTime;
-                if(cont >= 0.25f) {
-                    state++;
-                    unPocoALaIzquierda = _transform.position.x - 1;
-                }
-                break;
             case 2:
-                _transform.Translate(Vector3.Normalize(new Vector3(unPocoALaIzquierda - _transform.position.x, 0)) * velocidadRetroceso * Time.deltaTime);
-                if(Mathf.Abs(_transform.position.x - unPocoALaIzquierda) < 0.005) {
+                cont += Time.deltaTime;
+                if(cont >= 0.15f) {
                     state++;
                 }
                 break;
             case 3:
                 _transform.Translate(Vector3.Normalize(new Vector3(posiciónDeseada.x - _transform.position.x, 0, 0)) * velocidad.x * Time.deltaTime);
+                if(Mathf.Abs(paredTransform.position.x - _transform.position.x) < 0.05) {
+                    pared.SetActive(false);
+                }
                 if(Mathf.Abs(_transform.position.x - posiciónDeseada.x) < 0.005) {
                     PlayerAccess.Instance.Input.enabled = true;
-                    Debug.Log("Destruido");
+                    jefeSegundaFase.SetActive(true);
                     Destroy(gameObject);
                 }
                 break;

@@ -28,7 +28,7 @@ public class EnemyShotController : MonoBehaviour
     {
         _playerinRange = false;
     }
-    public void Shoot()
+    private void Shoot()
     {
         
         {

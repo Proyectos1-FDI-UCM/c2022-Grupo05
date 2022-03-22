@@ -35,7 +35,7 @@ public class PlayerAnimation : MonoBehaviour
                 animator.SetBool("_jump", true);
                 break;
             case 2:
-                animator.SetBool("_jump", false);
+                animator.SetBool("_jump", true);
                 animator.SetBool("_jump2", true);
                 break;
         }
