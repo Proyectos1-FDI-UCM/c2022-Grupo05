@@ -18,7 +18,7 @@ public class SwitchController : MonoBehaviour
         if (_playerShot!=null)
         {
             SoundManager.Instance.PlaySound(_clip);
-            ShakingCamera.Instance.ShakeCamera(2,0.7f);
+            //ShakingCamera.Instance.ShakeCamera(2,0.7f);
             Destroy(gameObject);
         }
     }
