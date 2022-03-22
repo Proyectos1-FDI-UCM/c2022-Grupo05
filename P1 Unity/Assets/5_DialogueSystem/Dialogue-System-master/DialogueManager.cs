@@ -50,6 +50,7 @@ public class DialogueManager : MonoBehaviour
 
     public void StartDialogue(Dialogue dialogue)
     {
+        PlayerAccess.Instance.Input.HasShot(false);
         // Impide activar la pausa
         GameManager.Instance.DialogueOpened(true);
 
@@ -94,6 +95,7 @@ public class DialogueManager : MonoBehaviour
 
     public void SkipDialogue()
     {
+        Debug.Log("Skip");
         enabled = false;
         StopAllCoroutines(); //limpiar corutinas anteriores
         EndDialogue();

@@ -11,7 +11,6 @@ public class DialogueZoneDetector : MonoBehaviour
         _player = collision.GetComponent<InputManager>();
        if (_player!= null)
         {
-            _player.HasShot(false);
             GetComponent<DialogueTrigger>().TriggerDialogue();
             Destroy(gameObject);
         }

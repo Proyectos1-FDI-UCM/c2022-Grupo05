@@ -66,6 +66,7 @@ public class CinematicManager : MonoBehaviour
         _sentStoneDialogue.GetComponent<DialogueTrigger>().TriggerDialogue();
         _sendStoneAnim.SetActive(false);
         PlayerAccess.Instance.gameObject.SetActive(true);
+        Debug.Log("Player");
         PlayerAccess.Instance.Transform.transform.position = _playerPosition1;
 
         Branch();
