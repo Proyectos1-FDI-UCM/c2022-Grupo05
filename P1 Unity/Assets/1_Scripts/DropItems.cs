@@ -21,7 +21,7 @@ public class DropItems : MonoBehaviour
 
     public void DropItem()
     {
-        _rnd = Random.Range(0, 5);
+        float _rnd = GameManager.Instance.RNG(0, 5);
 
         if (_rnd < 1)
         {

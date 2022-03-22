@@ -14,6 +14,7 @@ public class MovingPlatforms : MonoBehaviour {
     private Vector2 _placeOrigin;      // Posición origen
     private Vector2 _placeObject;      // Posición final
     private Vector2 _dir;              // Vector de dirección
+    [SerializeField]
     private bool _playerOn;            // Si el jugador está encima de la plataforma
     #endregion
 
@@ -30,15 +31,20 @@ public class MovingPlatforms : MonoBehaviour {
         _dir = _placeObject - _placeOrigin;
     }
 
+    // Si el jugador toca la plataforma, su transform pasa a ser hijo del transform de la plataforma
     private void OnTriggerEnter2D(Collider2D collision) {
-        if(collision.GetComponentInParent<PlayerMovementManager>() != null) {
-            _playerOn = true;
+        if (collision.GetComponentInParent<PlayerMovementManager>() != null) {
+            _player.transform.SetParent(gameObject.transform, true);
+
         }
+
     }
 
+    // Si el jugador deja de tocar la plataforma, su transform deja de ser hijo del transform de la plataforma
     private void OnTriggerExit2D(Collider2D collision) {
-        if(collision.GetComponentInParent<PlayerMovementManager>() != null) {
-            _playerOn = false;
+        if (collision.GetComponentInParent<PlayerMovementManager>() != null) {
+            _player.transform.parent = null;
+
         }
     }
 
@@ -51,8 +57,5 @@ public class MovingPlatforms : MonoBehaviour {
 
         _platform.Translate(_speed * Time.fixedDeltaTime * _dir.normalized);
 
-        if(_playerOn) {
-            _player.velocity += _speed * _dir.normalized / 2;
-        }
     }
 }
