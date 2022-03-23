@@ -46,12 +46,14 @@ public class PlayerMovementManager : MonoBehaviour
 
     #region references
     private Transform _transform;
+    private float _positiveScaleY, _negativeScaleY;
     private Rigidbody2D _rigidbody;
     [SerializeField]
     private FloorTrigger _trigger;
     private PlayerAnimation _animation;
 
     [SerializeField] private AudioClip _dashClip;
+    [SerializeField] private AudioClip _jumpClip;
     #endregion
 
     #region methods
@@ -100,6 +102,9 @@ public class PlayerMovementManager : MonoBehaviour
 
     void Start() {
         _transform = transform;
+        _positiveScaleY = _transform.localScale.y;
+        _negativeScaleY = - _transform.localScale.y;
+
         _rigidbody = GetComponent<Rigidbody2D>();
         _trigger.accionEntrar = EnterGround; _trigger.accionSalir = ExitGround;
         _animation = GetComponent<PlayerAnimation>();
@@ -126,16 +131,27 @@ public class PlayerMovementManager : MonoBehaviour
 
         // Cambio de gravedad
         if(_changingGravity) {
-            _transform.localScale = new Vector3(_transform.localScale.x, -_transform.localScale.y, _transform.localScale.z);
             _rigidbody.gravityScale = -_rigidbody.gravityScale;
             _changingGravity = _canChangeGravity = false;
             _isGravityChanged = !_isGravityChanged;
+
+            if (_isGravityChanged)
+            {
+                _transform.localScale = new Vector3(_transform.localScale.x, _negativeScaleY, _transform.localScale.z);
+
+            }
+            else {
+                _transform.localScale = new Vector3(_transform.localScale.x, _positiveScaleY, _transform.localScale.z);
+
+            }
+
             HUDController.Instance.ChangePosition(_isGravityChanged);
         }
 
         // Salto y doble salto
         if(_jumping) 
         {
+            SoundManager.Instance.PlaySound(_jumpClip);
             if (!_isGrounded)
             {
                 _jumpsLeft--;
@@ -158,13 +174,16 @@ public class PlayerMovementManager : MonoBehaviour
             }
 
             if(_dashCont < _dashTime) { // Durante
-                if(_facingRight) _rigidbody.MovePosition(_rigidbody.position + new Vector2(_dashDistance / _dashTime * Time.fixedDeltaTime, 0));
+                _animation.Dash(true);
+
+                if (_facingRight) _rigidbody.MovePosition(_rigidbody.position + new Vector2(_dashDistance / _dashTime * Time.fixedDeltaTime, 0));
                 else _rigidbody.MovePosition(_rigidbody.position - new Vector2(_dashDistance / _dashTime * Time.fixedDeltaTime, 0));
                 _dashCont += Time.fixedDeltaTime;
             } else { // Final
                 _rigidbody.gravityScale = _gravityScale;
                 _dashCont = 0;
                 _dashing = _canDash = false;
+                _animation.Dash(false);
             }
         }
     }

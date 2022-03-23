@@ -25,6 +25,11 @@ public class PlayerAnimation : MonoBehaviour
         animator.SetBool("run", activate);
     }
 
+    public void Dash(bool activate) {
+        animator.SetBool("_jump", activate);
+
+    }
+
     public void Jump(int numJump) {
         switch(numJump) {
             case 0:

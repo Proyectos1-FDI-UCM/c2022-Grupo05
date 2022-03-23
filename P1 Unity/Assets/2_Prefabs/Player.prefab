@@ -118,7 +118,6 @@ GameObject:
   - component: {fileID: 4731094736172883946}
   - component: {fileID: 8505381147303285411}
   - component: {fileID: 508762859438029998}
-  - component: {fileID: 6693302320194062726}
   - component: {fileID: 8738988117355877610}
   m_Layer: 6
   m_Name: Player
@@ -140,6 +139,7 @@ Transform:
   m_Children:
   - {fileID: 4600615352017307894}
   - {fileID: 4600615353091072486}
+  - {fileID: 6505857799844616488}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -249,7 +249,8 @@ MonoBehaviour:
   _airJumpNumber: 1
   _hasAntigravity: 0
   _trigger: {fileID: 4600615352017307880}
-  _dashClip: {fileID: 8300000, guid: a245ee5d75348c84a89ffb7992f1dc82, type: 3}
+  _dashClip: {fileID: 8300000, guid: fa4b37923b0112b42be109e6a73ef158, type: 3}
+  _jumpClip: {fileID: 8300000, guid: aacc98ff3b4320f4ea6a9601bb3b369f, type: 3}
 --- !u!114 &4600615353497502603
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -262,10 +263,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67d7b7b92eb3c914fb161be6d5f079c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _damageClip: {fileID: 8300000, guid: a5a5905429ad44617a98743b2f870fa6, type: 3}
+  _damageClip: {fileID: 8300000, guid: 54957c6fde3c7964fa74ef1ef90f48f8, type: 3}
   _gameOverClip: {fileID: 8300000, guid: 2100c8a0b42b44f28b7e1e7dd7b72374, type: 3}
-  _healClip: {fileID: 8300000, guid: c48a972d3d024c2408a3331750786a29, type: 3}
-  _rechargeClip: {fileID: 8300000, guid: f3379d7c990fe4e6b9215fd0a4c19103, type: 3}
   _maxLife: 5
   _maxEnergy: 3
   _activeGracePeriod: 0
@@ -288,7 +287,8 @@ MonoBehaviour:
   _shootPoint: {fileID: 4600615353091072486}
   _shotPrefab: {fileID: 5947758736218559249, guid: 285cd7ba4f11d6a488f3feabb15d5af5, type: 3}
   _upgradedShotPrefab: {fileID: 5947758736218559249, guid: 26aa8b6710ac47947aeccb4d45005d9d, type: 3}
-  _clip: {fileID: 8300000, guid: 4310474905e266640852f43bd609a1a4, type: 3}
+  _normalShotClip: {fileID: 8300000, guid: 76b3a369c30d2b647b2f45fb62db92ab, type: 3}
+  _upgShotClip: {fileID: 8300000, guid: 01a31f65a9b34c14fb120cdbd624037d, type: 3}
 --- !u!95 &4731094736172883946
 Animator:
   serializedVersion: 3
@@ -336,13 +336,56 @@ CapsuleCollider2D:
   m_Offset: {x: -0.06299806, y: -0.23172411}
   m_Size: {x: 1.2086987, y: 2.5312037}
   m_Direction: 0
---- !u!61 &6693302320194062726
-BoxCollider2D:
+--- !u!114 &8738988117355877610
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4600615353497502604}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b349ce3fb6d8fd1469d7e69619c2d706, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!1 &5882931568929779916
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6505857799844616488}
+  - component: {fileID: 4379091718826193158}
+  m_Layer: 6
+  m_Name: AntiSlideBox
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6505857799844616488
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5882931568929779916}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4600615353497502613}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!61 &4379091718826193158
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5882931568929779916}
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
@@ -362,15 +405,3 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.43284106, y: 0.5117831}
   m_EdgeRadius: 0
---- !u!114 &8738988117355877610
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4600615353497502604}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b349ce3fb6d8fd1469d7e69619c2d706, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 

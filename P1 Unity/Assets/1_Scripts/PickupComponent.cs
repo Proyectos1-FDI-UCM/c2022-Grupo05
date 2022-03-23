@@ -6,12 +6,17 @@ public class PickupComponent : MonoBehaviour
 {
     #region references
     private PlayerLifeComponent _playerLife;
-
     private Transform _myTransform;
 
 
     [SerializeField] private AudioClip _energyClip;
+    [SerializeField] private AudioClip _healClip;
+    [SerializeField] private AudioClip _rechargeClip;
+    [SerializeField] private AudioClip _stoneClip;
+
     #endregion
+
+
 
 
     #region parameters
@@ -25,15 +30,14 @@ public class PickupComponent : MonoBehaviour
     #region methods
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        _playerLife = collision.GetComponent<PlayerLifeComponent>();
+         _playerLife = collision.GetComponent<PlayerLifeComponent>();
 
         if (_playerLife != null)
         {
             if (_myTransform.tag == "Energy")
             {
-                SoundManager.Instance.PlaySound(_energyClip);
-
                 GameManager.Instance.AddEnergy(1);
+                SoundManager.Instance.PlaySound(_energyClip);
 
                 Debug.Log("Energy picked");
             }
@@ -41,6 +45,7 @@ public class PickupComponent : MonoBehaviour
             else if (_myTransform.tag == "Health")
             {
                 _playerLife.Heal(1);
+                SoundManager.Instance.PlaySound(_healClip);
 
                 Debug.Log("Health picked");
             }
@@ -48,10 +53,14 @@ public class PickupComponent : MonoBehaviour
             else if (_myTransform.tag == "Recharge")
             {
                 _playerLife.GetEnergy(1);
+                SoundManager.Instance.PlaySound(_rechargeClip);
 
                 Debug.Log("Recharge picked");
             }
-
+            else
+            {
+                SoundManager.Instance.PlaySound(_stoneClip);
+            }
             Destroy(gameObject);
         }
     }

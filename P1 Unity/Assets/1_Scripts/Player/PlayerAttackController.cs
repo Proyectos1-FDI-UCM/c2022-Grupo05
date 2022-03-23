@@ -18,7 +18,8 @@ public class PlayerAttackController : MonoBehaviour
     [SerializeField] private GameObject _shotPrefab;
     [SerializeField] private GameObject _upgradedShotPrefab;
 
-    [SerializeField] private AudioClip _clip;
+    [SerializeField] private AudioClip _normalShotClip;
+    [SerializeField] private AudioClip _upgShotClip;
 
     #endregion
 
@@ -28,13 +29,21 @@ public class PlayerAttackController : MonoBehaviour
         if (_shootCooldown <= 0)
         {
             GameObject shot;
-            if(ampPower) shot = Instantiate(_upgradedShotPrefab, _shootPoint.position, _shootPoint.rotation);
-            else shot = Instantiate(_shotPrefab, _shootPoint.position, _shootPoint.rotation);
+            if (ampPower)
+            {
+                shot = Instantiate(_upgradedShotPrefab, _shootPoint.position, _shootPoint.rotation);
+                SoundManager.Instance.PlaySound(_upgShotClip);
+
+            }
+            else
+            {
+                shot = Instantiate(_shotPrefab, _shootPoint.position, _shootPoint.rotation);
+                SoundManager.Instance.PlaySound(_normalShotClip);
+            }
 
             shot.GetComponent<ShotMovementController>().SetDirectionPlayerShot(_shootPoint.rotation.y == 180 ? Vector2.left : Vector2.right);
             _shootCooldown = _shootTime;
 
-            SoundManager.Instance.PlaySound(_clip);
         }
     }
     #endregion

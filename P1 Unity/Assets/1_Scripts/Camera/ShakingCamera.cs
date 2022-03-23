@@ -41,17 +41,13 @@ public class ShakingCamera : MonoBehaviour
 
     public void ShakeCamera(float amount, float time)
     {
-        PlayerAccess.Instance.Input.enabled = false;
-        PlayerAccess.Instance.Movement.Move(Vector2.zero);
-        PlayerAccess.Instance.Animation.Run(false);
-        PlayerAccess.Instance.Animation.OffShot();
-
+        
         _cameraBasicMultichanel.m_AmplitudeGain = amount;
         _timer = time;
     }
 
 
-    public void StopShaking()
+    public void StopCinematicShaking()
     {
         PlayerAccess.Instance.Input.enabled = true;
 
@@ -71,7 +67,7 @@ public class ShakingCamera : MonoBehaviour
 
             if (_timer <= 0)
             {
-                StopShaking();
+                StopCinematicShaking();
             }
         }
     }

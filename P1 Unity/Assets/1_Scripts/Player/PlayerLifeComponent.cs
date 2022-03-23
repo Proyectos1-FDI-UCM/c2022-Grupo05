@@ -10,8 +10,6 @@ public class PlayerLifeComponent : MonoBehaviour
 
     [SerializeField] private AudioClip _damageClip;
     [SerializeField] private AudioClip _gameOverClip;
-    [SerializeField] private AudioClip _healClip;
-    [SerializeField] private AudioClip _rechargeClip;
 
     #endregion
 
@@ -84,9 +82,6 @@ public class PlayerLifeComponent : MonoBehaviour
     // Método que cura al jugador
     public void Heal(int amount)
     {
-        SoundManager.Instance.PlaySound(_healClip);
-
-
         _currentLife += amount;
 
         if (_currentLife > _maxLife)
@@ -100,11 +95,10 @@ public class PlayerLifeComponent : MonoBehaviour
     }
 
 
-    public void GetEnergy(int amount) {
-
-        SoundManager.Instance.PlaySound(_rechargeClip);
-
+    public void GetEnergy(int amount)
+    {
         _currentEnergy += amount;
+
         if (_currentEnergy > _maxEnergy)
         {
             _currentEnergy = _maxEnergy;

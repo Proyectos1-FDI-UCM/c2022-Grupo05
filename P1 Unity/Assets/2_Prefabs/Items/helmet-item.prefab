@@ -98,6 +98,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5791b05a6bed74147935fd457e2170fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _energyClip: {fileID: 8300000, guid: fcc2a2997d9a8f64ab3143ed939a759b, type: 3}
+  _healClip: {fileID: 8300000, guid: 3c20e6cbd7f92a1499eacc0ece395dc2, type: 3}
+  _rechargeClip: {fileID: 8300000, guid: e72b222f0965c534486222e76b67da8f, type: 3}
+  _stoneClip: {fileID: 8300000, guid: 56e4f85d0858c5241860e370760ae1f4, type: 3}
   _speed: 1
 --- !u!60 &2842335193884045962
 PolygonCollider2D:

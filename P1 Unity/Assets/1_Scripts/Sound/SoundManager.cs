@@ -14,8 +14,12 @@ public class SoundManager : MonoBehaviour
     [SerializeField]
     private AudioSource _musicSource,
                         _backgroundSource,
-                        _effectSource, 
+                        _effectSource,
                         _backgroundEffectSource;
+
+    [SerializeField]
+    private AudioClip _normalClip,
+                      _bossClip;
 
     #endregion
 
@@ -32,6 +36,15 @@ public class SoundManager : MonoBehaviour
         _backgroundEffectSource.PlayOneShot(clip);
     }
 
+
+    public void Boss()
+    {
+        _musicSource.Stop();
+
+        _musicSource.clip = _bossClip;
+        _musicSource.Play();
+
+    }
     #endregion
 
 
@@ -44,6 +57,7 @@ public class SoundManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        _musicSource.clip = _normalClip;
         _musicSource.Play();
         _backgroundSource.Play();
 
