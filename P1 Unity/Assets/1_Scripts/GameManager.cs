@@ -67,6 +67,7 @@ public class GameManager : MonoBehaviour
     {
         PlayerPrefs.SetInt("Energía", _energy);
         PlayerPrefs.SetString("Nivel", nextLevel);
+        PlayerPrefs.Save();
         SceneManager.LoadScene(nextLevel);
     }
 
