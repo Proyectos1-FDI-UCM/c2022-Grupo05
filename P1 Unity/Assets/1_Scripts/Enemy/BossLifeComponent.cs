@@ -25,7 +25,7 @@ public class BossLifeComponent : MonoBehaviour
     {
         _currentLife--;
         if (isShotUpgraded) _currentLife--;
-        if (_currentLife <= _breakPointLife && !_secondPhase)
+        if (!_secondPhase && _currentLife <= _breakPointLife)
         {
             _currentLife = _breakPointLife;
 

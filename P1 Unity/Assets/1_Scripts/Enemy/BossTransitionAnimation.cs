@@ -6,7 +6,6 @@ public class BossTransitionAnimation : MonoBehaviour
 {
     [SerializeField] Vector2 posiciónDeseada;
     [SerializeField] Vector2 velocidad = new Vector2(1, 1);
-    [SerializeField] GameObject jefeSegundaFase;
     [SerializeField] GameObject pared; 
 
     private Transform _transform;
@@ -27,6 +26,7 @@ public class BossTransitionAnimation : MonoBehaviour
         PlayerAccess.Instance.Movement.Move(Vector2.zero);
         PlayerAccess.Instance.Animation.Run(false);
         PlayerAccess.Instance.Animation.OffShot();
+        GetComponent<BossFirstPhaseController>().enabled = false;
     }
 
     private void Update() {
@@ -36,6 +36,7 @@ public class BossTransitionAnimation : MonoBehaviour
                 if(cont >= 0.75f) {
                     state++;
                     _transform.localScale = new Vector3(-_transform.localScale.x, _transform.localScale.y, _transform.localScale.z);
+                    _transform.rotation = Quaternion.Euler(Vector3.zero);
                     origin = new Vector2(_transform.position.x - Mathf.Abs(posiciónDeseada.y - _transform.position.y), _transform.position.y);
                 }
                 break;
@@ -56,12 +57,11 @@ public class BossTransitionAnimation : MonoBehaviour
                 break;
             case 3:
                 _transform.Translate(Vector3.Normalize(new Vector3(posiciónDeseada.x - _transform.position.x, 0, 0)) * velocidad.x * Time.deltaTime);
-                if(Mathf.Abs(paredTransform.position.x - _transform.position.x) < 0.05) {
+                if(paredTransform.position.x < _transform.position.x) {
                     pared.SetActive(false);
                 }
-                if(Mathf.Abs(_transform.position.x - posiciónDeseada.x) < 0.005) {
+                if(_transform.position.x > posiciónDeseada.x) {
                     PlayerAccess.Instance.Input.enabled = true;
-                    jefeSegundaFase.SetActive(true);
                     Destroy(gameObject);
                 }
                 break;
