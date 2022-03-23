@@ -67,6 +67,7 @@ public class GameManager : MonoBehaviour
     {
         PlayerPrefs.SetInt("Energía", _energy);
         PlayerPrefs.SetString("Nivel", nextLevel);
+        PlayerAccess.Instance.Life.SavePlayer();
         PlayerPrefs.Save();
         SceneManager.LoadScene(nextLevel);
     }
@@ -120,6 +121,9 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         _enemyList = new List<EnemyLifeComponent>();
+        HUDController.Instance.UpdateShards(_energy);
+        if(PlayerPrefs.HasKey("Vida") && PlayerPrefs.HasKey("Carga"))
+            PlayerAccess.Instance.Life.SetPlayer(PlayerPrefs.GetInt("Vida"), PlayerPrefs.GetInt("Carga"));
     }
 
     // Update is called once per frame

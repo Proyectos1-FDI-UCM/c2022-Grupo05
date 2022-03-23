@@ -115,6 +115,26 @@ public class PlayerLifeComponent : MonoBehaviour
         }
         return false;
     }
+
+    public void SetPlayer(int life, int energy)
+    {
+        _currentEnergy = energy;
+        _currentLife = life;
+
+        if (_currentLife > _maxLife) _currentLife = _maxLife;
+
+
+        if (_currentEnergy > _maxEnergy) _currentEnergy = _maxEnergy;
+
+        HUDController.Instance.UpdateEnergy(_currentEnergy);
+        HUDController.Instance.UpdatePlayerHP(_currentLife); 
+    }
+
+    public void SavePlayer() 
+    {
+        PlayerPrefs.SetInt("Vida", _currentLife);
+        PlayerPrefs.SetInt("Carga", _currentEnergy);
+    }
     #endregion
 
 

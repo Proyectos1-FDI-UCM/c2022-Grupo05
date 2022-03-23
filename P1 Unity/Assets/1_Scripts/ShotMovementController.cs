@@ -11,12 +11,10 @@ public class ShotMovementController : MonoBehaviour
     #endregion
 
     #region properties
-    [SerializeField]
     private Vector2 _direction;
     #endregion
 
     #region references
-    [SerializeField]
     private Transform _myTransform;
     #endregion
 

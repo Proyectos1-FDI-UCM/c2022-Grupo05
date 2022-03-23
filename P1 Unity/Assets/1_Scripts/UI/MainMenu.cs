@@ -18,10 +18,10 @@ public class MainMenu : MonoBehaviour
 
     public void NewGame() 
     {
-        PlayerPrefs.SetString("Nivel", "Nivel 0");
+        PlayerPrefs.SetString("Nivel", "NIVEL 0");
         PlayerPrefs.SetInt("Energía", 0);
         PlayerPrefs.Save();
-        SceneManager.LoadScene("Nivel 0");
+        SceneManager.LoadScene("NIVEL 0");
     }
 
     public void QuitGame()
@@ -40,7 +40,7 @@ public class MainMenu : MonoBehaviour
         else 
         {
             _loadGame.SetActive(false);
-            _newGame.transform.position.Set(_loadGame.transform.position.x, -130, _loadGame.transform.position.z);
+            _newGame.transform.Translate(new Vector2(0, 1)); ;
         }
     }
 }

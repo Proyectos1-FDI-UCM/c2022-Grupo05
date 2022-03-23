@@ -20,7 +20,9 @@ public class BossFirstPhaseController : MonoBehaviour
     #endregion
 
     #region references
-    [SerializeField] GameObject _shotPrefab;
+    [SerializeField] private GameObject _shotPrefab;
+    [SerializeField] private GameObject _shroomPrefab;
+
     private Transform _playerPos;
     private PlayerMovementManager _gravityCheck;
     private Transform _myTransform;
@@ -30,9 +32,10 @@ public class BossFirstPhaseController : MonoBehaviour
     #region methods
     private void Action() 
     {
-        if (Random.Range(0,2) == 0) 
+        if (Random.Range(0,3) == 0) 
         {
-            Shoot();
+            if (Random.Range(0, 3) == 0) ShroomShot();
+            else Shoot();
             _timer = 0;
         }
         else
@@ -63,15 +66,19 @@ public class BossFirstPhaseController : MonoBehaviour
 
     private void Shoot()
     {
-        {
             GameObject shotA = Instantiate(_shotPrefab, _myTransform.position, _myTransform.rotation);
             GameObject shotB = Instantiate(_shotPrefab, _myTransform.position, _myTransform.rotation);
             GameObject shotC = Instantiate(_shotPrefab, _myTransform.position, _myTransform.rotation);
             Vector3 dir = Vector3.Normalize(_playerPos.position - transform.position);
             shotA.GetComponent<ShotMovementController>().SetDirection(dir);
             shotB.GetComponent<ShotMovementController>().SetDirection(Quaternion.AngleAxis(20,Vector3.forward) * dir);
-            shotC.GetComponent<ShotMovementController>().SetDirection(Quaternion.AngleAxis(-20, Vector3.forward) * dir);
-        }
+            shotC.GetComponent<ShotMovementController>().SetDirection(Quaternion.AngleAxis(-20, Vector3.forward) * dir);        
+    }
+
+    private void ShroomShot() 
+    {
+        GameObject shot = Instantiate(_shroomPrefab, _myTransform.position, _myTransform.rotation);
+        shot.GetComponent<ShotMovementController>().SetDirection(Vector3.Normalize(_playerPos.position - transform.position));
     }
 
     #endregion
