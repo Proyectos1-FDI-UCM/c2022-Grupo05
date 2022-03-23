@@ -37,7 +37,7 @@ public class PickupComponent : MonoBehaviour
             if (_myTransform.tag == "Energy")
             {
                 GameManager.Instance.AddEnergy(1);
-                SoundManager.Instance.PlaySound(_energyClip);
+                SoundManager.Instance.PlayEffectSound(_energyClip);
 
                 Debug.Log("Energy picked");
             }
@@ -45,7 +45,7 @@ public class PickupComponent : MonoBehaviour
             else if (_myTransform.tag == "Health")
             {
                 _playerLife.Heal(1);
-                SoundManager.Instance.PlaySound(_healClip);
+                SoundManager.Instance.PlayEffectSound(_healClip);
 
                 Debug.Log("Health picked");
             }
@@ -53,13 +53,13 @@ public class PickupComponent : MonoBehaviour
             else if (_myTransform.tag == "Recharge")
             {
                 _playerLife.GetEnergy(1);
-                SoundManager.Instance.PlaySound(_rechargeClip);
+                SoundManager.Instance.PlayEffectSound(_rechargeClip);
 
                 Debug.Log("Recharge picked");
             }
             else
             {
-                SoundManager.Instance.PlaySound(_stoneClip);
+                SoundManager.Instance.PlayEffectSound(_stoneClip);
             }
             Destroy(gameObject);
         }

@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class DialogueManager : MonoBehaviour
 {
 
-    private bool resumeShot = true;
+    [SerializeField] private bool resumeShot = true;
 
     #region references
     [SerializeField]
@@ -17,7 +17,7 @@ public class DialogueManager : MonoBehaviour
     private Animator animator; //animaci�n
     [SerializeField]
     private float TypingTime; //tiempo de tecleo de cada letra
-    
+    [SerializeField] private AudioClip _typingtClip;
     #endregion
 
     #region singleton
@@ -46,14 +46,15 @@ public class DialogueManager : MonoBehaviour
         speakers = new Queue<string>();
         enabled = false;
         resumeShot = true;
+        
     }
 
     public void StartDialogue(Dialogue dialogue)
     {
-        PlayerAccess.Instance.Input.HasShot(false);
+       // PlayerAccess.Instance.Input.HasShot(false);
         // Impide activar la pausa
         GameManager.Instance.DialogueOpened(true);
-
+        PlayerAccess.Instance.Input.HasShot(false);
         animator.SetBool("IsOpen", true);
 
         enabled = true;
@@ -88,6 +89,7 @@ public class DialogueManager : MonoBehaviour
         Time.timeScale = 0f; //pausa la escena hasta terminar el di�logo
         string sentence = sentences.Dequeue();
         string speaker = speakers.Dequeue();
+        SoundManager.Instance.PlayDialogueSound(_typingtClip);
         StopAllCoroutines(); //limpiar corutinas anteriores
         StartCoroutine(TypeSentence(sentence, speaker)); //le pasa el nombre del hablante y la frase del di�logo para luego trocear en caracteres
 
@@ -95,7 +97,7 @@ public class DialogueManager : MonoBehaviour
 
     public void SkipDialogue()
     {
-        Debug.Log("Skip");
+
         enabled = false;
         StopAllCoroutines(); //limpiar corutinas anteriores
         EndDialogue();
@@ -112,6 +114,7 @@ public class DialogueManager : MonoBehaviour
         foreach (char letter in sentence.ToCharArray())
         {
             dialogueText.text += letter;
+           
             yield return new WaitForSecondsRealtime(TypingTime); //el di�logo ignora la pausa y seguir� escribiendo con normalidad
         }
     }
@@ -138,8 +141,10 @@ public class DialogueManager : MonoBehaviour
 
         yield return new WaitForSecondsRealtime(1.0f);
         if (resumeShot)
-           PlayerAccess.Instance.Input.HasShot(true);
-
+        { PlayerAccess.Instance.Input.HasShot(true);
+            print("True");
+        }
+           
 
     }
 

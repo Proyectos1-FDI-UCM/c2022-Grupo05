@@ -15,26 +15,41 @@ public class SoundManager : MonoBehaviour
     private AudioSource _musicSource,
                         _backgroundSource,
                         _effectSource,
-                        _backgroundEffectSource;
+                        _backgroundEffectSource,
+                        _cinematicSource,
+                        _dialogueSource;
 
     [SerializeField]
     private AudioClip _normalClip,
                       _bossClip;
+
+   
 
     #endregion
 
 
     #region methods
 
-    public void PlaySound(AudioClip clip)
+    public void PlayEffectSound(AudioClip clip)
     {
-        _effectSource.PlayOneShot(clip);
+        _effectSource.PlayOneShot( clip);
+     
     }
 
     public void PlayOnBackground(AudioClip clip)
     {
         _backgroundEffectSource.PlayOneShot(clip);
     }
+
+    public void PlayCinematicSound(AudioClip clip)
+    {
+        _cinematicSource.PlayOneShot(clip);
+    }
+    public void PlayDialogueSound(AudioClip clip)
+    {
+       _dialogueSource.PlayOneShot(clip);
+    }
+
 
 
     public void Boss()

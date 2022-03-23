@@ -14,6 +14,34 @@ AudioMixerEffectController:
   m_SendTarget: {fileID: 0}
   m_EnableWetMix: 0
   m_Bypass: 0
+--- !u!244 &-7652326263782403803
+AudioMixerEffectController:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 
+  m_EffectID: c5477c52aefe8634c9dfdd203de00c27
+  m_EffectName: Attenuation
+  m_MixLevel: dff18ee917b23b141a0a305ed01d77b9
+  m_Parameters: []
+  m_SendTarget: {fileID: 0}
+  m_EnableWetMix: 0
+  m_Bypass: 0
+--- !u!244 &-7440309829163105041
+AudioMixerEffectController:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 
+  m_EffectID: 2ff8a8da3416c5d44bc8e0c357fce9af
+  m_EffectName: Attenuation
+  m_MixLevel: 05175e498a5e9d347955139447ba1aa2
+  m_Parameters: []
+  m_SendTarget: {fileID: 0}
+  m_EnableWetMix: 0
+  m_Bypass: 0
 --- !u!243 &-4558319612383998459
 AudioMixerGroupController:
   m_ObjectHideFlags: 0
@@ -33,6 +61,39 @@ AudioMixerGroupController:
   m_Mute: 0
   m_Solo: 0
   m_BypassEffects: 0
+--- !u!243 &-3305811404102663397
+AudioMixerGroupController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Cinematic
+  m_AudioMixer: {fileID: 24100000}
+  m_GroupID: d7aa3f73060da4c4c9407439e3f52c0b
+  m_Children: []
+  m_Volume: 33066b46a5d35394f851f34bb3df19ea
+  m_Pitch: 4d4fc5b3576be6443bd5e7f1303c0adb
+  m_Send: 00000000000000000000000000000000
+  m_Effects:
+  - {fileID: -2653503840978848074}
+  m_UserColorIndex: 0
+  m_Mute: 0
+  m_Solo: 0
+  m_BypassEffects: 0
+--- !u!244 &-2653503840978848074
+AudioMixerEffectController:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 
+  m_EffectID: 2c8a2375db11b044a8e4de20e7c3cf1e
+  m_EffectName: Attenuation
+  m_MixLevel: 3046e56b7efcfb546a8e171330592644
+  m_Parameters: []
+  m_SendTarget: {fileID: 0}
+  m_EnableWetMix: 0
+  m_Bypass: 0
 --- !u!243 &-1918957785595970092
 AudioMixerGroupController:
   m_ObjectHideFlags: 0
@@ -48,6 +109,26 @@ AudioMixerGroupController:
   m_Send: 00000000000000000000000000000000
   m_Effects:
   - {fileID: 7138073634123873983}
+  m_UserColorIndex: 0
+  m_Mute: 0
+  m_Solo: 0
+  m_BypassEffects: 0
+--- !u!243 &-1115210178017088095
+AudioMixerGroupController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Player
+  m_AudioMixer: {fileID: 24100000}
+  m_GroupID: 51c864c4dedf7744ca04c6caba2cc4e8
+  m_Children:
+  - {fileID: 1060441184548511263}
+  m_Volume: 5fbf41e2943808a48abbf2eae29ebaec
+  m_Pitch: 1a2d9e3760016824c807cae97a9ff03e
+  m_Send: 00000000000000000000000000000000
+  m_Effects:
+  - {fileID: -7652326263782403803}
   m_UserColorIndex: 0
   m_Mute: 0
   m_Solo: 0
@@ -76,6 +157,10 @@ AudioMixerController:
     - 62d1edeea17cacd4fb1f3e07473e1dd3
     - 3475cf04a77d21a4c9ac63cb65e6b223
     - 977755cc7150a514880135cb9837ba3c
+    - 51c864c4dedf7744ca04c6caba2cc4e8
+    - 3be7015afc3a58549812ff770da179cc
+    - cdc83be4ee001a74ebd8f1e30c553c07
+    - d7aa3f73060da4c4c9407439e3f52c0b
     name: View
   m_CurrentViewIndex: 0
   m_TargetSnapshot: {fileID: 24500006}
@@ -92,6 +177,9 @@ AudioMixerGroupController:
   - {fileID: 1396346259440872795}
   - {fileID: -4558319612383998459}
   - {fileID: -1918957785595970092}
+  - {fileID: -1115210178017088095}
+  - {fileID: 4145493783243834894}
+  - {fileID: -3305811404102663397}
   m_Volume: 970a8858dcce04543864b025ecb98373
   m_Pitch: a918e4c40547a364dbb9419e99139f8f
   m_Send: 00000000000000000000000000000000
@@ -125,10 +213,32 @@ AudioMixerSnapshotController:
   m_AudioMixer: {fileID: 24100000}
   m_SnapshotID: a120473f7235e3b4484e74a383cb98ca
   m_FloatValues:
-    e1d33d7006d60d44490b8903efc2dbee: -0.16685188
+    e1d33d7006d60d44490b8903efc2dbee: -10.34521
+    33066b46a5d35394f851f34bb3df19ea: -2.018035
     10f1e6b8ccc85d24291859cfa44ad128: -11.9444895
+    4299896cc57179e4b9eeaca20623a11b: -0.27209902
     2c200b6e2312f024abf8cddfb6729ec4: 4.648096
+    292c6ddff8434c748897c55aa86f2355: -12.498478
   m_TransitionOverrides: {}
+--- !u!243 &1060441184548511263
+AudioMixerGroupController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Jump
+  m_AudioMixer: {fileID: 24100000}
+  m_GroupID: 3be7015afc3a58549812ff770da179cc
+  m_Children: []
+  m_Volume: 4299896cc57179e4b9eeaca20623a11b
+  m_Pitch: 34e4d862b58dedd40b15f4d0823b18ed
+  m_Send: 00000000000000000000000000000000
+  m_Effects:
+  - {fileID: 2328411333280549108}
+  m_UserColorIndex: 0
+  m_Mute: 0
+  m_Solo: 0
+  m_BypassEffects: 0
 --- !u!243 &1396346259440872795
 AudioMixerGroupController:
   m_ObjectHideFlags: 0
@@ -162,6 +272,39 @@ AudioMixerEffectController:
   m_SendTarget: {fileID: 0}
   m_EnableWetMix: 0
   m_Bypass: 0
+--- !u!244 &2328411333280549108
+AudioMixerEffectController:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 
+  m_EffectID: 78f81dd5bb6f425409f9aaa93da9bc31
+  m_EffectName: Attenuation
+  m_MixLevel: 2cc4c3b1912f95d419fcf6169804870e
+  m_Parameters: []
+  m_SendTarget: {fileID: 0}
+  m_EnableWetMix: 0
+  m_Bypass: 0
+--- !u!243 &4145493783243834894
+AudioMixerGroupController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Dialogue
+  m_AudioMixer: {fileID: 24100000}
+  m_GroupID: cdc83be4ee001a74ebd8f1e30c553c07
+  m_Children: []
+  m_Volume: 292c6ddff8434c748897c55aa86f2355
+  m_Pitch: 1a79b4459aea25d49b714d07cb5dabed
+  m_Send: 00000000000000000000000000000000
+  m_Effects:
+  - {fileID: -7440309829163105041}
+  m_UserColorIndex: 0
+  m_Mute: 0
+  m_Solo: 0
+  m_BypassEffects: 0
 --- !u!244 &7138073634123873983
 AudioMixerEffectController:
   m_ObjectHideFlags: 3

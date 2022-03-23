@@ -42,7 +42,7 @@ public class PauseManager : MonoBehaviour
 
     public void NormalPause()
     {
-        SoundManager.Instance.PlaySound(_clip);
+        SoundManager.Instance.PlayEffectSound(_clip);
 
         _normalPause.SetActive(true);
         _controlsPause.SetActive(false);
@@ -56,7 +56,7 @@ public class PauseManager : MonoBehaviour
 
     public void ControlsPause()
     {
-        SoundManager.Instance.PlaySound(_clip);
+        SoundManager.Instance.PlayEffectSound(_clip);
 
         _normalPause.SetActive(false);
         _controlsPause.SetActive(true);
@@ -68,7 +68,7 @@ public class PauseManager : MonoBehaviour
 
     public void QuitPause()
     {
-        SoundManager.Instance.PlaySound(_clip);
+        SoundManager.Instance.PlayEffectSound(_clip);
 
         _pauseMenu.SetActive(false);
         _normalPause.SetActive(false);

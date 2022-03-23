@@ -56,7 +56,7 @@ public class PlayerLifeComponent : MonoBehaviour
         // Si el periodo de gracia no está activo, se activa y baja la vida del jugador
         if (!_activeGracePeriod)
         {
-            SoundManager.Instance.PlaySound(_damageClip);
+            SoundManager.Instance.PlayEffectSound(_damageClip);
 
             _animator.SetBool("_damage", true);
             _currentLife -= _hitDamage;
@@ -68,7 +68,7 @@ public class PlayerLifeComponent : MonoBehaviour
 
             if (_currentLife <= 0)
             {
-                SoundManager.Instance.PlaySound(_gameOverClip);
+                SoundManager.Instance.PlayEffectSound(_gameOverClip);
 
                 _currentLife = 0;
                 GameManager.Instance.OnPlayerDeath(gameObject);

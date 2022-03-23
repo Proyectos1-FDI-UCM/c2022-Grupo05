@@ -152,7 +152,7 @@ public class PlayerMovementManager : MonoBehaviour
         // Salto y doble salto
         if(_jumping) 
         {
-            SoundManager.Instance.PlaySound(_jumpClip);
+            SoundManager.Instance.PlayEffectSound(_jumpClip);
             if (!_isGrounded)
             {
                 _jumpsLeft--;
@@ -167,7 +167,7 @@ public class PlayerMovementManager : MonoBehaviour
         // Deslizamiento
         if(_dashing) {
             if(_rigidbody.gravityScale != 0) { // Inicio
-                SoundManager.Instance.PlaySound(_dashClip);
+                SoundManager.Instance.PlayEffectSound(_dashClip);
 
                 _gravityScale = _rigidbody.gravityScale;
                 _rigidbody.gravityScale = 0;

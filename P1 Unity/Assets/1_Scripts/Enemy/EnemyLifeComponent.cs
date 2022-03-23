@@ -28,13 +28,13 @@ public class EnemyLifeComponent : MonoBehaviour
     #region methods
     public void Damage(bool isShotUpgraded)
     {
-        SoundManager.Instance.PlaySound(_damageClip);
+        SoundManager.Instance.PlayEffectSound(_damageClip);
 
         vida--;
         if(isShotUpgraded) vida--;
         if (vida <= 0)
         {
-            SoundManager.Instance.PlaySound(_deathClip);
+            SoundManager.Instance.PlayEffectSound(_deathClip);
 
             GameManager.Instance.OnEnemyDeath(this);
             _dropItem.DropItem();

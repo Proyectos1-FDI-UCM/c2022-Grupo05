@@ -168,7 +168,7 @@ MonoBehaviour:
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.7647059, g: 0.7647059, b: 0.7647059, a: 1}
+    m_HighlightedColor: {r: 1, g: 0.97547174, b: 0.97547174, a: 1}
     m_PressedColor: {r: 0.49264705, g: 0.49264705, b: 0.49264705, a: 1}
     m_SelectedColor: {r: 0.7647059, g: 0.7647059, b: 0.7647059, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
@@ -201,7 +201,7 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
-        m_CallState: 2
+        m_CallState: 1
 --- !u!1 &7940023097982766001
 GameObject:
   m_ObjectHideFlags: 0
@@ -404,10 +404,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 52ced372fe915d849b3a40a567dadca5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  resumeShot: 0
   nameText: {fileID: 7940023098924867485}
   dialogueText: {fileID: 7940023099536758795}
   animator: {fileID: 7940023099149715423}
   TypingTime: 0.01
+  _typingtClip: {fileID: 8300000, guid: a765109e0e9954bbfbec6ff4a77c527b, type: 3}
 --- !u!1 &7940023098924867484
 GameObject:
   m_ObjectHideFlags: 0

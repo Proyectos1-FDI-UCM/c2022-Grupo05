@@ -28,7 +28,7 @@ public class CloseBossAreas : MonoBehaviour
             PlayerAccess.Instance.Animation.OffShot();
 
             ShakingCamera.Instance.ShakeCamera(5, 1);
-            SoundManager.Instance.PlaySound(_clip);
+            SoundManager.Instance.PlayEffectSound(_clip);
 
             _animator.Play("FadeIn", 0, 0f);
 

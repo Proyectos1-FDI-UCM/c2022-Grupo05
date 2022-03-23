@@ -6,11 +6,13 @@ using UnityEngine;
 public class DialogueZoneDetector : MonoBehaviour
 {
     private InputManager _player;
+    
     private void OnTriggerEnter2D(Collider2D collision)
     {
         _player = collision.GetComponent<InputManager>();
        if (_player!= null)
         {
+           
             GetComponent<DialogueTrigger>().TriggerDialogue();
             Destroy(gameObject);
         }

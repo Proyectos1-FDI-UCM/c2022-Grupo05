@@ -20,6 +20,10 @@ public class CinematicManager : MonoBehaviour
     [SerializeField] private GameObject _happyEndAnim;
     [SerializeField] private GameObject _badEndAnim;
 
+    [SerializeField] private AudioClip _navEscape;
+
+
+    [SerializeField] private GameObject _skip;
 
     static private CinematicManager _instance;
     static public CinematicManager Instance
@@ -45,7 +49,11 @@ public class CinematicManager : MonoBehaviour
         _happyEndAnim.SetActive(false);
         _badEndAnim.SetActive(false);
 
+        _skip.SetActive(false);
+        PlayerAccess.Instance.Input.HasShot(false);
         DialogueManager.Instance.DesactivateShot();
+
+
 
     }
 
@@ -56,18 +64,24 @@ public class CinematicManager : MonoBehaviour
 
     public void SendStoneAnim()
     {
+        _skip.SetActive(true);
         PlayerAccess.Instance.gameObject.SetActive(false);
+
         _sendStoneAnim.SetActive(true);
         _pointLight.SetActive(false);
     }
 
     public void EndSentStoneAnim()
     {
+       
+        _skip.SetActive(false);
         _sentStoneDialogue.GetComponent<DialogueTrigger>().TriggerDialogue();
         _sendStoneAnim.SetActive(false);
         PlayerAccess.Instance.gameObject.SetActive(true);
-        Debug.Log("Player");
         PlayerAccess.Instance.Transform.transform.position = _playerPosition1;
+
+        SoundManager.Instance.PlayCinematicSound(_navEscape);
+
 
         Branch();
 
@@ -101,6 +115,14 @@ public class CinematicManager : MonoBehaviour
         PlayerAccess.Instance.Transform.transform.position = _playerPosition2;
         PlayerAccess.Instance.gameObject.SetActive(false);
         _happyEndAnim.SetActive(true);
+    }
+
+
+    public void SkipDialogue()
+    {
+
+        EndSentStoneAnim();
+
     }
 
     // Update is called once per frame

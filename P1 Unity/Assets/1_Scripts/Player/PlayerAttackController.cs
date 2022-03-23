@@ -32,13 +32,13 @@ public class PlayerAttackController : MonoBehaviour
             if (ampPower)
             {
                 shot = Instantiate(_upgradedShotPrefab, _shootPoint.position, _shootPoint.rotation);
-                SoundManager.Instance.PlaySound(_upgShotClip);
+                SoundManager.Instance.PlayEffectSound(_upgShotClip);
 
             }
             else
             {
                 shot = Instantiate(_shotPrefab, _shootPoint.position, _shootPoint.rotation);
-                SoundManager.Instance.PlaySound(_normalShotClip);
+                SoundManager.Instance.PlayEffectSound(_normalShotClip);
             }
 
             shot.GetComponent<ShotMovementController>().SetDirectionPlayerShot(_shootPoint.rotation.y == 180 ? Vector2.left : Vector2.right);
