@@ -612,7 +612,7 @@ MonoBehaviour:
   _mainMenuButton: {fileID: 8214624452008240945}
   _controlsButton: {fileID: 8214624453469359865}
   _volumeSlider: {fileID: 10127940807270158}
-  _clip: {fileID: 8300000, guid: 48bf7e7663c197448b3dd2e3bd272fec, type: 3}
+  _clip: {fileID: 8300000, guid: d172b29d9af7bb748b6c733522e543cf, type: 3}
 --- !u!1 &7188294652117163888
 GameObject:
   m_ObjectHideFlags: 0

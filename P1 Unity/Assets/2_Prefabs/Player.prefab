@@ -249,8 +249,8 @@ MonoBehaviour:
   _airJumpNumber: 1
   _hasAntigravity: 0
   _trigger: {fileID: 4600615352017307880}
-  _dashClip: {fileID: 8300000, guid: fa4b37923b0112b42be109e6a73ef158, type: 3}
-  _jumpClip: {fileID: 8300000, guid: aacc98ff3b4320f4ea6a9601bb3b369f, type: 3}
+  _dashClip: {fileID: 8300000, guid: 22e63e55a41a17347ae937e3391e4d61, type: 3}
+  _jumpClip: {fileID: 8300000, guid: 4029a4b5c9f353d49870419f4a7d04cb, type: 3}
 --- !u!114 &4600615353497502603
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -263,7 +263,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67d7b7b92eb3c914fb161be6d5f079c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _damageClip: {fileID: 8300000, guid: 54957c6fde3c7964fa74ef1ef90f48f8, type: 3}
+  _damageClip: {fileID: 8300000, guid: 54b4288f08d4b394aa1d52eb1c305424, type: 3}
   _gameOverClip: {fileID: 8300000, guid: 2100c8a0b42b44f28b7e1e7dd7b72374, type: 3}
   _maxLife: 5
   _maxEnergy: 3
@@ -287,8 +287,8 @@ MonoBehaviour:
   _shootPoint: {fileID: 4600615353091072486}
   _shotPrefab: {fileID: 5947758736218559249, guid: 285cd7ba4f11d6a488f3feabb15d5af5, type: 3}
   _upgradedShotPrefab: {fileID: 5947758736218559249, guid: 26aa8b6710ac47947aeccb4d45005d9d, type: 3}
-  _normalShotClip: {fileID: 8300000, guid: 76b3a369c30d2b647b2f45fb62db92ab, type: 3}
-  _upgShotClip: {fileID: 8300000, guid: 01a31f65a9b34c14fb120cdbd624037d, type: 3}
+  _normalShotClip: {fileID: 8300000, guid: 876aaa6daa5f4d043b2ddd2139e761cf, type: 3}
+  _upgShotClip: {fileID: 8300000, guid: 1883ddce2529d1e43a467a87f5e6849a, type: 3}
 --- !u!95 &4731094736172883946
 Animator:
   serializedVersion: 3

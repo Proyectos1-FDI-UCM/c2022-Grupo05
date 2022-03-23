@@ -559,5 +559,5 @@ MonoBehaviour:
   _backgroundSource: {fileID: 6288058879721255350}
   _effectSource: {fileID: 6288058879496282637}
   _backgroundEffectSource: {fileID: 6288058878540902701}
-  _normalClip: {fileID: 8300000, guid: 994d6f7469f77b34d9c89e8f5fa2fda3, type: 3}
-  _bossClip: {fileID: 8300000, guid: 7591f4d6614fbcc459c40bf3d1844c98, type: 3}
+  _normalClip: {fileID: 8300000, guid: f29b41ec1022c3e47a64e1d3497d444d, type: 3}
+  _bossClip: {fileID: 8300000, guid: 6b12a4eb63ee18041ae1b5f4c1c0142a, type: 3}

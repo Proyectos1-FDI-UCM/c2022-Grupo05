@@ -251,7 +251,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   vidaMaxima: 3
   _dust: {fileID: 999515858420764311, guid: 0f2164e95f465a445afdd0511fc79b0a, type: 3}
-  _damageClip: {fileID: 8300000, guid: 54957c6fde3c7964fa74ef1ef90f48f8, type: 3}
+  _damageClip: {fileID: 8300000, guid: 54b4288f08d4b394aa1d52eb1c305424, type: 3}
   _deathClip: {fileID: 8300000, guid: 59c799cf865254f84964cff980f61b6d, type: 3}
 --- !u!50 &2899549418259024970
 Rigidbody2D:
