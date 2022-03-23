@@ -40,7 +40,7 @@ public class GameManager : MonoBehaviour
         _enemyList.Add(enemy);
     }
 
-    public IEnumerator RestarLevel(GameObject player) 
+    private IEnumerator RestarLevel(GameObject player) 
     {
         yield return new WaitForSeconds(0.5f);
         yield return new WaitUntil(() => Input.anyKeyDown);
@@ -61,11 +61,19 @@ public class GameManager : MonoBehaviour
     public int CountEnergy()
     {
         return _energy;
-    }
+    } 
 
+    public void NextLevel(string nextLevel)
+    {
+        PlayerPrefs.SetInt("Energía", _energy);
+        PlayerPrefs.SetString("Nivel", nextLevel);
+        SceneManager.LoadScene(nextLevel);
+    }
 
     private void Awake()
     {
+        _energy = PlayerPrefs.GetInt("Energía");
+
         _instance = this;
     }
 
@@ -110,7 +118,6 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        _energy = 0;
         _enemyList = new List<EnemyLifeComponent>();
     }
 
