@@ -180,8 +180,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 233844901
+  m_SortingLayer: 3
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: c2c08c932c2054a0da13bc4dd9db298d, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -241,7 +241,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _speed: 1
-  _jumpForce: 750
+  _jumpForce: 760
   _movementSmoothing: 0.05
   _facingRight: 1
   _dashDistance: 4
@@ -250,7 +250,7 @@ MonoBehaviour:
   _hasAntigravity: 0
   _trigger: {fileID: 4600615352017307880}
   _dashClip: {fileID: 8300000, guid: 22e63e55a41a17347ae937e3391e4d61, type: 3}
-  _jumpClip: {fileID: 8300000, guid: 4029a4b5c9f353d49870419f4a7d04cb, type: 3}
+  _jumpClip: {fileID: 8300000, guid: df6d6e6970d3ebc40a5ecbe1e1f21c1e, type: 3}
 --- !u!114 &4600615353497502603
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -268,9 +268,10 @@ MonoBehaviour:
   _maxLife: 5
   _maxEnergy: 3
   _activeGracePeriod: 0
-  _gracePeriod: 3
+  _gracePeriod: 1
   _currentLife: 4
   _currentEnergy: 1
+  AmpDash: 0
 --- !u!114 &4600615353497502612
 MonoBehaviour:
   m_ObjectHideFlags: 0

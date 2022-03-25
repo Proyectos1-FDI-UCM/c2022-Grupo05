@@ -8,6 +8,7 @@ public class GameManager : MonoBehaviour
 
     #region parameters
     private bool _dialogueOpen = false;
+    [SerializeField] private bool _sendPlayerPosition=true;
     #endregion
 
 
@@ -15,6 +16,7 @@ public class GameManager : MonoBehaviour
     private int _energy;
     private List<EnemyLifeComponent> _enemyList;
     private System.Random rnd = new System.Random();
+    [SerializeField] private Vector2 _playerStartPosition;
     #endregion
 
 
@@ -79,7 +81,7 @@ public class GameManager : MonoBehaviour
         _instance = this;
     }
 
-
+   
     public void DialogueOpened(bool isOpened)
     {
         _dialogueOpen = isOpened;
@@ -124,6 +126,8 @@ public class GameManager : MonoBehaviour
         HUDController.Instance.UpdateShards(_energy);
         if(PlayerPrefs.HasKey("Vida") && PlayerPrefs.HasKey("Carga"))
             PlayerAccess.Instance.Life.SetPlayer(PlayerPrefs.GetInt("Vida"), PlayerPrefs.GetInt("Carga"));
+        if (_sendPlayerPosition)
+         PlayerAccess.Instance.Transform.position = _playerStartPosition; 
     }
 
     // Update is called once per frame
