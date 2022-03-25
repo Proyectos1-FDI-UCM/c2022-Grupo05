@@ -100,6 +100,8 @@ public class PlayerMovementManager : MonoBehaviour
         _dashCont = 0;
     }
 
+    public bool IsDashing => _dashing;
+
     void Start() {
         _transform = transform;
         _positiveScaleY = _transform.localScale.y;

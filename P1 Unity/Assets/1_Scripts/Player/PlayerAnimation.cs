@@ -26,8 +26,7 @@ public class PlayerAnimation : MonoBehaviour
     }
 
     public void Dash(bool activate) {
-        animator.SetBool("_jump", activate);
-
+        animator.SetBool("_dash", activate);
     }
 
     public void Jump(int numJump) {

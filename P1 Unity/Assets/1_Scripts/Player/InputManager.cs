@@ -21,7 +21,6 @@ public class InputManager : MonoBehaviour
     private bool _shotEnabled;
 
     #region methods
-
     public void HasShot(bool enable)
     {
         _shotEnabled=enable;
@@ -92,16 +91,16 @@ public class InputManager : MonoBehaviour
             }
             else if (_jump == 0) _jumpButtonDown = false;
 
-            if (Input.GetAxis("Shoot") > 0 && _shotEnabled)  // Disparo
+            if (Input.GetAxis("Shoot") > 0 && _shotEnabled && !_movementManager.IsDashing)  // Disparo
             {
                 _animator.SetBool("_shot", true);
-                _attackController.Shoot(Input.GetAxis("AmpPower") > 0 && !_shootButtonDown && _playerLife.UseEnergy());
-                _shootButtonDown = true;
+                _attackController.Shoot(Input.GetAxis("AmpPower") > 0 && _attackController.ShootReady() && _playerLife.UseEnergy());
+                //_shootButtonDown = true;
             }
             else if(Input.GetAxis("Shoot") == 0)
             {
                 _animator.SetBool("_shot", false);
-                _shootButtonDown = false;
+                //_shootButtonDown = false;
             }
 
             if (Input.GetAxis("Dash") > 0 && !_dashButtonDown) { // Deslizamiento / Dash

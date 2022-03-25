@@ -46,6 +46,8 @@ public class PlayerAttackController : MonoBehaviour
 
         }
     }
+
+    public bool ShootReady => _shootCooldown <= 0;
     #endregion
 
     // Start is called before the first frame update
