@@ -36,12 +36,8 @@ public class PlayerMovementManager : MonoBehaviour
     private float _gravityScale;
     private bool _isGrounded;
     private bool _isGravityChanged = false;
-    public bool IsGravityChanged {
-        get => _isGravityChanged;
-    }
-    public bool Dashing {
-        get => _dashing;
-    }
+    public bool IsGravityChanged => _isGravityChanged;
+    public bool Dashing => _dashing;
     #endregion
 
     #region references
@@ -99,8 +95,6 @@ public class PlayerMovementManager : MonoBehaviour
         _dashing = false;
         _dashCont = 0;
     }
-
-    public bool IsDashing => _dashing;
 
     void Start() {
         _transform = transform;

@@ -91,16 +91,14 @@ public class InputManager : MonoBehaviour
             }
             else if (_jump == 0) _jumpButtonDown = false;
 
-            if (Input.GetAxis("Shoot") > 0 && _shotEnabled && !_movementManager.IsDashing)  // Disparo
+            if (Input.GetAxis("Shoot") > 0 && _shotEnabled && !_movementManager.Dashing)  // Disparo
             {
                 _animator.SetBool("_shot", true);
-                _attackController.Shoot(Input.GetAxis("AmpPower") > 0 && _attackController.ShootReady() && _playerLife.UseEnergy());
-                //_shootButtonDown = true;
+                _attackController.Shoot(Input.GetAxis("AmpPower") > 0 && _attackController.ShootReady && _playerLife.UseEnergy());
             }
             else if(Input.GetAxis("Shoot") == 0)
             {
                 _animator.SetBool("_shot", false);
-                //_shootButtonDown = false;
             }
 
             if (Input.GetAxis("Dash") > 0 && !_dashButtonDown) { // Deslizamiento / Dash
