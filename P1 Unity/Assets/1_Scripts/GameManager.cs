@@ -26,6 +26,10 @@ public class GameManager : MonoBehaviour
     {
         get => _instance;
     }
+
+    [SerializeField]
+    private GameObject _fade;
+    private Animator _animator;
     #endregion
 
 
@@ -46,12 +50,18 @@ public class GameManager : MonoBehaviour
     {
         yield return new WaitForSeconds(0.5f);
         yield return new WaitUntil(() => Input.anyKeyDown);
+
+        _animator.SetTrigger("Start");
+        yield return new WaitForSeconds(0.5f);
+        _animator.SetTrigger("End");
+
         foreach (EnemyLifeComponent enemy in _enemyList) enemy.Respawn();
         _enemyList = new List<EnemyLifeComponent>();
         HUDController.Instance.ShowGameOverText(false);
         CheckpointManager.Instance.GoToCheckpoint();
         PlayerAccess.Instance.Life.Heal(5);
         PlayerAccess.Instance.Life.GetEnergy(3);
+
         player.SetActive(true);
     }
 
@@ -67,12 +77,23 @@ public class GameManager : MonoBehaviour
 
     public void NextLevel(string nextLevel)
     {
+        StartCoroutine(LoadNextLevel(nextLevel));
+    }
+
+
+    IEnumerator LoadNextLevel(string nextLevel)
+    {
+        _animator.SetTrigger("Start");
+
+        yield return new WaitForSeconds(1);
+
         PlayerPrefs.SetInt("Energía", _energy);
         PlayerPrefs.SetString("Nivel", nextLevel);
         PlayerAccess.Instance.Life.SavePlayer();
         PlayerPrefs.Save();
         SceneManager.LoadScene(nextLevel);
     }
+
 
     private void Awake()
     {
@@ -81,7 +102,7 @@ public class GameManager : MonoBehaviour
         _instance = this;
     }
 
-   
+
     public void DialogueOpened(bool isOpened)
     {
         _dialogueOpen = isOpened;
@@ -107,11 +128,22 @@ public class GameManager : MonoBehaviour
 
     public void MainMenu()
     {
+        StartCoroutine(LoadMainMenu());
+    }
+
+    IEnumerator LoadMainMenu()
+    {
+        _animator.SetTrigger("Start");
+
+        yield return new WaitForSeconds(1);
+
         SceneManager.LoadScene("Main Menu");
         Time.timeScale = 1;
 
-
+        SoundManager.Instance.MainMenu();
     }
+
+
 
     public float RNG(float minInclusive, float maxExclusive) {
         return (float)rnd.NextDouble() * (maxExclusive - minInclusive) + minInclusive;
@@ -127,12 +159,11 @@ public class GameManager : MonoBehaviour
         if(PlayerPrefs.HasKey("Vida") && PlayerPrefs.HasKey("Carga"))
             PlayerAccess.Instance.Life.SetPlayer(PlayerPrefs.GetInt("Vida"), PlayerPrefs.GetInt("Carga"));
         if (_sendPlayerPosition)
-         PlayerAccess.Instance.Transform.position = _playerStartPosition; 
+         PlayerAccess.Instance.Transform.position = _playerStartPosition;
+
+
+        _animator = _fade.GetComponent<Animator>();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+
 }

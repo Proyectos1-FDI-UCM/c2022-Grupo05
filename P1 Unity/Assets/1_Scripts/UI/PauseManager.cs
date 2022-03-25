@@ -49,12 +49,19 @@ public class PauseManager : MonoBehaviour
         _volumeSlider.SetActive(true);
 
         _normalReturnButton.onClick.AddListener(QuitPause);
-        _mainMenuButton.onClick.AddListener(GameManager.Instance.MainMenu);
+        _mainMenuButton.onClick.AddListener(Instance.MainMenu);
         _controlsButton.onClick.AddListener(ControlsPause);
 
     }
 
-    public void ControlsPause()
+    private void MainMenu()
+    {
+        QuitPause();
+        GameManager.Instance.MainMenu();
+    }
+
+
+    private void ControlsPause()
     {
         SoundManager.Instance.PlayEffectSound(_clip);
 

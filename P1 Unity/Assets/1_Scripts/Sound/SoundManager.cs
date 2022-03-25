@@ -21,7 +21,8 @@ public class SoundManager : MonoBehaviour
 
     [SerializeField]
     private AudioClip _normalClip,
-                      _bossClip;
+                      _bossClip,
+                      _mainMenuClip;
 
    
 
@@ -45,36 +46,64 @@ public class SoundManager : MonoBehaviour
     {
         _cinematicSource.PlayOneShot(clip);
     }
+
     public void PlayDialogueSound(AudioClip clip)
     {
        _dialogueSource.PlayOneShot(clip);
     }
 
+    public void MainMenu()
+    {
+        if (_mainMenuClip != _musicSource.clip)
+        {
+            _musicSource.Stop();
+            _musicSource.clip = _mainMenuClip;
+            _musicSource.Play();
+        }
+        
+    }
+
+
+    public void Level()
+    {
+        if (_musicSource.clip != _normalClip)
+        {
+            _musicSource.Stop();
+            _musicSource.clip = _normalClip;
+            _musicSource.Play();
+        }
+    }
 
 
     public void Boss()
     {
-        _musicSource.Stop();
-
-        _musicSource.clip = _bossClip;
-        _musicSource.Play();
-
+        if (_musicSource.clip != _bossClip)
+        {
+            _musicSource.Stop();
+            _musicSource.clip = _bossClip;
+            _musicSource.Play();
+        }
     }
     #endregion
 
 
     private void Awake()
     {
-        _instance = this;
+        if (_instance == null)
+        {
+            _instance = this;
+        }
+        else if (_instance != this)
+        {
+            Destroy(gameObject);
+        }
+        DontDestroyOnLoad(gameObject);
     }
 
 
     // Start is called before the first frame update
     void Start()
     {
-        _musicSource.clip = _normalClip;
-        _musicSource.Play();
         _backgroundSource.Play();
-
     }
 }

@@ -27,18 +27,34 @@ public class CloseBossAreas : MonoBehaviour
             PlayerAccess.Instance.Animation.Run(false);
             PlayerAccess.Instance.Animation.OffShot();
 
-            ShakingCamera.Instance.ShakeCamera(5, 1);
+            ShakingCamera.Instance.ShakeCamera(5, 3);
             SoundManager.Instance.PlayEffectSound(_clip);
 
-            _animator.Play("FadeIn", 0, 0f);
+            PlayerAccess.Instance.Movement.Move(new Vector2(1f,0));
 
-            _rocks.SetActive(true);
+            _animator.SetTrigger("Start");
+            StartCoroutine(PlaceRocks());
 
-            SoundManager.Instance.Boss();
-
-
-            Destroy(gameObject);
         }
+    }
+
+
+    IEnumerator PlaceRocks()
+    {
+        yield return new WaitForSeconds(0.5f);
+        PlayerAccess.Instance.Movement.Move(Vector2.zero);
+
+        yield return new WaitForSeconds(2f);
+        _rocks.SetActive(true);
+        SoundManager.Instance.Boss();
+
+        StartCoroutine(DeactivateTrigger());
+    }
+
+    IEnumerator DeactivateTrigger()
+    {
+        yield return new WaitForSeconds(0.1f);
+        gameObject.SetActive(false);
     }
 
 
@@ -46,9 +62,7 @@ public class CloseBossAreas : MonoBehaviour
     void Start()
     {
         _animator = _whiteFade.GetComponent<Animator>();
-        _animator.Play("Rest", 0, 0f);
         _rocks.SetActive(false);
-
     }
 
 }

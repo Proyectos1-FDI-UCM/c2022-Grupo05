@@ -16,7 +16,6 @@ public class BossInAreaTrigger : MonoBehaviour
         {
             _bossObject.SetActive(true);
             _hudController.ShowBossBar(true);
-            Destroy(gameObject);
         }
     }
     #endregion
