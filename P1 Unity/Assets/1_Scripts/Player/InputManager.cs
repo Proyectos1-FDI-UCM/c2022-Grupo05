@@ -17,7 +17,7 @@ public class InputManager : MonoBehaviour
     [SerializeField]
     private float _invertDuration = 5f;
 
-    private bool _gravButtonDown = false, _jumpButtonDown = false, _invertControl = false, _dashButtonDown = false, _shootButtonDown = false, _ampDash = false;
+    private bool _gravButtonDown = false, _jumpButtonDown = false, _invertControl = false, _dashButtonDown = false;
     private bool _shotEnabled;
 
     #region methods
@@ -103,14 +103,9 @@ public class InputManager : MonoBehaviour
 
             if (Input.GetAxis("Dash") > 0 && !_dashButtonDown) { // Deslizamiento / Dash
                 _movementManager.Dash();
-                if(Input.GetAxis("AmpPower") > 0 && _playerLife.UseEnergy()) _ampDash = true;
+                if(Input.GetAxis("AmpPower") > 0 && _playerLife.UseEnergy()) _playerLife.AmpDash = true;
                 _dashButtonDown = true;
             } else if(Input.GetAxis("Dash") == 0) _dashButtonDown = false;
-
-            if(_ampDash) {
-                if(_movementManager.Dashing) _playerLife.ActivateGrace = true;
-                else _playerLife.ActivateGrace = _ampDash = false;
-            }
         }             
     }
 }

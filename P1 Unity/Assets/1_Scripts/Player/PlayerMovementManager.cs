@@ -104,7 +104,6 @@ public class PlayerMovementManager : MonoBehaviour
         _rigidbody = GetComponent<Rigidbody2D>();
         _trigger.accionEntrar = EnterGround; _trigger.accionSalir = ExitGround;
         _animation = GetComponent<PlayerAnimation>();
-        _hasAntigravity = (PlayerPrefs.GetString("Nivel") != "NIVEL 0");
     }
     #endregion
 
@@ -181,6 +180,7 @@ public class PlayerMovementManager : MonoBehaviour
                 _dashCont = 0;
                 _dashing = _canDash = false;
                 _animation.Dash(false);
+                PlayerAccess.Instance.Life.AmpDash = false;
             }
         }
     }

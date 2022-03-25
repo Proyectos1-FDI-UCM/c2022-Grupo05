@@ -16,7 +16,8 @@ public class DamagePlayerController : MonoBehaviour
 
         if (player != null)
         {
-            if(!player.Damage()) { // Hacer daño al jugador, si no hace daño se ejecuta el bloque de comandos
+            player.Damage();
+            if(player.AmpDash) {
                 _life.Damage(false);
             }
         }

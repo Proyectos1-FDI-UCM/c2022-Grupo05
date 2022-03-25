@@ -45,16 +45,17 @@ public class PlayerLifeComponent : MonoBehaviour
     public bool ActivateGrace {
         set => _activeGracePeriod = value;
     }
+
+    public bool AmpDash = false;
     #endregion
 
 
     #region methods
     // Método que daña al jugador
-    public bool Damage()
+    public void Damage()
     {
-        bool returning = !_activeGracePeriod;
         // Si el periodo de gracia no está activo, se activa y baja la vida del jugador
-        if (!_activeGracePeriod)
+        if (!_activeGracePeriod && !AmpDash)
         {
             SoundManager.Instance.PlayEffectSound(_damageClip);
 
@@ -76,7 +77,6 @@ public class PlayerLifeComponent : MonoBehaviour
 
             HUDController.Instance.UpdatePlayerHP(_currentLife);
         }
-        return returning;
     }
 
     // Método que cura al jugador
