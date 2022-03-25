@@ -133,7 +133,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _shootSpeed: 10
-  _direction: {x: 0, y: 0}
   _myTransform: {fileID: 5222801391445809928}
 --- !u!60 &3251796920374671043
 PolygonCollider2D:

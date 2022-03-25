@@ -278,10 +278,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 52ced372fe915d849b3a40a567dadca5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  resumeShot: 1
   nameText: {fileID: 0}
   dialogueText: {fileID: 0}
   animator: {fileID: 0}
   TypingTime: 0.01
+  _typingtClip: {fileID: 0}
 --- !u!4 &57299744
 Transform:
   m_ObjectHideFlags: 0
@@ -54886,7 +54888,7 @@ MonoBehaviour:
   _laserHorizontal: {fileID: 2032748788}
   _laserVertical: {fileID: 1779217995}
   _8balas: {fileID: 4689793768457696041, guid: 11d5e21fcf3f6604fa9aac9e070ea964, type: 3}
-  _bala: {fileID: 74152955096108359, guid: 088d8a5c37c82dc4380005888f3c0115, type: 3}
+  _bala: {fileID: 5222801391446089048, guid: b4d4feb35960e354a8885f6ea2a2a9ed, type: 3}
 --- !u!1 &1317884510
 GameObject:
   m_ObjectHideFlags: 0
@@ -55408,7 +55410,8 @@ MonoBehaviour:
   _dashSpeed: 10
   _actionTime: 3
   _dashTime: 1
-  _shotPrefab: {fileID: 5222801391446089048, guid: b4d4feb35960e354a8885f6ea2a2a9ed, type: 3}
+  _shotPrefab: {fileID: 74152955096108359, guid: 088d8a5c37c82dc4380005888f3c0115, type: 3}
+  _shroomPrefab: {fileID: 1005695128615067411, guid: 40ea2abc5488bda488e2fb7c9bb0b9b8, type: 3}
 --- !u!1 &1551031585 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2669639385284601864, guid: 79b00170363297c429994bcb54fa5242, type: 3}

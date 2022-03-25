@@ -56,12 +56,28 @@ public class BossFirstPhaseController : MonoBehaviour
 
     private void SetDirection()
     {
-        int dir = _playerPos.position.x > _myTransform.position.x ? 1 : -1;
-        if (dir != _direction)
+        //int dir = _playerPos.position.x > _myTransform.position.x ? 1 : -1;
+        int dir = 0;
+        if(_playerPos.position.x - _myTransform.position.x > 0.7)
         {
-            _myTransform.Rotate(0, 180, 0);
-            _direction = dir;
+            dir = 1;
         }
+        else if(_myTransform.position.x- _playerPos.position.x > 0.7)
+        {
+            dir = -1;
+        }
+        if (dir != _direction&&dir!=0)
+        {
+            if (dir == 1)
+            {
+                _myTransform.rotation = Quaternion.Euler(0,180,0);
+            }
+            else
+            {
+                _myTransform.rotation = Quaternion.identity;
+            }
+        }
+        _direction = dir;
     }
 
     private void Shoot()

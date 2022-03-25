@@ -21,6 +21,7 @@ public class ShotMovementController : MonoBehaviour
     #region methods
     public void SetDirection(Vector2 direction)
     {
+        _myTransform = transform;
         _direction = direction;
         if(direction.x >= 0 && direction.y >= 0) _myTransform.rotation = Quaternion.AngleAxis(Mathf.Rad2Deg * Mathf.Asin(_direction.y), Vector3.forward);
         else if(direction.x < 0 && direction.y >= 0) _myTransform.rotation = Quaternion.AngleAxis(180 - Mathf.Rad2Deg * Mathf.Asin(_direction.y), Vector3.forward);
@@ -32,10 +33,7 @@ public class ShotMovementController : MonoBehaviour
         dir = direction;
     }
     #endregion
-
-
-    // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
         _myTransform = transform;
     }
