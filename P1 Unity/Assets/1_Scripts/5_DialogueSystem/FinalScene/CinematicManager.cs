@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class CinematicManager : MonoBehaviour
 {
@@ -125,9 +126,15 @@ public class CinematicManager : MonoBehaviour
 
     }
 
-    // Update is called once per frame
-    void Update()
+    public void FinJuego()
     {
-
+        StartCoroutine(ReturnMenu());
+        
+    }
+    IEnumerator ReturnMenu()
+    {
+        yield return new WaitUntil(() => Input.anyKeyDown);
+        PlayerPrefs.DeleteAll();
+        SceneManager.LoadScene("Main Menu");
     }
 }

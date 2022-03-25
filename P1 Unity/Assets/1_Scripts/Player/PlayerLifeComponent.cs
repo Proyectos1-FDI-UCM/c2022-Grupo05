@@ -144,7 +144,7 @@ public class PlayerLifeComponent : MonoBehaviour
         // Inicializa la vida y energía restante con sus valores m�ximos
         _currentLife = _maxLife;
         HUDController.Instance.UpdatePlayerHP(_currentLife);
-        _currentEnergy = _maxEnergy;
+        _currentEnergy = 0;
         HUDController.Instance.UpdateEnergy(_currentEnergy);
         _animator = GetComponent<Animator>();
         _playerRenderer = GetComponent<SpriteRenderer>();

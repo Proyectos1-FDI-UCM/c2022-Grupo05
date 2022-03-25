@@ -1218,6 +1218,7 @@ GameObject:
   m_Component:
   - component: {fileID: 421844033}
   - component: {fileID: 421844032}
+  - component: {fileID: 421844034}
   m_Layer: 0
   m_Name: HappyEndAnim
   m_TagString: Untagged
@@ -1265,6 +1266,18 @@ Transform:
   m_Father: {fileID: 850472998}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &421844034
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 421844031}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 601110cb81ad93447b6bbf10b4515aba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &441603003
 GameObject:
   m_ObjectHideFlags: 0
@@ -3459,7 +3472,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _playerPosition1: {x: -36.213, y: -2.833, z: 0}
   _playerPosition2: {x: -16.92, y: -2.833, z: 0}
-  minEnergy: 80
+  minEnergy: 0
   _playerAnim: {fileID: 6788901083504234643}
   _sendStoneAnim: {fileID: 1790141290}
   _sentStoneDialogue: {fileID: 421076517}
@@ -4801,6 +4814,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1073805225}
   - component: {fileID: 1073805226}
+  - component: {fileID: 1073805227}
   m_Layer: 0
   m_Name: BadEndAnim
   m_TagString: Untagged
@@ -4848,6 +4862,18 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &1073805227
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1073805224}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 601110cb81ad93447b6bbf10b4515aba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1119663893
 GameObject:
   m_ObjectHideFlags: 0
