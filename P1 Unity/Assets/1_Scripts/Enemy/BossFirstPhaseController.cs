@@ -6,7 +6,7 @@ public class BossFirstPhaseController : MonoBehaviour
 {
     #region parameters
     [SerializeField] private float _speed = 3f;
-    [SerializeField] private float _dashSpeed = 10f;
+    [SerializeField] private float _dashSpeed = 15f;
     [SerializeField] private float _actionTime = 3f;
     [SerializeField] private float _dashTime = 1f;
     #endregion

@@ -112,7 +112,6 @@ MonoBehaviour:
   _DieFX: {fileID: 7408318839932606042, guid: 3d1b18cb3f0ccaf4ba552c5c8fc3047b, type: 3}
   _fullBody: {fileID: 2372093727530410873}
   _weakPoint: {fileID: 4454539820611307084}
-  _bossObject: {fileID: 4454539820567201528}
 --- !u!1 &4454539820567201528
 GameObject:
   m_ObjectHideFlags: 0
@@ -125,7 +124,6 @@ GameObject:
   - component: {fileID: 4454539820567201529}
   - component: {fileID: 3349102958423387572}
   - component: {fileID: 9152684235090776004}
-  - component: {fileID: 1818285009485560606}
   m_Layer: 0
   m_Name: BossSecondPhase
   m_TagString: Untagged
@@ -237,7 +235,7 @@ PolygonCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 7, y: 9.25}
+    oldSize: {x: 5.6, y: 7.4}
     newSize: {x: 0.28, y: 0.37}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -251,25 +249,6 @@ PolygonCollider2D:
       - {x: -1.9694602, y: -3.3886397}
       - {x: -1.3906113, y: -3.3414998}
       - {x: 2.2933016, y: -3.3447855}
---- !u!114 &1818285009485560606
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4454539820567201528}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f7ea5f4e86762b84e85bc5dc80484c76, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _maxLife: 40
-  _breakPointLife: 20
-  _secondPhase: 0
-  _DieFX: {fileID: 7408318839932606042, guid: 3d1b18cb3f0ccaf4ba552c5c8fc3047b, type: 3}
-  _fullBody: {fileID: 2372093727530410873}
-  _weakPoint: {fileID: 4454539820611307084}
-  _bossObject: {fileID: 0}
 --- !u!60 &4508916240227227575
 PolygonCollider2D:
   m_ObjectHideFlags: 0

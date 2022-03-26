@@ -55,7 +55,7 @@ public class MovingPlatforms : MonoBehaviour {
 
         if (_playerOn)
         {
-            _player.velocity += _speed * _dir.normalized / 3;
+            _player.velocity += _dir.normalized*_speed /2f;
         }
     }
 }
