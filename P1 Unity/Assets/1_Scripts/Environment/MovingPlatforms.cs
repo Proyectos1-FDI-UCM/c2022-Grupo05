@@ -16,6 +16,7 @@ public class MovingPlatforms : MonoBehaviour {
     private Vector2 _dir;              // Vector de dirección
     [SerializeField]
     private bool _playerOn;            // Si el jugador está encima de la plataforma
+    private float aux = 3;
     #endregion
 
     #region references
@@ -29,11 +30,16 @@ public class MovingPlatforms : MonoBehaviour {
         _placeOrigin = _platform.position;
         _placeObject = (Vector2)_platform.position + new Vector2(_distance, 0);
         _dir = _placeObject - _placeOrigin;
+        if (_distance>0)
+        {
+            aux = 2;
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision) {
         if (collision.GetComponentInParent<PlayerMovementManager>() != null) {
             _playerOn = true;
+          
         }
 
     }
@@ -55,7 +61,8 @@ public class MovingPlatforms : MonoBehaviour {
 
         if (_playerOn)
         {
-            _player.velocity += _dir.normalized*_speed /2f;
+            _player.velocity += _dir.normalized*_speed/aux;  //puede que el player tiene un velocidad difrente , 
+            //pero si el de negativo en speed 3 o de positivo en speed 2 funciona 
         }
     }
 }

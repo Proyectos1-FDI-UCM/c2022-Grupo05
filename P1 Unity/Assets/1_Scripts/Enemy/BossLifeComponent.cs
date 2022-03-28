@@ -17,7 +17,8 @@ public class BossLifeComponent : MonoBehaviour
     [SerializeField] private GameObject _fullBody;
 
     [SerializeField] private GameObject _weakPoint;
-   // [SerializeField] private GameObject _bossObject;
+    [SerializeField] private GameObject _pared;
+    //private GameObject _bossObject;
     #endregion
 
     #region methods
@@ -38,14 +39,15 @@ public class BossLifeComponent : MonoBehaviour
         if (_currentLife <= 0)
         {
             HUDController.Instance.ShowBossBar(false);
-            //_bossObject.SetActive(false);
+           // _bossObject.SetActive(false);
             Instantiate(_DieFX, transform.position, Quaternion.identity);
-           
+            Destroy(_pared);
+            Destroy(GameObject.Find("BossSecondPhase"));
         }
         HUDController.Instance.UpdateBossHP(_currentLife);
     }
 
-    public int ActualLife() 
+    public int ActualLife()
     {
         return _currentLife;
     }
@@ -56,12 +58,15 @@ public class BossLifeComponent : MonoBehaviour
     {
         _currentLife = _maxLife;
 
-        if(_secondPhase) {
+        if (_secondPhase)
+        {
             _weakPoint.SetActive(true);
             _weakPoint.GetComponent<Collider2D>().enabled = true;
             _fullBody.GetComponent<Collider2D>().enabled = false;
-           // _bossObject.SetActive(true);
-        } else {
+            // _bossObject.SetActive(true);
+        }
+        else
+        {
             _weakPoint.SetActive(false);
             _weakPoint.GetComponent<Collider2D>().enabled = false;
             _fullBody.GetComponent<Collider2D>().enabled = true;

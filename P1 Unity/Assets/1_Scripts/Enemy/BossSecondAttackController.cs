@@ -8,17 +8,20 @@ public class BossSecondAttackController : MonoBehaviour
     [SerializeField]
     private float _atacktime = 10;  //para cada ataque especial
     [SerializeField]
-    private float _timeofshot = 12; // tiempo para cada disparar
+    private float _timeofshot = 12; // tiempo para giro
     [SerializeField]
     private float _timeBetweenShots = 0.3f;        // Intervalo entre balas (volea de balas)
     #endregion
 
     #region properties
     private float _atackcont = 0;   // Contador para intervalo entre ataques
+    private float _bosstruncont = 0; //Contador para giro de boss
+    private float _rnd;
     #endregion
 
     #region references
     private Transform _MyTransfrom;
+    
     private BossLifeComponent _life;
     [SerializeField]
     private GameObject _laserHorizontal;
@@ -33,7 +36,26 @@ public class BossSecondAttackController : MonoBehaviour
 
     #region methods
     private void Rotate() {
-        _MyTransfrom.localScale = new Vector3(_MyTransfrom.localScale.x, -_MyTransfrom.localScale.y, _MyTransfrom.localScale.z);
+        float rnd = GameManager.Instance.RNG(0, 4);
+        Vector3 r = Vector3.one; //new Vector3(transform.rotation.x,transform.rotation.y,transform.rotation.z);
+        if (rnd > 2)
+        {
+            r.x = -1;
+            if (rnd < 3)
+            {
+                r.y = -1;
+            }
+        }
+        else
+        {
+            r.y = -1;
+            if (rnd < 1)
+            {
+                r.x = -1;
+            }
+        }
+        _MyTransfrom.localScale = Vector3.Scale(transform.localScale, r);
+        //_MyTransfrom.localScale = new Vector3(_MyTransfrom.localScale.x, -_MyTransfrom.localScale.y, _MyTransfrom.localScale.z);
     }
     private void ShootVolley() {
         Shoot();
@@ -68,7 +90,7 @@ public class BossSecondAttackController : MonoBehaviour
     }
     private void BossAtack()
     {
-        ShootVolley();
+       // ShootVolley();
         int rnd = Random.Range(0, 10);
         if (rnd < 1)
         {
@@ -78,15 +100,19 @@ public class BossSecondAttackController : MonoBehaviour
         {
             LaserV();
         }
-        else if (rnd < 7)
+        else if (rnd < 6)
         {
             LaserH();
         }
-        else
+        else if(rnd<8)
         {
             ShotCircle();
         }
-        Invoke("Apagar", 2f);
+        else
+        {
+            ShootVolley();
+        }
+        Invoke("Apagar", 4f);
     }
     #endregion
 
@@ -96,6 +122,7 @@ public class BossSecondAttackController : MonoBehaviour
         _MyTransfrom = transform;
         _life = GetComponent<BossLifeComponent>();
         _player = PlayerAccess.Instance.Transform;
+        _rnd = GameManager.Instance.RNG(15, 21);
     }
 
     // Update is called once per frame
@@ -107,5 +134,13 @@ public class BossSecondAttackController : MonoBehaviour
             BossAtack();
             _atackcont = 0;
         }
+        _bosstruncont += Time.deltaTime;
+        if (_bosstruncont > _rnd)
+        {
+            _bosstruncont = 0;
+            _rnd = GameManager.Instance.RNG(15, 21);
+            Rotate();
+        }
+        
     }
 }
