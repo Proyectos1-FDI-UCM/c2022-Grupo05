@@ -129,7 +129,7 @@ MonoBehaviour:
   _activeTime: 5
   _desactiveTime: 3
   _redLineTime: 2
-  _clip: {fileID: 8300000, guid: ab297b593498a6e47ba84de770477cbe, type: 3}
+  _clip: {fileID: 8300000, guid: 9f97877b00ab0b6429bf3f8baf742855, type: 3}
   _lineaRoja: {fileID: 4390683478752071116}
 --- !u!1001 &4390683477750299441
 PrefabInstance:

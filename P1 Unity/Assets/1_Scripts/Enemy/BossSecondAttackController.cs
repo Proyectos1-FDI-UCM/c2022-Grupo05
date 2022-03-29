@@ -114,6 +114,10 @@ public class BossSecondAttackController : MonoBehaviour
         }
         Invoke("Apagar", 4f);
     }
+    private void OnDisable()
+    {
+        Apagar();
+    }
     #endregion
 
     // Start is called before the first frame update

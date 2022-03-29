@@ -15,15 +15,18 @@ public class BossLifeComponent : MonoBehaviour
     #region references
     [SerializeField] private GameObject _DieFX;
     [SerializeField] private GameObject _fullBody;
-
     [SerializeField] private GameObject _weakPoint;
     [SerializeField] private GameObject _pared;
+    [SerializeField] private Transform[] _point; //lugares que generar vida o enegia para la mejora
+    [SerializeField] private GameObject _Cure;
+    [SerializeField] private GameObject _Energy;
     //private GameObject _bossObject;
     #endregion
 
     #region methods
     public void Damage(bool isShotUpgraded)
     {
+        InstanceObject();
         _currentLife--;
         if (isShotUpgraded) _currentLife--;
         if (!_secondPhase && _currentLife <= _breakPointLife)
@@ -41,16 +44,25 @@ public class BossLifeComponent : MonoBehaviour
             HUDController.Instance.ShowBossBar(false);
            // _bossObject.SetActive(false);
             Instantiate(_DieFX, transform.position, Quaternion.identity);
-            Destroy(_pared);
-            Destroy(GameObject.Find("BossSecondPhase"));
+            _pared.SetActive(false);
+            GameObject.Find("BossSecondPhase").SetActive(false);
         }
         HUDController.Instance.UpdateBossHP(_currentLife);
     }
-
-    public int ActualLife()
+    private void InstanceObject()   //genera cura o energia
     {
-        return _currentLife;
+        float i = GameManager.Instance.RNG(0, 10);
+        if (i<1f)
+        {
+            Instantiate(_Cure, _point[(int)GameManager.Instance.RNG(0, _point.Length)].position,Quaternion.identity);
+        }
+        else if (i <2)
+        {
+            Instantiate(_Energy, _point[(int)GameManager.Instance.RNG(0, _point.Length)].position,Quaternion.identity);
+        }
+ 
     }
+
     #endregion
 
     // Start is called before the first frame update
