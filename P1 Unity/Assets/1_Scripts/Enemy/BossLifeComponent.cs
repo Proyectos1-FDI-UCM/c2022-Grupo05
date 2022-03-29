@@ -21,12 +21,34 @@ public class BossLifeComponent : MonoBehaviour
     [SerializeField] private GameObject _Cure;
     [SerializeField] private GameObject _Energy;
     //private GameObject _bossObject;
+
+    [SerializeField] private AudioClip _damageClip;
+    [SerializeField] private AudioClip _damageClip1;
+    [SerializeField] private AudioClip _damageClip2;
+    [SerializeField] private AudioClip _damageClip3;
+
     #endregion
 
     #region methods
     public void Damage(bool isShotUpgraded)
     {
         InstanceObject();
+
+        float _rnd = GameManager.Instance.RNG(0, 3);
+        if (_rnd > 2)
+        {
+            SoundManager.Instance.PlayEffectSound(_damageClip1);
+        }
+        else if (_rnd > 1)
+        {
+            SoundManager.Instance.PlayEffectSound(_damageClip2);
+        }
+        else
+        {
+            SoundManager.Instance.PlayEffectSound(_damageClip3);
+        }
+        SoundManager.Instance.PlayEffectSound(_damageClip);
+
         _currentLife--;
         if (isShotUpgraded) _currentLife--;
         if (!_secondPhase && _currentLife <= _breakPointLife)

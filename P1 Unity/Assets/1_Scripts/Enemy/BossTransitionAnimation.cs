@@ -17,6 +17,10 @@ public class BossTransitionAnimation : MonoBehaviour
     float alpha = 0;
     Vector2 origin;
 
+    [SerializeField]
+    private AudioClip _rocksClip;
+    private int _rocksClipPlayed = 0;
+
     private void Start() {
         _transform = transform;
         _rigidbody = GetComponent<Rigidbody2D>();
@@ -57,10 +61,15 @@ public class BossTransitionAnimation : MonoBehaviour
                 break;
             case 3:
                 _transform.Translate(Vector3.Normalize(new Vector3(posiciónDeseada.x - _transform.position.x, 0, 0)) * velocidad.x * Time.deltaTime);
-                if(paredTransform.position.x < _transform.position.x) {
+                if(paredTransform.position.x -15 < _transform.position.x) {
                     pared.SetActive(false);
+                    if (_rocksClipPlayed < 1)
+                    {
+                        SoundManager.Instance.PlayEffectSound(_rocksClip);
+                    }
+                    _rocksClipPlayed++;
                 }
-                if(_transform.position.x > posiciónDeseada.x) {
+                if (_transform.position.x > posiciónDeseada.x) {
                     PlayerAccess.Instance.Input.enabled = true;
                     Destroy(gameObject);
                 }

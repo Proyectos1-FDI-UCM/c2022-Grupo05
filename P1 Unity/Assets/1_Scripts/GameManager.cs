@@ -133,6 +133,8 @@ public class GameManager : MonoBehaviour
 
     IEnumerator LoadMainMenu()
     {
+        SoundManager.Instance.FadeAudio();
+
         _animator.SetTrigger("Start");
 
         yield return new WaitForSeconds(1);

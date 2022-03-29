@@ -23,8 +23,9 @@ public class SoundManager : MonoBehaviour
     private AudioClip _normalClip,
                       _bossClip,
                       _mainMenuClip;
+    [SerializeField]
+    private VolumeControl _volumeController;
 
-   
 
     #endregion
 
@@ -51,6 +52,13 @@ public class SoundManager : MonoBehaviour
     {
        _dialogueSource.PlayOneShot(clip);
     }
+
+
+    public void FadeAudio()
+    {
+        _volumeController.FadeAudio();
+    }
+
 
     public void MainMenu()
     {
@@ -104,6 +112,8 @@ public class SoundManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        _volumeController = _volumeController.GetComponent<VolumeControl>();
+
         _backgroundSource.Play();
     }
 }

@@ -19,6 +19,9 @@ public class EnemyShotController : MonoBehaviour
     private Transform _playerPos;
     [SerializeField] private GameObject _shotPrefab;
     [SerializeField] private EnemyDetection _detection;
+
+    [SerializeField] private AudioClip _clip;
+
     #endregion
     private void Detectplayer()
     {
@@ -30,12 +33,10 @@ public class EnemyShotController : MonoBehaviour
     }
     private void Shoot()
     {
-        
-        {
-            GameObject shot = Instantiate(_shotPrefab, _shootPoint.position, _shootPoint.rotation);
-            shot.GetComponent<ShotMovementController>().SetDirection(Vector3.Normalize(_playerPos.position - transform.position));
-            _shootCooldown = _shootTime;
-        }
+        SoundManager.Instance.PlayEffectSound(_clip);
+        GameObject shot = Instantiate(_shotPrefab, _shootPoint.position, _shootPoint.rotation);
+        shot.GetComponent<ShotMovementController>().SetDirection(Vector3.Normalize(_playerPos.position - transform.position));
+        _shootCooldown = _shootTime;
     }
 
     // Start is called before the first frame update

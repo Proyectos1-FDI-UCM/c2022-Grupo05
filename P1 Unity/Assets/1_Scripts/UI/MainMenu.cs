@@ -17,18 +17,16 @@ public class MainMenu : MonoBehaviour
     #region methods
     public void LoadGame()
     {
-        _animator.Play("SceneFadeIn", 0, 0f);
-        SoundManager.Instance.Level();
+        _animator.SetTrigger("Start");
+        SoundManager.Instance.FadeAudio();
 
         Invoke("LoadScene", 0.3f);
-
-
     }
 
     public void NewGame()
     {
-        _animator.Play("SceneFadeIn", 0, 0f);
-        SoundManager.Instance.Level();
+        _animator.SetTrigger("Start");
+        SoundManager.Instance.FadeAudio();
 
         Invoke("NewScene", 0.3f);
     }
@@ -36,6 +34,8 @@ public class MainMenu : MonoBehaviour
     private void LoadScene()
     {
         SceneManager.LoadScene(PlayerPrefs.GetString("Nivel"));
+
+        SoundManager.Instance.Level();
     }
 
     private void NewScene()
@@ -44,6 +44,8 @@ public class MainMenu : MonoBehaviour
         PlayerPrefs.SetInt("Energía", 0);
         PlayerPrefs.Save();
         SceneManager.LoadScene("NIVEL 0");
+
+        SoundManager.Instance.Level();
     }
 
 
@@ -70,5 +72,6 @@ public class MainMenu : MonoBehaviour
 
 
         _animator = _fade.GetComponent<Animator>();
+
     }
 }

@@ -25,8 +25,30 @@ public class VolumeControl : MonoBehaviour
     // Cambia el valor del master volume al valor que reciba
     private void ChangeSlideValue (float value)
     {
-        _mixer.SetFloat(_volumeParameter, Mathf.Log10(value) * _multiplier ) ;
+        _mixer.SetFloat(_volumeParameter, Mathf.Log10(value) * _multiplier );
     }
+
+
+    public void FadeAudio()
+    {
+        float currentTime = 0.5f;
+        float start = _slider.value;
+
+        while (currentTime > 0.5f)
+        {
+            currentTime -= Time.deltaTime;
+            ChangeSlideValue(start * currentTime * 10);
+        }
+
+        currentTime = 0.5f;
+
+        while (currentTime > 0.5f)
+        {
+            currentTime -= Time.deltaTime;
+            ChangeSlideValue(start * Time.deltaTime * 10);
+        }
+    }
+
 
 
     // Guarda el último valor del volumen

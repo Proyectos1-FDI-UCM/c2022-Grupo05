@@ -807,6 +807,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5356428865975464857, guid: 81ab639f1f8a0dc468850883c473283a, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5356428865975464857, guid: 81ab639f1f8a0dc468850883c473283a, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5356428865975464857, guid: 81ab639f1f8a0dc468850883c473283a, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6288058880181475212, guid: 81ab639f1f8a0dc468850883c473283a, type: 3}
       propertyPath: m_RootOrder
       value: 9
@@ -854,6 +866,14 @@ PrefabInstance:
     - target: {fileID: 6288058880181475214, guid: 81ab639f1f8a0dc468850883c473283a, type: 3}
       propertyPath: m_Name
       value: SoundManager
+      objectReference: {fileID: 0}
+    - target: {fileID: 8500573812091057067, guid: 81ab639f1f8a0dc468850883c473283a, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8500573812091057067, guid: 81ab639f1f8a0dc468850883c473283a, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 81ab639f1f8a0dc468850883c473283a, type: 3}

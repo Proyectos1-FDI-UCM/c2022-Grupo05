@@ -251,6 +251,8 @@ MonoBehaviour:
   _trigger: {fileID: 4600615352017307880}
   _dashClip: {fileID: 8300000, guid: 22e63e55a41a17347ae937e3391e4d61, type: 3}
   _jumpClip: {fileID: 8300000, guid: df6d6e6970d3ebc40a5ecbe1e1f21c1e, type: 3}
+  _antiGravityClip: {fileID: 8300000, guid: 0426027984d734e7fba2fe886ef21380, type: 3}
+  _walkingClip: {fileID: 8300000, guid: 85f3444f74f47ad4b8fa462378ae9a1e, type: 3}
 --- !u!114 &4600615353497502603
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -287,7 +287,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4454539820567201528}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f7ea5f4e86762b84e85bc5dc80484c76, type: 3}
   m_Name: 
@@ -298,6 +298,16 @@ MonoBehaviour:
   _DieFX: {fileID: 7408318839932606042, guid: 3d1b18cb3f0ccaf4ba552c5c8fc3047b, type: 3}
   _fullBody: {fileID: 2372093727530410873}
   _weakPoint: {fileID: 4454539820611307084}
+  _pared: {fileID: 0}
+  _point:
+  - {fileID: 0}
+  - {fileID: 0}
+  _Cure: {fileID: 7757121337761391269, guid: f9bb47fb6a1edfe4b83c1d7026a04fc7, type: 3}
+  _Energy: {fileID: 2678302075247602889, guid: 7425a9b7a59fdf248a5f35a7a41cbf47, type: 3}
+  _damageClip: {fileID: 8300000, guid: 54b4288f08d4b394aa1d52eb1c305424, type: 3}
+  _damageClip1: {fileID: 8300000, guid: 5dc26c03ae36d4ea8b35306591b49aa5, type: 3}
+  _damageClip2: {fileID: 8300000, guid: 478d0061679514d7cb97edc1aecef9c8, type: 3}
+  _damageClip3: {fileID: 8300000, guid: ca47716003ead47cc9cf34f2f9e62bf1, type: 3}
 --- !u!114 &6858432835845463077
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -313,6 +323,7 @@ MonoBehaviour:
   "posici\xF3nDeseada": {x: 0, y: -2.75}
   velocidad: {x: 50, y: 3}
   pared: {fileID: 0}
+  _rocksClip: {fileID: 0}
 --- !u!114 &4099329954087783509
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -325,12 +336,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fb5c6ec0909c47e418aad75528403bb9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _speed: 3
-  _dashSpeed: 10
-  _actionTime: 3
+  _speed: 2.6
+  _dashSpeed: 8
+  _actionTime: 5
   _dashTime: 1
   _shotPrefab: {fileID: 74152955096108359, guid: 088d8a5c37c82dc4380005888f3c0115, type: 3}
-  _shroomPrefab: {fileID: 1005695128615067411, guid: 40ea2abc5488bda488e2fb7c9bb0b9b8, type: 3}
+  _shroomPrefab: {fileID: 8841174959083514876, guid: 7619bcebd8cba1340b377b052901e99a, type: 3}
+  _shotClip: {fileID: 8300000, guid: eabbe537c7395ee4daeb4585e0cd35bc, type: 3}
+  _mushroomClip: {fileID: 8300000, guid: 93cfc993a4c6b4512b3cfdd5177a139c, type: 3}
+  _sound1Clip: {fileID: 8300000, guid: 8cdec587df1a0cc4cad11efeb6bff09c, type: 3}
+  _sound2Clip: {fileID: 8300000, guid: 45c3a9ae8e2734911872ec8e4a50cbfc, type: 3}
 --- !u!95 &2717811057238961558
 Animator:
   serializedVersion: 3

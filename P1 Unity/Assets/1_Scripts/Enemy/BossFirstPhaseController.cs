@@ -27,6 +27,12 @@ public class BossFirstPhaseController : MonoBehaviour
     private PlayerMovementManager _gravityCheck;
     private Transform _myTransform;
     private Rigidbody2D _myRB;
+
+    [SerializeField] private AudioClip _shotClip;
+    [SerializeField] private AudioClip _mushroomClip;
+    [SerializeField] private AudioClip _sound1Clip;
+    [SerializeField] private AudioClip _sound2Clip;
+
     #endregion
 
     #region methods
@@ -44,12 +50,14 @@ public class BossFirstPhaseController : MonoBehaviour
             {
                 _changingGravity = true;
                 _timer = _actionTime/2;
+                SoundManager.Instance.PlayEffectSound(_sound1Clip);
 
             }
             else 
             {
                 _dashTimer = _dashTime;
                 _timer = 0;
+                SoundManager.Instance.PlayEffectSound(_sound2Clip);
             }
         }
     }
@@ -82,17 +90,21 @@ public class BossFirstPhaseController : MonoBehaviour
 
     private void Shoot()
     {
-            GameObject shotA = Instantiate(_shotPrefab, _myTransform.position, _myTransform.rotation);
-            GameObject shotB = Instantiate(_shotPrefab, _myTransform.position, _myTransform.rotation);
-            GameObject shotC = Instantiate(_shotPrefab, _myTransform.position, _myTransform.rotation);
-            Vector3 dir = Vector3.Normalize(_playerPos.position - transform.position);
-            shotA.GetComponent<ShotMovementController>().SetDirection(dir);
-            shotB.GetComponent<ShotMovementController>().SetDirection(Quaternion.AngleAxis(20,Vector3.forward) * dir);
-            shotC.GetComponent<ShotMovementController>().SetDirection(Quaternion.AngleAxis(-20, Vector3.forward) * dir);        
+        SoundManager.Instance.PlayEffectSound(_shotClip);
+
+        GameObject shotA = Instantiate(_shotPrefab, _myTransform.position, _myTransform.rotation);
+        GameObject shotB = Instantiate(_shotPrefab, _myTransform.position, _myTransform.rotation);
+        GameObject shotC = Instantiate(_shotPrefab, _myTransform.position, _myTransform.rotation);
+        Vector3 dir = Vector3.Normalize(_playerPos.position - transform.position);
+        shotA.GetComponent<ShotMovementController>().SetDirection(dir);
+        shotB.GetComponent<ShotMovementController>().SetDirection(Quaternion.AngleAxis(20, Vector3.forward) * dir);
+        shotC.GetComponent<ShotMovementController>().SetDirection(Quaternion.AngleAxis(-20, Vector3.forward) * dir);
     }
 
     private void ShroomShot() 
     {
+        SoundManager.Instance.PlayEffectSound(_mushroomClip);
+
         GameObject shot = Instantiate(_shroomPrefab, _myTransform.position, _myTransform.rotation);
         shot.GetComponent<ShotMovementController>().SetDirection(Vector3.Normalize(_playerPos.position - transform.position));
     }
@@ -128,6 +140,7 @@ public class BossFirstPhaseController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
         if (_timer < _actionTime) _timer += Time.deltaTime;
         else 
         {

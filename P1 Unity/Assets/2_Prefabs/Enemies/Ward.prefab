@@ -287,6 +287,7 @@ MonoBehaviour:
   _shootTime: 0.8
   _shotPrefab: {fileID: 74152955096108359, guid: 088d8a5c37c82dc4380005888f3c0115, type: 3}
   _detection: {fileID: 953276352}
+  _clip: {fileID: 8300000, guid: 76e459015c43a4bf788f401e4e888b3c, type: 3}
 --- !u!114 &9070967826039229310
 MonoBehaviour:
   m_ObjectHideFlags: 0

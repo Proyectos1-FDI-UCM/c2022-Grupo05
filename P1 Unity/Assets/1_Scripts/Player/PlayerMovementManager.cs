@@ -50,6 +50,10 @@ public class PlayerMovementManager : MonoBehaviour
 
     [SerializeField] private AudioClip _dashClip;
     [SerializeField] private AudioClip _jumpClip;
+    [SerializeField] private AudioClip _antiGravityClip;
+    [SerializeField] private AudioClip _walkingClip;
+
+
     #endregion
 
     #region methods
@@ -112,6 +116,7 @@ public class PlayerMovementManager : MonoBehaviour
         Vector3 targetVelocity = new Vector2(_movement.x * 10f, _rigidbody.velocity.y);
         _rigidbody.velocity = Vector3.SmoothDamp(_rigidbody.velocity, targetVelocity, ref _velocity, _movementSmoothing);
 
+
         // Girar sprite si cambia de sentido
         if (!_dashing && ((_movement.x < 0 && _facingRight) || (_movement.x > 0 && !_facingRight))) {
             _facingRight = !_facingRight;
@@ -127,6 +132,9 @@ public class PlayerMovementManager : MonoBehaviour
 
         // Cambio de gravedad
         if(_changingGravity) {
+
+            SoundManager.Instance.PlayEffectSound(_antiGravityClip);
+
             _rigidbody.gravityScale = -_rigidbody.gravityScale;
             _changingGravity = _canChangeGravity = false;
             _isGravityChanged = !_isGravityChanged;

@@ -14,7 +14,9 @@ public class CloseBossAreas : MonoBehaviour
     private GameObject _rocks;
 
     [SerializeField]
-    private AudioClip _clip;
+    private AudioClip _avalancheClip;
+    [SerializeField]
+    private AudioClip _rocksClip;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -28,7 +30,7 @@ public class CloseBossAreas : MonoBehaviour
             PlayerAccess.Instance.Animation.OffShot();
 
             ShakingCamera.Instance.ShakeCamera(5, 3);
-            SoundManager.Instance.PlayEffectSound(_clip);
+            SoundManager.Instance.PlayEffectSound(_avalancheClip);
 
             PlayerAccess.Instance.Movement.Move(new Vector2(1f,0));
 
@@ -46,6 +48,7 @@ public class CloseBossAreas : MonoBehaviour
 
         yield return new WaitForSeconds(2f);
         _rocks.SetActive(true);
+        SoundManager.Instance.PlayEffectSound(_rocksClip);
         SoundManager.Instance.Boss();
 
         StartCoroutine(DeactivateTrigger());
