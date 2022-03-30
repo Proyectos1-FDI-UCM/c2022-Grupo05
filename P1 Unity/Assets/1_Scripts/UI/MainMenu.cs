@@ -40,6 +40,7 @@ public class MainMenu : MonoBehaviour
 
     private void NewScene()
     {
+        PlayerPrefs.DeleteAll();
         PlayerPrefs.SetString("Nivel", "NIVEL 0");
         PlayerPrefs.SetInt("Energía", 0);
         PlayerPrefs.Save();
@@ -67,7 +68,7 @@ public class MainMenu : MonoBehaviour
         else 
         {
             _loadGame.SetActive(false);
-            _newGame.transform.Translate(new Vector2(0, 1)); ;
+            _newGame.transform.Translate(new Vector2(0, 1));
         }
 
 
