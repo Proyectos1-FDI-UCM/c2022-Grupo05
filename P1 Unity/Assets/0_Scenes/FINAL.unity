@@ -3472,7 +3472,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _playerPosition1: {x: -36.213, y: -2.833, z: 0}
   _playerPosition2: {x: -16.92, y: -2.833, z: 0}
-  minEnergy: 0
+  minEnergy: 390
   _playerAnim: {fileID: 6788901083504234643}
   _sendStoneAnim: {fileID: 1790141290}
   _sentStoneDialogue: {fileID: 421076517}

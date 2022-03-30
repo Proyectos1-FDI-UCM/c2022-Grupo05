@@ -46,7 +46,7 @@ public class CloseBossAreas : MonoBehaviour
         yield return new WaitForSeconds(0.5f);
         PlayerAccess.Instance.Movement.Move(Vector2.zero);
 
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(1.55f);
         _rocks.SetActive(true);
         SoundManager.Instance.PlayEffectSound(_rocksClip);
         SoundManager.Instance.Boss();

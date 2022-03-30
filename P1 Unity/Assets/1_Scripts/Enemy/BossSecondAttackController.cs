@@ -32,10 +32,15 @@ public class BossSecondAttackController : MonoBehaviour
     [SerializeField]
     private GameObject _bala;
     private Transform _player;
+
+    [SerializeField] private AudioClip _rotateClip;
+    [SerializeField] private AudioClip _shootClip;
     #endregion
 
     #region methods
     private void Rotate() {
+        SoundManager.Instance.PlayEffectSound(_rotateClip);
+
         float rnd = GameManager.Instance.RNG(0, 4);
         Vector3 r = Vector3.one; //new Vector3(transform.rotation.x,transform.rotation.y,transform.rotation.z);
         if (rnd > 2)
@@ -58,16 +63,21 @@ public class BossSecondAttackController : MonoBehaviour
         //_MyTransfrom.localScale = new Vector3(_MyTransfrom.localScale.x, -_MyTransfrom.localScale.y, _MyTransfrom.localScale.z);
     }
     private void ShootVolley() {
+        SoundManager.Instance.PlayEffectSound(_shootClip);
+
         Shoot();
         Invoke("Shoot", _timeBetweenShots);
         Invoke("Shoot", 2 * _timeBetweenShots);
     }
     private void Shoot() {
+        SoundManager.Instance.PlayEffectSound(_shootClip);
+
         GameObject shot = Instantiate(_bala, _MyTransfrom.position, Quaternion.identity);
         shot.GetComponent<ShotMovementController>().SetDirection(Vector3.Normalize(_player.position - transform.position));
     }
     private void ShotCircle()
     {
+        SoundManager.Instance.PlayEffectSound(_shootClip);
         Instantiate(_8balas,_MyTransfrom.position,Quaternion.identity);
     }
     private void LaserDoble()
@@ -91,7 +101,7 @@ public class BossSecondAttackController : MonoBehaviour
     private void BossAtack()
     {
        // ShootVolley();
-        int rnd = Random.Range(0, 10);
+        float rnd = GameManager.Instance.RNG(0, 10);
         if (rnd < 1)
         {
             LaserDoble();

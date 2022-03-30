@@ -110,7 +110,6 @@ MonoBehaviour:
   _breakPointLife: 20
   _secondPhase: 1
   _DieFX: {fileID: 7408318839932606042, guid: 3d1b18cb3f0ccaf4ba552c5c8fc3047b, type: 3}
-  _fullBody: {fileID: 2372093727530410873}
   _weakPoint: {fileID: 4454539820611307084}
   _pared: {fileID: 0}
   _point:
@@ -122,6 +121,7 @@ MonoBehaviour:
   _damageClip1: {fileID: 8300000, guid: 5dc26c03ae36d4ea8b35306591b49aa5, type: 3}
   _damageClip2: {fileID: 8300000, guid: 478d0061679514d7cb97edc1aecef9c8, type: 3}
   _damageClip3: {fileID: 8300000, guid: ca47716003ead47cc9cf34f2f9e62bf1, type: 3}
+  _explosionClip: {fileID: 0}
 --- !u!1 &4454539820567201528
 GameObject:
   m_ObjectHideFlags: 0
@@ -230,7 +230,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 4
+  m_Constraints: 7
 --- !u!60 &9152684235090776004
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -241,7 +241,7 @@ PolygonCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -256,12 +256,12 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: 2.2754254, y: 2.4511635}
+    - - {x: 1.7614834, y: 2.2395413}
       - {x: -0.06432524, y: 2.8789356}
-      - {x: -2.014245, y: 2.259676}
-      - {x: -1.9694602, y: -3.3886397}
-      - {x: -1.3906113, y: -3.3414998}
-      - {x: 2.2933016, y: -3.3447855}
+      - {x: -1.9060892, y: 1.9398983}
+      - {x: -2.0093112, y: -2.6314647}
+      - {x: 0.16359079, y: -3.0625408}
+      - {x: 1.5386846, y: -2.627462}
 --- !u!95 &1281695729291966647
 Animator:
   serializedVersion: 3
@@ -300,6 +300,8 @@ MonoBehaviour:
   _laserVertical: {fileID: 0}
   _8balas: {fileID: 4689793768457696041, guid: 11d5e21fcf3f6604fa9aac9e070ea964, type: 3}
   _bala: {fileID: 5222801391446089048, guid: b4d4feb35960e354a8885f6ea2a2a9ed, type: 3}
+  _rotateClip: {fileID: 8300000, guid: 8cdec587df1a0cc4cad11efeb6bff09c, type: 3}
+  _shootClip: {fileID: 8300000, guid: eabbe537c7395ee4daeb4585e0cd35bc, type: 3}
 --- !u!114 &4961436465754360880
 MonoBehaviour:
   m_ObjectHideFlags: 0
