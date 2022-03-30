@@ -52,8 +52,6 @@ public class PlayerMovementManager : MonoBehaviour
     [SerializeField] private AudioClip _jumpClip;
     [SerializeField] private AudioClip _antiGravityClip;
     [SerializeField] private AudioClip _walkingClip;
-
-
     #endregion
 
     #region methods
@@ -172,15 +170,14 @@ public class PlayerMovementManager : MonoBehaviour
         if(_dashing) {
             if(_rigidbody.gravityScale != 0) { // Inicio
                 SoundManager.Instance.PlayEffectSound(_dashClip);
-
+                _transform.parent = null;
                 _gravityScale = _rigidbody.gravityScale;
                 _rigidbody.gravityScale = 0;
                 _rigidbody.velocity = new Vector2(_rigidbody.velocity.x, 0);
+                _animation.Dash(true);
             }
 
             if(_dashCont < _dashTime) { // Durante
-                _animation.Dash(true);
-
                 if (_facingRight) _rigidbody.MovePosition(_rigidbody.position + new Vector2(_dashDistance / _dashTime * Time.fixedDeltaTime, 0));
                 else _rigidbody.MovePosition(_rigidbody.position - new Vector2(_dashDistance / _dashTime * Time.fixedDeltaTime, 0));
                 _dashCont += Time.fixedDeltaTime;
