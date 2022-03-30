@@ -15,6 +15,16 @@ public class MainMenu : MonoBehaviour
     #endregion
 
     #region methods
+    public void AboutUs()
+    {
+        SceneManager.LoadScene("CREDITS");
+    }
+
+    public void ReturnMain()
+    {
+        SceneManager.LoadScene("Main Menu");
+    }
+
     public void LoadGame()
     {
         _animator.SetTrigger("Start");
@@ -23,6 +33,7 @@ public class MainMenu : MonoBehaviour
         Invoke("LoadScene", 0.3f);
     }
 
+   
     public void NewGame()
     {
         _animator.SetTrigger("Start");
