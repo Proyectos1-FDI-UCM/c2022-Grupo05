@@ -57,7 +57,6 @@ public class BossSceneManager : MonoBehaviour
         {
             Fase1();
         }
-        Debug.Log("Activado");
     }
     public void SetFase()
     {

@@ -35,9 +35,11 @@ public class BossSecondAttackController : MonoBehaviour
 
     [SerializeField] private AudioClip _rotateClip;
     [SerializeField] private AudioClip _shootClip;
+
     #endregion
 
     #region methods
+   
     private void Rotate() {
         SoundManager.Instance.PlayEffectSound(_rotateClip);
 
