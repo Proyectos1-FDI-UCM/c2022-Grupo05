@@ -29,6 +29,8 @@ public class BossSceneManager : MonoBehaviour
     }
     private void Fase1()
     {
+        SoundManager.Instance.Level();
+
         _rock[0].SetActive(false);
         _rock[2].SetActive(false);
         Area1.SetActive(true);
@@ -43,7 +45,6 @@ public class BossSceneManager : MonoBehaviour
         _rock[2].SetActive(false);
         Area1.SetActive(false);
         Area2.SetActive(true);
-        _boss1.SetActive(false);
         _boss2.SetActive(false);
     }
     private void OnEnable()

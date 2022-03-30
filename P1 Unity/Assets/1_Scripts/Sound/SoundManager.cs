@@ -72,6 +72,11 @@ public class SoundManager : MonoBehaviour
     }
 
 
+    public void StopMusic()
+    {
+        _musicSource.Stop();
+    }
+
     public void Level()
     {
         if (_musicSource.clip != _normalClip)

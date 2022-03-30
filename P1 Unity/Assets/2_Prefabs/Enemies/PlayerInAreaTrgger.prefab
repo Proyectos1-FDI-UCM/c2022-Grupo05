@@ -138,4 +138,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _whiteFade: {fileID: 0}
   _rocks: {fileID: 0}
-  _clip: {fileID: 8300000, guid: d3c5610f5ce03884db1dce25bd74f9f9, type: 3}
+  _avalancheClip: {fileID: 8300000, guid: d3c5610f5ce03884db1dce25bd74f9f9, type: 3}
+  _rocksClip: {fileID: 8300000, guid: fec0d49e12923f940b5ef2e738d19db9, type: 3}

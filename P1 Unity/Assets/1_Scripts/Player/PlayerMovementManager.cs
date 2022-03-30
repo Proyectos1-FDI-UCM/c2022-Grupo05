@@ -57,6 +57,16 @@ public class PlayerMovementManager : MonoBehaviour
     #endregion
 
     #region methods
+
+    public void WalkingSound()
+    {
+        if (_isGrounded)
+        {
+            SoundManager.Instance.PlayEffectSound(_walkingClip);
+        }
+    }
+
+
     public void HasAntigravity(bool enable)
     {
         _hasAntigravity = enable;
@@ -96,9 +106,8 @@ public class PlayerMovementManager : MonoBehaviour
     }
 
     public void StopDashing() {
-        if(_rigidbody.gravityScale == 0) {
-            _dashCont = _dashTime;
-        }
+        _dashing = false;
+        _dashCont = 0;
     }
 
     void Start() {

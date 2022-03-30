@@ -25,6 +25,7 @@ public class BossLifeComponent : MonoBehaviour
     [SerializeField] private AudioClip _damageClip1;
     [SerializeField] private AudioClip _damageClip2;
     [SerializeField] private AudioClip _damageClip3;
+    [SerializeField] private AudioClip _explosionClip;
 
     #endregion
 
@@ -62,10 +63,17 @@ public class BossLifeComponent : MonoBehaviour
         if (_currentLife <= 0)
         {
             HUDController.Instance.ShowBossBar(false);
-           // _bossObject.SetActive(false);
+            // _bossObject.SetActive(false);
+            ShakingCamera.Instance.ShakeCamera(5, 3);
             Instantiate(_DieFX, transform.position, Quaternion.identity);
+            Instantiate(_DieFX, _pared.transform.position, Quaternion.identity);
+
+            SoundManager.Instance.PlayEffectSound(_explosionClip);
+            SoundManager.Instance.StopMusic();
+
             _pared.SetActive(false);
             GameObject.Find("BossSecondPhase").SetActive(false);
+
         }
         HUDController.Instance.UpdateBossHP(_currentLife);
     }
