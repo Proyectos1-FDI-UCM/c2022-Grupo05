@@ -14,7 +14,6 @@ public class BossLifeComponent : MonoBehaviour
 
     #region references
     [SerializeField] private GameObject _DieFX;
-    [SerializeField] private GameObject _fullBody;
     [SerializeField] private GameObject _weakPoint;
     [SerializeField] private GameObject _pared;
     [SerializeField] private Transform[] _point; //lugares que generar vida o enegia para la mejora
@@ -56,7 +55,6 @@ public class BossLifeComponent : MonoBehaviour
             _currentLife = _breakPointLife;
 
             _weakPoint.GetComponent<Collider2D>().enabled = true;
-            _fullBody.GetComponent<Collider2D>().enabled = false;
             _weakPoint.SetActive(true);
             GetComponentInParent<BossTransitionAnimation>().enabled = true;
 
@@ -96,15 +94,11 @@ public class BossLifeComponent : MonoBehaviour
         {
             _weakPoint.SetActive(true);
             _weakPoint.GetComponent<Collider2D>().enabled = true;
-            _fullBody.GetComponent<Collider2D>().enabled = false;
-            // _bossObject.SetActive(true);
         }
         else
         {
             _weakPoint.SetActive(false);
             _weakPoint.GetComponent<Collider2D>().enabled = false;
-            _fullBody.GetComponent<Collider2D>().enabled = true;
-            //_bossObject.SetActive(false);
         }
     }
 }
