@@ -10,18 +10,20 @@ public class DamagePlayerController : MonoBehaviour
     #endregion
 
     #region methods
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnTriggerStay2D(Collider2D collision)
     {
         player = collision.GetComponent<PlayerLifeComponent>();
 
         if (player != null)
         {
             player.Damage();
-            if(player.AmpDash) {
+            if (player.AmpDash)
+            {
                 _life.Damage(false);
             }
         }
     }
+   
 
     private void Start() {
         _life = GetComponentInParent<EnemyLifeComponent>();
