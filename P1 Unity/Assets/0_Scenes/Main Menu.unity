@@ -1324,6 +1324,7 @@ MonoBehaviour:
   _levelText: {fileID: 1595994086}
   _newGame: {fileID: 1995417046}
   _loadGame: {fileID: 155626386}
+  _eventSys: {fileID: 1781111873}
   _fade: {fileID: 989179040}
 --- !u!1 &1211043857
 GameObject:
