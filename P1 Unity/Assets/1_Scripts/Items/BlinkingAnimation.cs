@@ -6,8 +6,10 @@ public class BlinkingAnimation : MonoBehaviour
 {
     #region references 
     [SerializeField]
-    private SpriteRenderer _objet;
+    private SpriteRenderer _object;
     #endregion
+
+
     #region parameters
     [SerializeField]
     private float _activetime = 5.0f;
@@ -18,10 +20,13 @@ public class BlinkingAnimation : MonoBehaviour
     private bool _set = false;
 
     #endregion
+
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        _object.enabled = true;
+
     }
 
     // Update is called once per frame
@@ -38,7 +43,7 @@ public class BlinkingAnimation : MonoBehaviour
             if (_time > _frecuencia)
             {
                 _time = 0;
-                _objet.enabled = _set;
+                _object.enabled = _set;
                 _set = !_set;
             }
         }

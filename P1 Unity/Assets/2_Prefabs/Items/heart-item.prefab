@@ -164,6 +164,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0899c28864ba8664daad1b25b23daad8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _objet: {fileID: 7774416625253505705}
+  _object: {fileID: 7774416625253505705}
   _activetime: 4
   _frecuencia: 0.2

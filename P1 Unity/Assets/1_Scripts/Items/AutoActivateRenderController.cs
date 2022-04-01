@@ -14,8 +14,6 @@ public class AutoActivateRenderController : MonoBehaviour
 
     private bool _active = true;
 
-    [SerializeField] private AudioClip _clip;
-
 
     void Start()
     {
@@ -40,9 +38,6 @@ public class AutoActivateRenderController : MonoBehaviour
 
         else if (!_active && _elapsedTime > _desactiveTime)
         {
-            SoundManager.Instance.PlayOnBackground(_clip);
-
-
             _elapsedTime = 0;
             GetComponent<Renderer>().enabled = true;
             GetComponent<Collider2D>().enabled = true;

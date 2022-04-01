@@ -61,3 +61,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _isMiniCheckpoint: 1
+  _isGravityChanged: 0
+  _forceGravity: 1

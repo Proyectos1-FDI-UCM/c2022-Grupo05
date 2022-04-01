@@ -9,8 +9,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4390683477306024696}
+  - component: {fileID: 3759615708509621998}
+  - component: {fileID: 2039037143407931783}
+  - component: {fileID: 1002415359917450312}
   m_Layer: 0
-  m_Name: Laser
+  m_Name: Laser y electricidad
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -32,6 +35,146 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!82 &3759615708509621998
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4390683477306024697}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: -1918957785595970092, guid: 0a604a1b8571a724d988ae946db47b11, type: 2}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 20
+  Pan2D: 0
+  rolloffMode: 1
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+--- !u!61 &2039037143407931783
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4390683477306024697}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1}
+  m_EdgeRadius: 0
+--- !u!114 &1002415359917450312
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4390683477306024697}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1689eb3b656ab2c41b783b1c9dced23a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _activeTime: 3
+  _desactiveTime: 3
+  _redLineTime: 2
+  _electricity: {fileID: 7857864451797777645}
+  _lineaRoja: {fileID: 4390683478752071116}
+  _clip: {fileID: 8300000, guid: 9f97877b00ab0b6429bf3f8baf742855, type: 3}
 --- !u!1 &4390683478752071116
 GameObject:
   m_ObjectHideFlags: 0
@@ -114,23 +257,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &3478579214079461797
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7857864451797777645}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1689eb3b656ab2c41b783b1c9dced23a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _activeTime: 5
-  _desactiveTime: 3
-  _redLineTime: 2
-  _clip: {fileID: 8300000, guid: 9f97877b00ab0b6429bf3f8baf742855, type: 3}
-  _lineaRoja: {fileID: 4390683478752071116}
 --- !u!1001 &4390683477750299441
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -138,13 +264,9 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 4390683477306024696}
     m_Modifications:
-    - target: {fileID: 4348523664191803628, guid: 27e6c10a4c4967b47a02da11cee5e16e, type: 3}
-      propertyPath: _lineaRoja
-      value: 
-      objectReference: {fileID: 4390683478752071116}
     - target: {fileID: 5900394229345601500, guid: 27e6c10a4c4967b47a02da11cee5e16e, type: 3}
       propertyPath: m_Name
-      value: Electricidad (3)
+      value: Electricidad
       objectReference: {fileID: 0}
     - target: {fileID: 5900394229345601503, guid: 27e6c10a4c4967b47a02da11cee5e16e, type: 3}
       propertyPath: m_RootOrder
@@ -194,8 +316,7 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 270
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 4348523664191803628, guid: 27e6c10a4c4967b47a02da11cee5e16e, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 27e6c10a4c4967b47a02da11cee5e16e, type: 3}
 --- !u!1 &7857864451797777645 stripped
 GameObject:

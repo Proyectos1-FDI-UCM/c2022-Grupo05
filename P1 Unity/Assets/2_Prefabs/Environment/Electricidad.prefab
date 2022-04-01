@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 5900394229345601502}
   - component: {fileID: 5900394229345601501}
   - component: {fileID: 1792625507097245281}
-  - component: {fileID: 4348523664191803628}
   - component: {fileID: 8098212386374674071}
   m_Layer: 8
   m_Name: Electricidad
@@ -131,21 +130,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.63, y: 0.32}
   m_EdgeRadius: 0
---- !u!114 &4348523664191803628
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5900394229345601500}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d53a33e47952686438d901264892e73a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _activeTime: 3
-  _desactiveTime: 1
-  _clip: {fileID: 8300000, guid: 9f97877b00ab0b6429bf3f8baf742855, type: 3}
 --- !u!114 &8098212386374674071
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -15,7 +15,6 @@ public class SoundManager : MonoBehaviour
     private AudioSource _musicSource,
                         _backgroundSource,
                         _effectSource,
-                        _backgroundEffectSource,
                         _cinematicSource,
                         _dialogueSource;
 
@@ -36,11 +35,6 @@ public class SoundManager : MonoBehaviour
     {
         _effectSource.PlayOneShot( clip);
      
-    }
-
-    public void PlayOnBackground(AudioClip clip)
-    {
-        _backgroundEffectSource.PlayOneShot(clip);
     }
 
     public void PlayCinematicSound(AudioClip clip)

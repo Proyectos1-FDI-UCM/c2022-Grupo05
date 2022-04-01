@@ -17,20 +17,27 @@ public class LaserWithRedlineController : MonoBehaviour
 
     private bool _active = true;
 
+    [SerializeField] private GameObject _electricity;
+    [SerializeField] private GameObject _lineaRoja;
+
+
+    AudioSource _audioSource;
     [SerializeField] private AudioClip _clip;
 
-    [SerializeField] private GameObject _lineaRoja;
+
 
     private void OnEnable()
     {
         _elapsedTime = 0;
-        GetComponent<Renderer>().enabled = false;
-        GetComponent<Collider2D>().enabled = false;
+        _electricity.GetComponent<Renderer>().enabled = false;
+        _electricity.GetComponent<Collider2D>().enabled = false;
         _active = false;
         _lineaRoja.SetActive(false);
     }
     void Start()
     {
+        _audioSource = GetComponent<AudioSource>();
+
         _active = true;
         _lineaRoja.SetActive(false);
     }
@@ -45,18 +52,19 @@ public class LaserWithRedlineController : MonoBehaviour
         if (_active && _elapsedTime > _activeTime)
         {
             _elapsedTime = 0;
-            GetComponent<Renderer>().enabled = false;
-            GetComponent<Collider2D>().enabled = false;
+            _electricity.GetComponent<Renderer>().enabled = false;
+            _electricity.GetComponent<Collider2D>().enabled = false;
             _active = false;
 
         }
         else if (!_active && _elapsedTime > _desactiveTime)
         {
+            _audioSource.PlayOneShot(_clip);
+
             _lineaRoja.SetActive(false);
-            SoundManager.Instance.PlayOnBackground(_clip);
             _elapsedTime = 0;
-            GetComponent<Renderer>().enabled = true;
-            GetComponent<Collider2D>().enabled = true;
+            _electricity.GetComponent<Renderer>().enabled = true;
+            _electricity.GetComponent<Collider2D>().enabled = true;
             _active = true;
 
 
