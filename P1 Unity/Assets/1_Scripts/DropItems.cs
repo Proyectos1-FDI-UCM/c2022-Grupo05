@@ -23,12 +23,12 @@ public class DropItems : MonoBehaviour
     {
         float _rnd = GameManager.Instance.RNG(0, 5);
 
-        if (_rnd < 1)
+        if (_rnd < 3)
         {
             GameObject.Instantiate(p_health, _myTransform.position, _myTransform.rotation);
         }
 
-        else if (_rnd < 2)
+        else if (_rnd < 4)
         {
             GameObject.Instantiate(p_recharge, _myTransform.position, _myTransform.rotation);
         }
