@@ -38,7 +38,7 @@ public class BossFirstPhaseController : MonoBehaviour
     #region methods
     private void Action() 
     {
-        if (Random.Range(0,3) == 0) 
+        if (Random.Range(0,2) == 0) 
         {
             if (Random.Range(0, 3) == 0) ShroomShot();
             else Shoot();

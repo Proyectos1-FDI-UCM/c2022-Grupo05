@@ -6,7 +6,7 @@ public class BossSecondAttackController : MonoBehaviour
 {
     #region parameters
     [SerializeField]
-    private float _atacktime = 10;  //para cada ataque especial
+    private float _atacktime = 5;  //para cada ataque especial
     [SerializeField]
     private float _timeofshot = 12; // tiempo para giro
     [SerializeField]
@@ -21,8 +21,6 @@ public class BossSecondAttackController : MonoBehaviour
 
     #region references
     private Transform _MyTransfrom;
-    
-    private BossLifeComponent _life;
     [SerializeField]
     private GameObject _laserHorizontal;
     [SerializeField]
@@ -31,15 +29,18 @@ public class BossSecondAttackController : MonoBehaviour
     private GameObject _8balas;
     [SerializeField]
     private GameObject _bala;
+    [SerializeField]
+    private GameObject _shroomPrefab;
     private Transform _player;
 
     [SerializeField] private AudioClip _rotateClip;
     [SerializeField] private AudioClip _shootClip;
+    [SerializeField] private AudioClip _mushroomClip;
 
     #endregion
 
     #region methods
-   
+
     private void Rotate() {
         SoundManager.Instance.PlayEffectSound(_rotateClip);
 
@@ -82,6 +83,13 @@ public class BossSecondAttackController : MonoBehaviour
         SoundManager.Instance.PlayEffectSound(_shootClip);
         Instantiate(_8balas,_MyTransfrom.position,Quaternion.identity);
     }
+    private void ShroomShot()
+    {
+        SoundManager.Instance.PlayEffectSound(_mushroomClip);
+
+        GameObject shot = Instantiate(_shroomPrefab, _MyTransfrom.position, _MyTransfrom.rotation);
+        shot.GetComponent<ShotMovementController>().SetDirection(Vector3.Normalize(_player.position - transform.position));
+    }
     private void LaserDoble()
     {
         LaserH();
@@ -108,17 +116,21 @@ public class BossSecondAttackController : MonoBehaviour
         {
             LaserDoble();
         }
-        else if (rnd < 4)
+        else if (rnd <2.5)
         {
             LaserV();
         }
-        else if (rnd < 6)
+        else if (rnd < 4)
         {
             LaserH();
         }
-        else if(rnd<8)
+        else if(rnd<5.5)
         {
             ShotCircle();
+        }
+        else if (rnd < 8)
+        {
+            ShroomShot();
         }
         else
         {
@@ -136,9 +148,8 @@ public class BossSecondAttackController : MonoBehaviour
     void Start()
     {
         _MyTransfrom = transform;
-        _life = GetComponent<BossLifeComponent>();
         _player = PlayerAccess.Instance.Transform;
-        _rnd = GameManager.Instance.RNG(15, 21);
+        _rnd = GameManager.Instance.RNG(6, 12);
     }
 
     // Update is called once per frame
@@ -154,7 +165,7 @@ public class BossSecondAttackController : MonoBehaviour
         if (_bosstruncont > _rnd)
         {
             _bosstruncont = 0;
-            _rnd = GameManager.Instance.RNG(15, 21);
+            _rnd = GameManager.Instance.RNG(4,10);
             Rotate();
         }
         

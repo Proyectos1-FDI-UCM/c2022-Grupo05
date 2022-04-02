@@ -109,4 +109,19 @@ public class BossLifeComponent : MonoBehaviour
             _weakPoint.GetComponent<Collider2D>().enabled = false;
         }
     }
+
+    private void OnEnable()
+    {
+        _currentLife = _maxLife;
+        if (_secondPhase)
+        {
+            _weakPoint.SetActive(true);
+            _weakPoint.GetComponent<Collider2D>().enabled = true;
+        }
+        else
+        {
+            _weakPoint.SetActive(false);
+            _weakPoint.GetComponent<Collider2D>().enabled = false;
+        }
+    }
 }
