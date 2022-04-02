@@ -15,8 +15,8 @@ public class TimeOfLaserController : MonoBehaviour
 
     private float cont = 0;
 
-    AudioSource _audioSource;
-    [SerializeField] private AudioClip _clip;
+    private ProximitySound _proximitySound;
+
 
 
 
@@ -31,7 +31,7 @@ public class TimeOfLaserController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        _audioSource = GetComponent<AudioSource>();
+        _proximitySound = GetComponent<ProximitySound>();
 
         LaserEnable(_laser1, _enableLaser1);
         LaserEnable(_laser2, _enableLaser2);
@@ -43,7 +43,7 @@ public class TimeOfLaserController : MonoBehaviour
         cont += Time.deltaTime;
         if (cont > _time)
         {
-            _audioSource.PlayOneShot(_clip);
+            _proximitySound.PlaySound();
 
             _enableLaser1 = !_enableLaser1;
             _enableLaser2 = !_enableLaser2;
