@@ -80,7 +80,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4689793768457696046}
   m_Layer: 0
-  m_Name: "\u5F39\u5E55"
+  m_Name: CircleShot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

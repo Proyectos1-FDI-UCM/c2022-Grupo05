@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 2769123514417306840}
   - component: {fileID: 184172363870410559}
   - component: {fileID: 6338042048441947424}
-  - component: {fileID: 2635460676880054916}
   m_Layer: 8
   m_Name: Seta venenosa
   m_TagString: Untagged
@@ -123,16 +122,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5956522a0a4efb84d8f23b7bd8ed5165, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &2635460676880054916
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8841174959083514876}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2f1499e88912f7b44a9e9aada815be0b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _shootSpeed: 15

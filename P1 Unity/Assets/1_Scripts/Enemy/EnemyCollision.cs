@@ -9,8 +9,13 @@ public class EnemyCollision : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collider)
     {
-        accionEntrar();
-        Debug.Log(collider);
+        PlayerLifeComponent player;
+        player = collider.GetComponent<PlayerLifeComponent>();
+        if (player == null)
+        {
+            accionEntrar();
+        }
+       
     }
    
 }
