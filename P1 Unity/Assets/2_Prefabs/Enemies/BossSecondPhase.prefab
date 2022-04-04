@@ -71,6 +71,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1085027126818645841}
   - component: {fileID: 118274442871477699}
+  - component: {fileID: 8797938499019882638}
   m_Layer: 0
   m_Name: GameObject
   m_TagString: Untagged
@@ -122,6 +123,18 @@ MonoBehaviour:
   _damageClip2: {fileID: 8300000, guid: 478d0061679514d7cb97edc1aecef9c8, type: 3}
   _damageClip3: {fileID: 8300000, guid: ca47716003ead47cc9cf34f2f9e62bf1, type: 3}
   _explosionClip: {fileID: 0}
+--- !u!114 &8797938499019882638
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4012959099905105953}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 06ffed6acbe1d0e4cb0d02b725f9f142, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &4454539820567201528
 GameObject:
   m_ObjectHideFlags: 0
@@ -136,7 +149,6 @@ GameObject:
   - component: {fileID: 9152684235090776004}
   - component: {fileID: 1281695729291966647}
   - component: {fileID: 2270130038768435194}
-  - component: {fileID: 4961436465754360880}
   m_Layer: 0
   m_Name: BossSecondPhase
   m_TagString: Untagged
@@ -300,20 +312,10 @@ MonoBehaviour:
   _laserVertical: {fileID: 0}
   _8balas: {fileID: 4689793768457696041, guid: 11d5e21fcf3f6604fa9aac9e070ea964, type: 3}
   _bala: {fileID: 5222801391446089048, guid: b4d4feb35960e354a8885f6ea2a2a9ed, type: 3}
+  _shroomPrefab: {fileID: 8841174959083514876, guid: 7619bcebd8cba1340b377b052901e99a, type: 3}
   _rotateClip: {fileID: 8300000, guid: 8cdec587df1a0cc4cad11efeb6bff09c, type: 3}
   _shootClip: {fileID: 8300000, guid: eabbe537c7395ee4daeb4585e0cd35bc, type: 3}
---- !u!114 &4961436465754360880
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4454539820567201528}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7a5a2f4bc8b06ad44a0bff53f82c77b3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  _mushroomClip: {fileID: 8300000, guid: 93cfc993a4c6b4512b3cfdd5177a139c, type: 3}
 --- !u!60 &4508916240227227575
 PolygonCollider2D:
   m_ObjectHideFlags: 0

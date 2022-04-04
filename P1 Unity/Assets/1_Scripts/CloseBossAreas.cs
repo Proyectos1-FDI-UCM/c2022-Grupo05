@@ -5,6 +5,7 @@ using UnityEngine;
 public class CloseBossAreas : MonoBehaviour
 {
     private InputManager _player;
+    private BossInAreaTrigger _bossInArea;
 
     [SerializeField]
     private GameObject _whiteFade;
@@ -32,7 +33,7 @@ public class CloseBossAreas : MonoBehaviour
             ShakingCamera.Instance.ShakeCamera(5, 3);
             SoundManager.Instance.PlayEffectSound(_avalancheClip);
 
-            PlayerAccess.Instance.Movement.Move(new Vector2(1f,0));
+            PlayerAccess.Instance.Movement.Move(new Vector2(1.5f,0));
 
             _animator.SetTrigger("Start");
             StartCoroutine(PlaceRocks());
@@ -45,6 +46,7 @@ public class CloseBossAreas : MonoBehaviour
     {
         yield return new WaitForSeconds(0.5f);
         PlayerAccess.Instance.Movement.Move(Vector2.zero);
+        _bossInArea.SpawnBoss();
 
         yield return new WaitForSeconds(1.55f);
         _rocks.SetActive(true);
@@ -64,6 +66,7 @@ public class CloseBossAreas : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        _bossInArea = GetComponent<BossInAreaTrigger>();
         _animator = _whiteFade.GetComponent<Animator>();
         _rocks.SetActive(false);
     }

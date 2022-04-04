@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3855907845239077268}
   - component: {fileID: 2614558679391692710}
-  - component: {fileID: 1427775982614667270}
+  - component: {fileID: 7105856532747315226}
   m_Layer: 8
   m_Name: Attack
   m_TagString: Untagged
@@ -64,7 +64,7 @@ PolygonCollider2D:
       - {x: 1.6213946, y: -2.637303}
       - {x: 0.70205534, y: -0.085319996}
       - {x: 1.5604857, y: 1.4136062}
---- !u!114 &1427775982614667270
+--- !u!114 &7105856532747315226
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -73,7 +73,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 656102957559809932}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7a5a2f4bc8b06ad44a0bff53f82c77b3, type: 3}
+  m_Script: {fileID: 11500000, guid: 06ffed6acbe1d0e4cb0d02b725f9f142, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &2372093727530410873
@@ -92,7 +92,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &9087454782566380705
 Transform:
   m_ObjectHideFlags: 0
@@ -259,7 +259,7 @@ PolygonCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -296,7 +296,6 @@ MonoBehaviour:
   _breakPointLife: 20
   _secondPhase: 0
   _DieFX: {fileID: 7408318839932606042, guid: 3d1b18cb3f0ccaf4ba552c5c8fc3047b, type: 3}
-  _fullBody: {fileID: 2372093727530410873}
   _weakPoint: {fileID: 4454539820611307084}
   _pared: {fileID: 0}
   _point:
@@ -308,6 +307,7 @@ MonoBehaviour:
   _damageClip1: {fileID: 8300000, guid: 5dc26c03ae36d4ea8b35306591b49aa5, type: 3}
   _damageClip2: {fileID: 8300000, guid: 478d0061679514d7cb97edc1aecef9c8, type: 3}
   _damageClip3: {fileID: 8300000, guid: ca47716003ead47cc9cf34f2f9e62bf1, type: 3}
+  _explosionClip: {fileID: 0}
 --- !u!114 &6858432835845463077
 MonoBehaviour:
   m_ObjectHideFlags: 0

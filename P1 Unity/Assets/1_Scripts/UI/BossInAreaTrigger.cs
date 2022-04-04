@@ -9,14 +9,13 @@ public class BossInAreaTrigger : MonoBehaviour
     #endregion
 
     #region methods
-    private void OnTriggerEnter2D(Collider2D collision)
+
+    public void SpawnBoss()
     {
-        player = collision.GetComponent<InputManager>();
-        if (player != null)
-        {
-            _bossObject.SetActive(true);
-            _hudController.ShowBossBar(true);
-        }
+        _bossObject.SetActive(true);
+        _hudController.ShowBossBar(true);
+
     }
+
     #endregion
 }

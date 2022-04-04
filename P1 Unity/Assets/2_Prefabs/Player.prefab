@@ -79,7 +79,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4600615353091072486}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: ShotPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -247,7 +247,7 @@ MonoBehaviour:
   _dashDistance: 4
   _dashTime: 0.125
   _airJumpNumber: 1
-  _hasAntigravity: 0
+  _hasAntigravity: 1
   _trigger: {fileID: 4600615352017307880}
   _dashClip: {fileID: 8300000, guid: 22e63e55a41a17347ae937e3391e4d61, type: 3}
   _jumpClip: {fileID: 8300000, guid: df6d6e6970d3ebc40a5ecbe1e1f21c1e, type: 3}
@@ -270,7 +270,7 @@ MonoBehaviour:
   _maxLife: 5
   _maxEnergy: 3
   _activeGracePeriod: 0
-  _gracePeriod: 2
+  _gracePeriod: 1.5
   _currentLife: 5
   _currentEnergy: 3
   AmpDash: 0
@@ -361,7 +361,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6505857799844616488}
   - component: {fileID: 4379091718826193158}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: AntiSlideBox
   m_TagString: Untagged
   m_Icon: {fileID: 0}

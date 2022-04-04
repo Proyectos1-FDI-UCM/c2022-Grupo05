@@ -352,22 +352,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 4600615353497502602, guid: e2195f58334ba974ea95373f6667f4db, type: 3}
-      propertyPath: _jumpClip
-      value: 
-      objectReference: {fileID: 8300000, guid: df6d6e6970d3ebc40a5ecbe1e1f21c1e, type: 3}
-    - target: {fileID: 4600615353497502602, guid: e2195f58334ba974ea95373f6667f4db, type: 3}
-      propertyPath: _jumpForce
-      value: 760
-      objectReference: {fileID: 0}
-    - target: {fileID: 4600615353497502602, guid: e2195f58334ba974ea95373f6667f4db, type: 3}
-      propertyPath: _hasAntigravity
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4600615353497502603, guid: e2195f58334ba974ea95373f6667f4db, type: 3}
-      propertyPath: _gracePeriod
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 4600615353497502604, guid: e2195f58334ba974ea95373f6667f4db, type: 3}
       propertyPath: m_Name
       value: Player
