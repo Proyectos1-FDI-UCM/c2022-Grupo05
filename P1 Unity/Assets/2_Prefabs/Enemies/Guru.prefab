@@ -251,7 +251,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: af01349a91f6f5d458786784b4f6aaa6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  vidaMaxima: 3
+  vidaMaxima: 4
   _dust: {fileID: 999515858420764311, guid: 0f2164e95f465a445afdd0511fc79b0a, type: 3}
   _damageClip: {fileID: 8300000, guid: 54b4288f08d4b394aa1d52eb1c305424, type: 3}
   _deathClip: {fileID: 8300000, guid: 59c799cf865254f84964cff980f61b6d, type: 3}

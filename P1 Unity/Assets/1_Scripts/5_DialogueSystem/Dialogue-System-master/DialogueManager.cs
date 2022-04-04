@@ -155,7 +155,9 @@ public class DialogueManager : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonDown(0)) //espacio o boton izq del raton
+        if (Input.GetKeyDown(KeyCode.Escape) || Input.GetKeyDown(KeyCode.JoystickButton9))
+            SkipDialogue();
+        else if (Input.anyKeyDown || Input.GetMouseButtonDown(0))
             DisplayNextSentence();
     }
 

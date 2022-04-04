@@ -108,7 +108,7 @@ public class GameManager : MonoBehaviour
         _dialogueOpen = isOpened;
     }
 
-    public void PauseMenu()
+    public void PauseMenu(bool usingController)
     {
         if (!_dialogueOpen)
         {
@@ -119,7 +119,7 @@ public class GameManager : MonoBehaviour
 
             else
             {
-                PauseManager.Instance.SetPause();
+                PauseManager.Instance.SetPause(usingController);
             }
         }
 

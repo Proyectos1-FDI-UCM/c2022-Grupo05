@@ -290,7 +290,7 @@ MonoBehaviour:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 0.7254902}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_PressedColor: {r: 0.7169812, g: 0.7169812, b: 0.7169812, a: 0.78039217}
-    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 0.7372549}
+    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_DisabledColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 0.92941177}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
@@ -1119,7 +1119,7 @@ MonoBehaviour:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 0.7254902}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_PressedColor: {r: 0.7169812, g: 0.7169812, b: 0.7169812, a: 0.78039217}
-    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 0.7372549}
+    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_DisabledColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 0.92941177}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
@@ -1840,7 +1840,7 @@ GameObject:
   - component: {fileID: 1744007238}
   - component: {fileID: 1744007237}
   m_Layer: 5
-  m_Name: Load (1)
+  m_Name: About Us
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1890,7 +1890,7 @@ MonoBehaviour:
     m_NormalColor: {r: 0.7924528, g: 0.7924528, b: 0.7924528, a: 0.92941177}
     m_HighlightedColor: {r: 1, g: 1, b: 1, a: 1}
     m_PressedColor: {r: 0.7169812, g: 0.7169812, b: 0.7169812, a: 0.78039217}
-    m_SelectedColor: {r: 0.7921569, g: 0.7921569, b: 0.7921569, a: 0.7372549}
+    m_SelectedColor: {r: 1, g: 1, b: 1, a: 1}
     m_DisabledColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 0.92941177}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
@@ -2419,7 +2419,7 @@ MonoBehaviour:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 0.7254902}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_PressedColor: {r: 0.7169812, g: 0.7169812, b: 0.7169812, a: 0.78039217}
-    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 0.7372549}
+    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_DisabledColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 0.92941177}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1

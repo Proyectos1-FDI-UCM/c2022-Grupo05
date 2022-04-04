@@ -70,7 +70,9 @@ public class InputManager : MonoBehaviour
     {
         ControlManager(); // decide el control a usar
 
-        if (Input.GetKeyDown(KeyCode.Escape)) GameManager.Instance.PauseMenu(); // Pausa
+        if (Input.GetKeyDown(KeyCode.Escape)) GameManager.Instance.PauseMenu(false); // Pausa
+        else if (Input.GetKeyDown(KeyCode.JoystickButton9)) GameManager.Instance.PauseMenu(true); // Pausa
+
 
         // Si la pausa no está activada, recoge el input
         if (Time.timeScale > 0)

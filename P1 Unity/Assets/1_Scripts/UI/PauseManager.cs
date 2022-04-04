@@ -29,15 +29,20 @@ public class PauseManager : MonoBehaviour
 
     #endregion
 
+    #region properties
+    private bool _usingController;
+    #endregion
 
     #region methods
 
-    public void SetPause()
+    public void SetPause(bool usingController)
     {
         _pauseMenu.SetActive(true);
         NormalPause();
 
         Time.timeScale = 0;
+
+        _usingController = usingController;
     }
 
     public void NormalPause()
