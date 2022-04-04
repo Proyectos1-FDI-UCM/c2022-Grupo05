@@ -104,8 +104,9 @@ public class PlayerMovementManager : MonoBehaviour
     }
 
     public void StopDashing() {
-        _dashing = false;
-        _dashCont = 0;
+        if(_rigidbody.gravityScale == 0) {
+            _dashCont = _dashTime;
+        }
     }
 
     void Start() {
