@@ -20,9 +20,8 @@ public class LaserWithRedlineController : MonoBehaviour
     [SerializeField] private GameObject _electricity;
     [SerializeField] private GameObject _lineaRoja;
 
+    private ProximitySound _proximitySound;
 
-    AudioSource _audioSource;
-    [SerializeField] private AudioClip _clip;
 
 
 
@@ -36,8 +35,7 @@ public class LaserWithRedlineController : MonoBehaviour
     }
     void Start()
     {
-        _audioSource = GetComponent<AudioSource>();
-
+        _proximitySound = GetComponent<ProximitySound>();
         _active = true;
         _lineaRoja.SetActive(false);
     }
@@ -59,8 +57,7 @@ public class LaserWithRedlineController : MonoBehaviour
         }
         else if (!_active && _elapsedTime > _desactiveTime)
         {
-            _audioSource.PlayOneShot(_clip);
-
+            _proximitySound.PlaySound();
             _lineaRoja.SetActive(false);
             _elapsedTime = 0;
             _electricity.GetComponent<Renderer>().enabled = true;
