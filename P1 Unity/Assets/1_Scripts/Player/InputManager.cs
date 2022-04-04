@@ -8,6 +8,7 @@ public class InputManager : MonoBehaviour
     private PlayerAttackController _attackController;
     private PlayerLifeComponent _playerLife;
     private Animator _animator;
+    private SpriteRenderer _rend ;
 
     private float _horizontal, _changeGravity, _jump;
     
@@ -30,11 +31,24 @@ public class InputManager : MonoBehaviour
         // invierte el control cada vez que recoja una seta
         _invertControl = !_invertControl;
         _invertElapsedTime = 0f;
+        if (_invertControl)
+            _rend.color = new Color(0.8627451f, 1, 0.2705882f, 1);
+        else _rend.color = new Color(1, 1, 1, 1);
+
+
+    }
+
+    public void ChangeColor()
+    {
+        // invierte el control cada vez que recoja una seta
+        _invertControl = !_invertControl;
+        _invertElapsedTime = 0f;
 
     }
 
     private void ControlManager()
     {
+        
         if (_invertControl)
         {
             _horizontal = -Input.GetAxis("Horizontal");
@@ -46,6 +60,7 @@ public class InputManager : MonoBehaviour
             if (_invertElapsedTime >= _invertDuration)
             {
                 _invertControl = false;
+               _rend.color = new Color(1, 1, 1, 1);
             }
         }
         else
@@ -63,7 +78,9 @@ public class InputManager : MonoBehaviour
         _attackController = GetComponent<PlayerAttackController>();
         _playerLife = GetComponent<PlayerLifeComponent>();
         _animator = GetComponent<Animator>();
-        _shotEnabled=true;
+        _rend = GetComponent<SpriteRenderer>();
+        _shotEnabled =true;
+  
     }
 
     void Update()
