@@ -144,10 +144,14 @@ public class BossSecondAttackController : MonoBehaviour
     }
     #endregion
 
+    private void Awake()
+    {
+        _MyTransfrom = transform;
+    }
     // Start is called before the first frame update
     void Start()
     {
-        _MyTransfrom = transform;
+       
         _player = PlayerAccess.Instance.Transform;
         _rnd = GameManager.Instance.RNG(6, 12);
     }
@@ -169,5 +173,12 @@ public class BossSecondAttackController : MonoBehaviour
             Rotate();
         }
         
+    }
+    private void OnEnable()
+    {
+        _atackcont = 0;
+        _bosstruncont = 0;
+        _MyTransfrom.localScale = new Vector3 (Mathf.Abs(_MyTransfrom.localScale.x), Mathf.Abs(_MyTransfrom.localScale.y), Mathf.Abs(_MyTransfrom.localScale.z));
+
     }
 }

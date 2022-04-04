@@ -47,7 +47,6 @@ public class BossSceneManager : MonoBehaviour
         Area1.SetActive(false);
         Area2.SetActive(true);
         _boss2.SetActive(false);
-        _boss1.transform.localScale =new Vector3(1.2224f, 1.2224f, 1.2224f);
     }
     private void OnEnable()
     {
