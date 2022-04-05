@@ -79787,6 +79787,10 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5403372788983251072, guid: 3504569479a63c54db3cd98cf0c50087, type: 3}
+      propertyPath: _eventSys
+      value: 
+      objectReference: {fileID: 496953356}
     - target: {fileID: 5403372788983251078, guid: 3504569479a63c54db3cd98cf0c50087, type: 3}
       propertyPath: m_Name
       value: PauseMenu

@@ -3,8 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
-
-
+using UnityEngine.EventSystems;
 
 public class PauseManager : MonoBehaviour
 {
@@ -24,6 +23,11 @@ public class PauseManager : MonoBehaviour
     [SerializeField] private Button _mainMenuButton;
     [SerializeField] private Button _controlsButton;
     [SerializeField] private GameObject _volumeSlider;
+    [SerializeField] private Sprite _controllerImage, _keyboardImage;
+    [SerializeField] private Image _controlsImage;
+    [SerializeField] private EventSystem _eventSys;
+
+
 
     [SerializeField] private AudioClip _clip;
 
@@ -57,6 +61,8 @@ public class PauseManager : MonoBehaviour
         _mainMenuButton.onClick.AddListener(Instance.MainMenu);
         _controlsButton.onClick.AddListener(ControlsPause);
 
+        _eventSys.SetSelectedGameObject(_controlsButton.gameObject);
+
     }
 
     private void MainMenu()
@@ -72,9 +78,11 @@ public class PauseManager : MonoBehaviour
 
         _normalPause.SetActive(false);
         _controlsPause.SetActive(true);
+        _controlsImage.sprite = _usingController ? _controllerImage : _keyboardImage;
         _volumeSlider.SetActive(false);
 
         _controlsReturnButton.onClick.AddListener(NormalPause);
+        _eventSys.SetSelectedGameObject(_controlsReturnButton.gameObject);
     }
 
 

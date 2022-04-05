@@ -21,11 +21,6 @@ public class MainMenu : MonoBehaviour
         SceneManager.LoadScene("CREDITS");
     }
 
-    public void ReturnMain()
-    {
-        SceneManager.LoadScene("Main Menu");
-    }
-
     public void LoadGame()
     {
         _animator.SetTrigger("Start");

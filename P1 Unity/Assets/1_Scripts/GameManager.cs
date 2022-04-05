@@ -60,7 +60,7 @@ public class GameManager : MonoBehaviour
         HUDController.Instance.ShowGameOverText(false);
         CheckpointManager.Instance.GoToCheckpoint();
         PlayerAccess.Instance.Life.Heal(5);
-        PlayerAccess.Instance.Life.GetEnergy(3);
+        PlayerAccess.Instance.Life.GetEnergy(0);
 
         player.SetActive(true);
     }
