@@ -83,7 +83,7 @@ public class PickupComponent : MonoBehaviour
             _myTransform.Translate(Vector3.up * _speed * Time.deltaTime);
 
             // Cambia la dirección del movimiento y resetea el temporizador
-            if (_timer > 0.7f)
+            if (_timer > 1f)
             {
                 _speed = -_speed;
                 _timer = 0f;
