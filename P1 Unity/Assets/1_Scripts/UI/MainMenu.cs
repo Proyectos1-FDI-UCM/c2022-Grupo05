@@ -56,11 +56,25 @@ public class MainMenu : MonoBehaviour
         SoundManager.Instance.Level();
     }
 
-
     public void QuitGame()
     {
         Application.Quit();
     }
+
+    #region testing
+    public void TestLevel0()
+    {
+        SceneManager.LoadScene("NIVEL 0");
+        SoundManager.Instance.Level();
+    }
+    public void TestBoss()
+    {
+        SceneManager.LoadScene("NIVEL 0");
+        SoundManager.Instance.Level();
+    }
+
+    #endregion
+
     #endregion
 
     private void Start()
