@@ -6,6 +6,8 @@ public class EnemyMovementController : MonoBehaviour
 {
     #region parameters
     [SerializeField]
+    private float _chasespeed = 4;
+    [SerializeField]
     private float _speed = 2;                 //velocidad de movimineto 
     [SerializeField]
     private bool detection = false;           //si hay jugador en el campo de vision del enemigo
@@ -17,13 +19,20 @@ public class EnemyMovementController : MonoBehaviour
     private int d = 8;               //distancia de movimiento 
     [SerializeField]
     private Vector2 placeObjet;      // posicion final
-    private Vector2 dir;             //vector de direccion de enemigo
-    private bool derecha;            //si mira hacia derecha el enemigo
     [SerializeField]
     private bool fly=false;
-    private Vector2 _fly;
+    [SerializeField]
+    private bool _limite;
+    [SerializeField]
+    private Vector2 L;
     #endregion
 
+    #region properties
+    private float _actualspeed;
+    private Vector2 dir;             //vector de direccion de enemigo
+    private bool derecha;            //si mira hacia derecha el enemigo
+    private Vector2 _fly;
+    #endregion
     #region references
     private Transform playerPosition;
     private Rigidbody2D enemy;
@@ -38,6 +47,7 @@ public class EnemyMovementController : MonoBehaviour
    
     private void DetectionPlayer()
     {
+        _actualspeed = _chasespeed;
         detection = true;
         ret = false;
     }
@@ -45,6 +55,7 @@ public class EnemyMovementController : MonoBehaviour
     {
         ret = true;
         detection = false;
+        _actualspeed = _speed;
     }
     private void R1()    //gira 
     {
@@ -60,6 +71,7 @@ public class EnemyMovementController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        _actualspeed = _speed;
         playerPosition = PlayerAccess.Instance.Transform;
         enemy = GetComponent<Rigidbody2D>();
         _myTransform = transform;
@@ -109,11 +121,33 @@ public class EnemyMovementController : MonoBehaviour
         else if (detection)  //detectado el jugador
         {
             dir = new Vector2(playerPosition.position.x,playerPosition.position.y)-enemy.position;
+            if (_limite)
+            {
+                if (L.x > enemy.position.x||L.y<enemy.position.x)
+                {
+                    //  RetrunPlace();
+                    dir = Vector2.zero;
+                }
+            }
         }
         else if (ret)     //volver
         {
-            dir = placeOrigin - enemy.position;
-            if (Vector2.Distance(enemy.position, placeOrigin) < 1)
+            if (enemy.position.x < placeOrigin.x || enemy.position.x > placeObjet.x)
+            {
+                dir = placeOrigin - enemy.position;
+            }
+            else
+            {
+                if (derecha)
+                {
+                    dir = placeObjet - enemy.position;
+                }
+                else
+                {
+                    dir = placeOrigin - enemy.position;
+                }
+            }          
+            if (Vector2.Distance(enemy.position, placeOrigin) < 1|| Vector2.Distance(enemy.position, placeObjet) < 1)
             {
                 ret = false;
             }
@@ -124,7 +158,7 @@ public class EnemyMovementController : MonoBehaviour
             Derecha();
         }
 
-        enemy.MovePosition(enemy.position + dir.normalized* _speed * Time.fixedDeltaTime*_fly);
+        enemy.MovePosition(enemy.position + dir.normalized* _actualspeed * Time.fixedDeltaTime*_fly);
 
 
 
