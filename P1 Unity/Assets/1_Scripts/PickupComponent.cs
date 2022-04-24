@@ -24,6 +24,8 @@ public class PickupComponent : MonoBehaviour
 
     [SerializeField]                    
     private float _speed = 1f;      // Velocidad del movimiento
+    [SerializeField]
+    private float _time = 1f;
     #endregion
 
 
@@ -83,7 +85,7 @@ public class PickupComponent : MonoBehaviour
             _myTransform.Translate(Vector3.up * _speed * Time.deltaTime);
 
             // Cambia la dirección del movimiento y resetea el temporizador
-            if (_timer > 1f)
+            if (_timer > _time)
             {
                 _speed = -_speed;
                 _timer = 0f;
