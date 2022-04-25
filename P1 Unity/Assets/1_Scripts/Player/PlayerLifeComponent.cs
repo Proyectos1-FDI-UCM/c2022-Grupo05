@@ -94,7 +94,10 @@ public class PlayerLifeComponent : MonoBehaviour
         Debug.Log("Healed");
     }
 
-
+    public int CurrentEnergy()
+    {
+        return _currentEnergy;
+    }
     public void GetEnergy(int amount)
     {
         _currentEnergy += amount;

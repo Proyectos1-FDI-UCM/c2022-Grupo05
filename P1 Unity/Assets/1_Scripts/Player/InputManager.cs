@@ -9,9 +9,11 @@ public class InputManager : MonoBehaviour
     private PlayerLifeComponent _playerLife;
     private Animator _animator;
     private SpriteRenderer _rend ;
+  
 
     private float _horizontal, _changeGravity, _jump;
-    
+
+    [SerializeField] private GameObject _powerAnim;
 
     //invert controls properties
     private float _invertElapsedTime = 0f;
@@ -80,6 +82,7 @@ public class InputManager : MonoBehaviour
         _animator = GetComponent<Animator>();
         _rend = GetComponent<SpriteRenderer>();
         _shotEnabled =true;
+        _powerAnim.SetActive(false);
   
     }
 
@@ -94,6 +97,8 @@ public class InputManager : MonoBehaviour
         // Si la pausa no está activada, recoge el input
         if (Time.timeScale > 0)
         {
+            if (Input.GetAxis("AmpPower")>0 && _playerLife.CurrentEnergy()>0) _powerAnim.SetActive(true);
+            else _powerAnim.SetActive(false);
             _movementManager.Move(new Vector2(_horizontal, 0)); // Desplazamiento horizontal
             
             if (_changeGravity > 0 && !_gravButtonDown) // Cambio de gravedad
