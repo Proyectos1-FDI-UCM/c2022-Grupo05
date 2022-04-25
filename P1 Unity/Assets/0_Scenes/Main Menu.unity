@@ -1656,7 +1656,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -85.1, y: -49.799995}
+  m_AnchoredPosition: {x: -85.1, y: -36}
   m_SizeDelta: {x: 0.2, y: 0.2}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!223 &1211043859
@@ -1728,6 +1728,8 @@ MonoBehaviour:
   _rechargeClip: {fileID: 0}
   _stoneClip: {fileID: 0}
   _speed: 1
+  _dist: 0.5
+  time: 1
 --- !u!95 &1211043862
 Animator:
   serializedVersion: 3
@@ -3189,7 +3191,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 198.1, y: -54.6}
+  m_AnchoredPosition: {x: 198.1, y: -36}
   m_SizeDelta: {x: 0.2, y: 0.2}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!223 &5212737404122518824
@@ -3300,3 +3302,5 @@ MonoBehaviour:
   _rechargeClip: {fileID: 0}
   _stoneClip: {fileID: 0}
   _speed: 1
+  _dist: 0.5
+  time: 1
