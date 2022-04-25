@@ -20,27 +20,19 @@ public class PickupComponent : MonoBehaviour
 
 
     #region parameters
+    private float _timer = 0f;      // Tiempo que dura el movimiento
 
-
-    [SerializeField]
+    [SerializeField]                    
     private float _speed = 1f;      // Velocidad del movimiento
     [SerializeField]
-    private float _dist = 0.5f;     //Distacia de movimiento
-    [SerializeField]
-    private float time = 1;
+    private float _time = 1f;
     #endregion
-    #region property 
-    private float _timer = 0f;      // Tiempo que dura el movimiento
-    private Vector3 _up;
-    private Vector3 _down;
-    private Vector3 _move;
-    private bool select = true;
-    #endregion
+
 
     #region methods
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        _playerLife = collision.GetComponent<PlayerLifeComponent>();
+         _playerLife = collision.GetComponent<PlayerLifeComponent>();
 
         if (_playerLife != null)
         {
@@ -74,41 +66,29 @@ public class PickupComponent : MonoBehaviour
             Destroy(gameObject);
         }
     }
-    #endregion
+        #endregion
 
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        _myTransform = transform;
-        _up = _myTransform.position +Vector3.up* _dist;
-        _down = _myTransform.position -Vector3.up* _dist;
-        _move = _up;
-    }
-
-
-    // Update is called once per frame
-    void Update()
-    {
-        _timer += Time.deltaTime;
-
-        // Movimiento del objeto
-       // if(_myTransform.position.y<)
-     //   _myTransform.Translate(_move* _speed * Time.deltaTime);
-        _myTransform.position = Vector3.Lerp(_myTransform.position, _move, _speed*Time.deltaTime);
-        // Cambia la dirección del movimiento y resetea el temporizador
-        if (_timer>time)
+        // Start is called before the first frame update
+        void Start()
         {
-            if (select)
-            {
-                _move = _down;
-            }
-            else
-            {
-                _move = _up;
-            }
-            _timer = 0;
-            select = !select;
+            _myTransform = transform;
         }
-    }
+
+
+        // Update is called once per frame
+        void Update()
+        {
+            _timer += Time.deltaTime;
+
+            // Movimiento del objeto
+            _myTransform.Translate(Vector3.up * _speed * Time.deltaTime);
+
+            // Cambia la dirección del movimiento y resetea el temporizador
+            if (_timer > _time)
+            {
+                _speed = -_speed;
+                _timer = 0f;
+            }
+        }
 }

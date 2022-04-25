@@ -69,7 +69,7 @@ public class MainMenu : MonoBehaviour
     }
     public void TestBoss()
     {
-        SceneManager.LoadScene("NIVEL 3");
+        SceneManager.LoadScene("NIVEL 0");
         SoundManager.Instance.Level();
     }
 
