@@ -105,8 +105,15 @@ public class BossSecondAttackController : MonoBehaviour
     }
     private void Apagar()
     {
-        _laserVertical.SetActive(false);
-        _laserHorizontal.SetActive(false);
+        if (_laserVertical.activeInHierarchy)
+        {
+            _laserVertical.SetActive(false);
+        }
+        if (_laserHorizontal.activeInHierarchy)
+        {
+            _laserHorizontal.SetActive(false);
+        }
+     
     }
     private void BossAtack()
     {

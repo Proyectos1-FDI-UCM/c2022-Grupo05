@@ -64,7 +64,7 @@ public class MainMenu : MonoBehaviour
     #region testing
     public void TestLevel0()
     {
-        SceneManager.LoadScene("NIVEL 0");
+        SceneManager.LoadScene("prueba nivel 0");
         SoundManager.Instance.Level();
     }
     public void TestBoss()

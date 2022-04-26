@@ -39,7 +39,6 @@ public class MovingPlatforms : MonoBehaviour {
         if(collision.collider.GetComponent<PlayerMovementManager>() != null) {
             collision.transform.parent = transform;
             _playerOn = true;
-            Debug.Log("Enterlplayer");
         }
     }
 
@@ -47,12 +46,12 @@ public class MovingPlatforms : MonoBehaviour {
         if(collision.collider.GetComponent<PlayerMovementManager>() != null) {
             collision.transform.parent = null;
             _playerOn = false;
-            Debug.Log("Exitplayer");
+            _dash = false;
         }
     }
     private void OnTransformChildrenChanged()
     {
-        Invoke("Cambiar", 0.3f);
+        Invoke("Cambiar", 0.125f);
     }
     private void Cambiar()
     {
