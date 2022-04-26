@@ -169,9 +169,9 @@ public class PlayerMovementManager : MonoBehaviour
             _changingGravity = _canChangeGravity = false;
             _isGravityChanged = !_isGravityChanged;
 
-            _transform.localScale = new Vector3(_transform.localScale.x, -_transform.localScale.y, _transform.localScale.z);
-            _rigidbody.gravityScale = -_rigidbody.gravityScale;
-            /*
+            //_transform.localScale = new Vector3(_transform.localScale.x, -_transform.localScale.y, _transform.localScale.z);
+            //_rigidbody.gravityScale = -_rigidbody.gravityScale;
+            //*
             if (_isGravityChanged)
             {
                 _transform.localScale = new Vector3(_transform.localScale.x, -Mathf.Abs(_transform.localScale.y), _transform.localScale.z);
