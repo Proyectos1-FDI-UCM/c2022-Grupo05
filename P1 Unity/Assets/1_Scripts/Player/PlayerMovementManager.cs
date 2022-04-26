@@ -55,7 +55,7 @@ public class PlayerMovementManager : MonoBehaviour
     #endregion
 
     #region methods
-
+    
     public void WalkingSound()
     {
         if (_isGrounded)
@@ -180,7 +180,13 @@ public class PlayerMovementManager : MonoBehaviour
         if(_dashing) {
             if(_rigidbody.gravityScale != 0) { // Inicio
                 SoundManager.Instance.PlayEffectSound(_dashClip);
-                _transform.parent = null;
+                if (_transform.parent != null)
+                {
+                    MovingPlatforms p = GetComponentInParent<MovingPlatforms>();
+                    p.Dash();
+                    _transform.parent = null;
+                }
+               
                 _gravityScale = _rigidbody.gravityScale;
                 _rigidbody.gravityScale = 0;
                 _rigidbody.velocity = new Vector2(_rigidbody.velocity.x, 0);
@@ -197,6 +203,7 @@ public class PlayerMovementManager : MonoBehaviour
                 _dashing = _canDash = false;
                 _animation.Dash(false);
                 PlayerAccess.Instance.Life.AmpDash = false;
+               
             }
         }
     }

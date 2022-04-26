@@ -16,13 +16,17 @@ public class MovingPlatforms : MonoBehaviour {
     private Vector2 _dir;              // Vector de dirección
     [SerializeField]
     private bool _playerOn;            // Si el jugador está encima de la plataforma
+    private bool _dash;
     #endregion
 
     #region references
     private Transform _platform;
     private Rigidbody2D _player;
     #endregion
-
+    public void Dash()
+    {
+        _dash = true;
+    }
     private void Start() {
         _platform = transform;
         _player = PlayerAccess.Instance.Rigidbody;
@@ -34,12 +38,29 @@ public class MovingPlatforms : MonoBehaviour {
     private void OnCollisionEnter2D(Collision2D collision) {
         if(collision.collider.GetComponent<PlayerMovementManager>() != null) {
             collision.transform.parent = transform;
+            _playerOn = true;
+            Debug.Log("Enterlplayer");
         }
     }
 
     private void OnCollisionExit2D(Collision2D collision) {
         if(collision.collider.GetComponent<PlayerMovementManager>() != null) {
             collision.transform.parent = null;
+            _playerOn = false;
+            Debug.Log("Exitplayer");
+        }
+    }
+    private void OnTransformChildrenChanged()
+    {
+        Invoke("Cambiar", 0.3f);
+    }
+    private void Cambiar()
+    {
+        if (_dash && _playerOn)
+        {
+
+            _dash = false;
+            _player.transform.parent = transform;
         }
     }
 
@@ -49,7 +70,7 @@ public class MovingPlatforms : MonoBehaviour {
         } else if(Vector2.Distance(_platform.position, _placeOrigin) < 1 && _placeOrigin.x < _platform.position.x) {
             _dir = _placeObject - _placeOrigin;
         }
-
+        
         _platform.Translate(_speed * Time.fixedDeltaTime * _dir.normalized);
     }
 }
