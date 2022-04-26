@@ -27,14 +27,10 @@ public class PlayerMovementManager : MonoBehaviour
     private Vector2 _movement;
     private Vector3 _velocity;
     private int _jumpsLeft;
-    private bool _jumping;
-    private bool _canChangeGravity;
-    private bool _changingGravity;
-    private bool _canDash;
-    private bool _dashing;
+    private bool _jumping, _changingGravity, _dashing;
+    private bool _isGrounded, _canChangeGravity, _canDash;
     private float _dashCont;
     private float _gravityScale;
-    private bool _isGrounded;
     private bool _isGravityChanged = false;
     public bool IsGravityChanged => _isGravityChanged;
     public bool Dashing => _dashing;
@@ -42,7 +38,6 @@ public class PlayerMovementManager : MonoBehaviour
 
     #region references
     private Transform _transform;
-    private float _positiveScaleY, _negativeScaleY;
     private Rigidbody2D _rigidbody;
     [SerializeField]
     private FloorTrigger _trigger;
@@ -111,8 +106,6 @@ public class PlayerMovementManager : MonoBehaviour
 
     void Start() {
         _transform = transform;
-        _positiveScaleY = _transform.localScale.y;
-        _negativeScaleY = - _transform.localScale.y;
 
         _rigidbody = GetComponent<Rigidbody2D>();
         _trigger.accionEntrar = EnterGround; _trigger.accionSalir = ExitGround;
@@ -139,24 +132,55 @@ public class PlayerMovementManager : MonoBehaviour
             _jumpsLeft = _airJumpNumber;
         }
 
+        // Deslizamiento
+        if(_dashing) {
+            if(_rigidbody.gravityScale != 0) { // Inicio
+                SoundManager.Instance.PlayEffectSound(_dashClip);
+                if (_transform.parent != null)
+                {
+                    MovingPlatforms p = GetComponentInParent<MovingPlatforms>();
+                    p.Dash();
+                    _transform.parent = null;
+                }
+                _gravityScale = _rigidbody.gravityScale;
+                _rigidbody.gravityScale = 0;
+                _rigidbody.velocity = new Vector2(_rigidbody.velocity.x, 0);
+                _animation.Dash(true);
+            }
+
+            if(_dashCont < _dashTime) { // Durante
+                if(_facingRight) _rigidbody.MovePosition(_rigidbody.position + new Vector2(_dashDistance / _dashTime * Time.fixedDeltaTime, 0));
+                else _rigidbody.MovePosition(_rigidbody.position - new Vector2(_dashDistance / _dashTime * Time.fixedDeltaTime, 0));
+                _dashCont += Time.fixedDeltaTime;
+            } else { // Final
+                _rigidbody.gravityScale = _gravityScale;
+                _dashCont = 0;
+                _dashing = _canDash = false;
+                _animation.Dash(false);
+                PlayerAccess.Instance.Life.AmpDash = false;
+            }
+        }
+
         // Cambio de gravedad
         if(_changingGravity) {
 
             SoundManager.Instance.PlayEffectSound(_antiGravityClip);
 
-            _rigidbody.gravityScale = -_rigidbody.gravityScale;
             _changingGravity = _canChangeGravity = false;
             _isGravityChanged = !_isGravityChanged;
 
+            _transform.localScale = new Vector3(_transform.localScale.x, -_transform.localScale.y, _transform.localScale.z);
+            _rigidbody.gravityScale = -_rigidbody.gravityScale;
+            /*
             if (_isGravityChanged)
             {
-                _transform.localScale = new Vector3(_transform.localScale.x, _negativeScaleY, _transform.localScale.z);
-
+                _transform.localScale = new Vector3(_transform.localScale.x, -Mathf.Abs(_transform.localScale.y), _transform.localScale.z);
+                _rigidbody.gravityScale = -Mathf.Abs(_rigidbody.gravityScale);
             }
             else {
-                _transform.localScale = new Vector3(_transform.localScale.x, _positiveScaleY, _transform.localScale.z);
-
-            }
+                _transform.localScale = new Vector3(_transform.localScale.x, Mathf.Abs(_transform.localScale.y), _transform.localScale.z);
+                _rigidbody.gravityScale = Mathf.Abs(_rigidbody.gravityScale);
+            }//*/
 
             HUDController.Instance.ChangePosition(_isGravityChanged);
         }
@@ -174,37 +198,6 @@ public class PlayerMovementManager : MonoBehaviour
             if(_isGravityChanged) _rigidbody.AddForce(new Vector2(0, -_jumpForce));
             else _rigidbody.AddForce(new Vector2(0, _jumpForce));
             _jumping = false;
-        }
-
-        // Deslizamiento
-        if(_dashing) {
-            if(_rigidbody.gravityScale != 0) { // Inicio
-                SoundManager.Instance.PlayEffectSound(_dashClip);
-                if (_transform.parent != null)
-                {
-                    MovingPlatforms p = GetComponentInParent<MovingPlatforms>();
-                    p.Dash();
-                    _transform.parent = null;
-                }
-               
-                _gravityScale = _rigidbody.gravityScale;
-                _rigidbody.gravityScale = 0;
-                _rigidbody.velocity = new Vector2(_rigidbody.velocity.x, 0);
-                _animation.Dash(true);
-            }
-
-            if(_dashCont < _dashTime) { // Durante
-                if (_facingRight) _rigidbody.MovePosition(_rigidbody.position + new Vector2(_dashDistance / _dashTime * Time.fixedDeltaTime, 0));
-                else _rigidbody.MovePosition(_rigidbody.position - new Vector2(_dashDistance / _dashTime * Time.fixedDeltaTime, 0));
-                _dashCont += Time.fixedDeltaTime;
-            } else { // Final
-                _rigidbody.gravityScale = _gravityScale;
-                _dashCont = 0;
-                _dashing = _canDash = false;
-                _animation.Dash(false);
-                PlayerAccess.Instance.Life.AmpDash = false;
-               
-            }
         }
     }
 }
