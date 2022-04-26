@@ -3783,6 +3783,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Checkpoint (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 3603040920934179015, guid: 652634734a8f31a4bbacc652407cfb6f, type: 3}
+      propertyPath: m_Radius
+      value: 0.6913042
+      objectReference: {fileID: 0}
+    - target: {fileID: 3603040920934179015, guid: 652634734a8f31a4bbacc652407cfb6f, type: 3}
+      propertyPath: m_Offset.y
+      value: 0.03826064
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 652634734a8f31a4bbacc652407cfb6f, type: 3}
 --- !u!1 &676533924
@@ -95983,6 +95991,14 @@ PrefabInstance:
     - target: {fileID: 3603040920934179014, guid: 652634734a8f31a4bbacc652407cfb6f, type: 3}
       propertyPath: m_Name
       value: Checkpoint
+      objectReference: {fileID: 0}
+    - target: {fileID: 3603040920934179015, guid: 652634734a8f31a4bbacc652407cfb6f, type: 3}
+      propertyPath: m_Radius
+      value: 1.2404486
+      objectReference: {fileID: 0}
+    - target: {fileID: 3603040920934179015, guid: 652634734a8f31a4bbacc652407cfb6f, type: 3}
+      propertyPath: m_Offset.y
+      value: 0.7404496
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 652634734a8f31a4bbacc652407cfb6f, type: 3}
