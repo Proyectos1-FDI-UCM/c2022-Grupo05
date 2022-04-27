@@ -13,15 +13,14 @@ public class PickupComponent : MonoBehaviour
     [SerializeField] private AudioClip _healClip;
     [SerializeField] private AudioClip _rechargeClip;
     [SerializeField] private AudioClip _stoneClip;
+    
+    [SerializeField] private GameObject[] _checkpoints;
+
 
     #endregion
 
 
-
-
     #region parameters
-
-
     [SerializeField]
     private float _speed = 1f;      // Velocidad del movimiento
     [SerializeField]
@@ -29,6 +28,8 @@ public class PickupComponent : MonoBehaviour
     [SerializeField]
     private float time = 1;
     #endregion
+   
+
     #region property 
     private float _timer = 0f;      // Tiempo que dura el movimiento
     private Vector3 _up;
@@ -36,6 +37,7 @@ public class PickupComponent : MonoBehaviour
     private Vector3 _move;
     private bool select = true;
     #endregion
+
 
     #region methods
     private void OnTriggerEnter2D(Collider2D collision)
@@ -69,6 +71,10 @@ public class PickupComponent : MonoBehaviour
             }
             else
             {
+                foreach (GameObject _checkpoint in _checkpoints)
+                {
+                    _checkpoint.SetActive(true);
+                }
                 SoundManager.Instance.PlayEffectSound(_stoneClip);
             }
             Destroy(gameObject);
