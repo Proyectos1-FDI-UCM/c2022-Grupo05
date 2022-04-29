@@ -79,7 +79,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4600615353091072486}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: ShotPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -465,7 +465,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6505857799844616488}
   - component: {fileID: 4379091718826193158}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: AntiSlideBox
   m_TagString: Untagged
   m_Icon: {fileID: 0}

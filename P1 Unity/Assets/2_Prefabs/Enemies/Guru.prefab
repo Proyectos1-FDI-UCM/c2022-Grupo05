@@ -230,6 +230,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ed2896c3f3ed1e43933ae8636f9ea31, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _chasespeed: 4
   _speed: 2
   detection: 0
   ret: 0
@@ -237,6 +238,8 @@ MonoBehaviour:
   d: 5
   placeObjet: {x: 0, y: 0}
   fly: 0
+  _limite: 0
+  L: {x: 0, y: 0}
   _trigger: {fileID: 2899549416831567103}
   _col: {fileID: 2899549418705234218}
 --- !u!114 &2899549418259024976
@@ -422,7 +425,6 @@ GameObject:
   - component: {fileID: 2899549418705234216}
   - component: {fileID: 2899549418705234219}
   - component: {fileID: 2899549418705234218}
-  - component: {fileID: 1143599268972118355}
   m_Layer: 3
   m_Name: Collision
   m_TagString: Untagged
@@ -480,18 +482,6 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f5bb9debdad6b5d438d7c9889943be7f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &1143599268972118355
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2899549418705234229}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7a5a2f4bc8b06ad44a0bff53f82c77b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &4100633370893030960

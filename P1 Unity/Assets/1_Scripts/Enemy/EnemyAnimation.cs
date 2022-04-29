@@ -14,12 +14,17 @@ public class EnemyAnimation : MonoBehaviour
     {
         animator.SetBool("damaged", false);
     }
+
+    public void Damage() {
+        animator.SetBool("damaged", true);
+    }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         _pShot = collision.GetComponent<ShotMovementController>();
         if (_pShot != null)
-        {    
-            animator.SetBool("damaged", true);
+        {
+            Damage();
         }     
     }
     #endregion
