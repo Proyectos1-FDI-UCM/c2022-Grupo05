@@ -60,7 +60,7 @@ public class CinematicManager : MonoBehaviour
 
     public void DesactivateGravity()
     {
-        PlayerAccess.Instance.Movement.HasAntigravity(false);
+        PlayerAccess.Instance.Movement.EnableAntigravity(false);
     }
 
     public void SendStoneAnim()

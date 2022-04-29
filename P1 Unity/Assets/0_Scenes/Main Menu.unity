@@ -618,7 +618,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &566307313
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1727,6 +1727,7 @@ MonoBehaviour:
   _healClip: {fileID: 0}
   _rechargeClip: {fileID: 0}
   _stoneClip: {fileID: 0}
+  _checkpoints: []
   _speed: 1
   _dist: 0.5
   time: 1
@@ -2491,7 +2492,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1787172949
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3301,6 +3302,7 @@ MonoBehaviour:
   _healClip: {fileID: 0}
   _rechargeClip: {fileID: 0}
   _stoneClip: {fileID: 0}
+  _checkpoints: []
   _speed: 1
   _dist: 0.5
   time: 1

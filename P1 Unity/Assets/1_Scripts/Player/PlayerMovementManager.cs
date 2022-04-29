@@ -2,8 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerMovementManager : MonoBehaviour
-{
+public class PlayerMovementManager : MonoBehaviour {
     #region parameters
     [SerializeField]
     private float _speed = 10f;
@@ -24,6 +23,7 @@ public class PlayerMovementManager : MonoBehaviour
     #endregion
 
     #region properties
+    private bool _enabled = true;
     private Vector2 _movement;
     private Vector3 _velocity;
     private int _jumpsLeft;
@@ -34,6 +34,10 @@ public class PlayerMovementManager : MonoBehaviour
     private bool _isGravityChanged = false;
     public bool IsGravityChanged => _isGravityChanged;
     public bool Dashing => _dashing;
+    public bool Enabled {
+        get => _enabled;
+        set => _enabled = value;
+    }
     #endregion
 
     #region references
@@ -50,44 +54,38 @@ public class PlayerMovementManager : MonoBehaviour
     #endregion
 
     #region methods
-    
-    public void WalkingSound()
-    {
-        if (_isGrounded)
-        {
+
+    public void WalkingSound() {
+        if(_isGrounded) {
             SoundManager.Instance.PlayEffectSound(_walkingClip);
         }
     }
 
-
-    public void HasAntigravity(bool enable)
-    {
+    public void EnableAntigravity(bool enable) {
         _hasAntigravity = enable;
     }
-    
+
     public void Move(Vector2 v) {
-        _movement = v * _speed;
+        _movement = (_enabled ? v : Vector2.zero) * _speed;
         _animation.Run(v.x != 0);
     }
 
     public void ChangeGravity() {
-        if(_hasAntigravity && _canChangeGravity && !_dashing) _changingGravity = true;
+        if(_enabled && _hasAntigravity && _canChangeGravity && !_dashing) _changingGravity = true;
     }
 
     public void ForceChangeGravity() {
         _changingGravity = true;
     }
 
-    public void Jump() 
-    {
-        if (_jumpsLeft > 0 && !_dashing)
-        {
+    public void Jump() {
+        if(_enabled && _jumpsLeft > 0 && !_dashing) {
             _jumping = true;
         }
     }
 
     public void Dash() {
-        if(_canDash) _dashing = true;
+        if(_enabled && _canDash) _dashing = true;
     }
 
     public void EnterGround() {
@@ -120,13 +118,13 @@ public class PlayerMovementManager : MonoBehaviour
 
 
         // Girar sprite si cambia de sentido
-        if (!_dashing && ((_movement.x < 0 && _facingRight) || (_movement.x > 0 && !_facingRight))) {
+        if(!_dashing && ((_movement.x < 0 && _facingRight) || (_movement.x > 0 && !_facingRight))) {
             _facingRight = !_facingRight;
             _transform.Rotate(0, 180, 0);
             //_transform.localScale = new Vector3(-_transform.localScale.x, _transform.localScale.y, _transform.localScale.z);
         }
 
-        if (_isGrounded) { // Si toca el suelo, se recargan sus saltos, el cambio de gravedad y el deslizamiento
+        if(_isGrounded) { // Si toca el suelo, se recargan sus saltos, el cambio de gravedad y el deslizamiento
             _animation.Jump(0);
             _canChangeGravity = _canDash = true;
             _jumpsLeft = _airJumpNumber;
@@ -136,8 +134,7 @@ public class PlayerMovementManager : MonoBehaviour
         if(_dashing) {
             if(_rigidbody.gravityScale != 0) { // Inicio
                 SoundManager.Instance.PlayEffectSound(_dashClip);
-                if (_transform.parent != null)
-                {
+                if(_transform.parent != null) {
                     MovingPlatforms p = GetComponentInParent<MovingPlatforms>();
                     p.Dash();
                     _transform.parent = null;
@@ -172,12 +169,10 @@ public class PlayerMovementManager : MonoBehaviour
             //_transform.localScale = new Vector3(_transform.localScale.x, -_transform.localScale.y, _transform.localScale.z);
             //_rigidbody.gravityScale = -_rigidbody.gravityScale;
             //*
-            if (_isGravityChanged)
-            {
+            if(_isGravityChanged) {
                 _transform.localScale = new Vector3(_transform.localScale.x, -Mathf.Abs(_transform.localScale.y), _transform.localScale.z);
                 _rigidbody.gravityScale = -Mathf.Abs(_rigidbody.gravityScale);
-            }
-            else {
+            } else {
                 _transform.localScale = new Vector3(_transform.localScale.x, Mathf.Abs(_transform.localScale.y), _transform.localScale.z);
                 _rigidbody.gravityScale = Mathf.Abs(_rigidbody.gravityScale);
             }//*/
@@ -186,11 +181,9 @@ public class PlayerMovementManager : MonoBehaviour
         }
 
         // Salto y doble salto
-        if(_jumping) 
-        {
+        if(_jumping) {
             SoundManager.Instance.PlayEffectSound(_jumpClip);
-            if (!_isGrounded)
-            {
+            if(!_isGrounded) {
                 _jumpsLeft--;
             }
             _animation.Jump(_jumpsLeft == 0 ? 2 : 1);

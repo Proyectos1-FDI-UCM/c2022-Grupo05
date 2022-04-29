@@ -92556,9 +92556,17 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 619471296}
     - target: {fileID: 118274442871477699, guid: 1c925e7dd1db43f498365c840e38488b, type: 3}
+      propertyPath: _maxLife
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 118274442871477699, guid: 1c925e7dd1db43f498365c840e38488b, type: 3}
       propertyPath: _explosionClip
       value: 
       objectReference: {fileID: 8300000, guid: 9885c4646e03ba74283105c110756282, type: 3}
+    - target: {fileID: 118274442871477699, guid: 1c925e7dd1db43f498365c840e38488b, type: 3}
+      propertyPath: _breakPointLife
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 118274442871477699, guid: 1c925e7dd1db43f498365c840e38488b, type: 3}
       propertyPath: _point.Array.size
       value: 4
@@ -94618,7 +94626,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1486231184}
-  m_Layer: 14
+  m_Layer: 7
   m_Name: p
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -94759,10 +94767,26 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1955692453}
     m_Modifications:
+    - target: {fileID: 1486231183, guid: 7823c0daacec6544db26a4192967e929, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 1660551341, guid: 7823c0daacec6544db26a4192967e929, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 1759966520, guid: 7823c0daacec6544db26a4192967e929, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 1818285009485560606, guid: 7823c0daacec6544db26a4192967e929, type: 3}
       propertyPath: _pared
       value: 
       objectReference: {fileID: 619471296}
+    - target: {fileID: 1818285009485560606, guid: 7823c0daacec6544db26a4192967e929, type: 3}
+      propertyPath: _breakPointLife
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 1818285009485560606, guid: 7823c0daacec6544db26a4192967e929, type: 3}
       propertyPath: _point.Array.data[0]
       value: 
@@ -94797,7 +94821,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4454539820567201528, guid: 7823c0daacec6544db26a4192967e929, type: 3}
       propertyPath: m_Layer
-      value: 14
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 4454539820567201528, guid: 7823c0daacec6544db26a4192967e929, type: 3}
       propertyPath: m_IsActive
@@ -95111,7 +95135,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e8913a512534ed24997c9891ac284c66, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _sendPlayerPosition: 0
+  _sendPlayerPosition: 1
   _playerStartPosition: {x: -92.86, y: 0.3}
   _fade: {fileID: 1416169555}
 --- !u!4 &1557327089
@@ -95535,7 +95559,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1660551342}
-  m_Layer: 14
+  m_Layer: 7
   m_Name: 'point '
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -95699,7 +95723,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1759966521}
-  m_Layer: 14
+  m_Layer: 7
   m_Name: p (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}

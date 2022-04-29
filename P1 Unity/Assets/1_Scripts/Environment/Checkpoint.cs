@@ -25,7 +25,7 @@ public class Checkpoint : MonoBehaviour
         if(_isGravityChanged != _movement.IsGravityChanged) _movement.ForceChangeGravity();
         PlayerAccess.Instance.Transform.position = _transform.position;
         PlayerAccess.Instance.Rigidbody.velocity = Vector2.zero;
-        _movement.enabled = false;
+        _movement.Enabled = false;
         _movement.StopDashing();
     }
 

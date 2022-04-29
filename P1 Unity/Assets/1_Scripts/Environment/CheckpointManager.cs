@@ -35,10 +35,10 @@ public class CheckpointManager : MonoBehaviour
     }
 
     private void Update() {
-        if(!_movement.enabled) {
+        if(!_movement.Enabled) {
             _timer += Time.deltaTime;
-            if(_timer > 0.25f) {
-                _movement.enabled = true;
+            if(_timer > 0.4f) {
+                _movement.Enabled = true;
                 _timer = 0;
             }
         }
