@@ -75,7 +75,7 @@ public class BossLifeComponent : MonoBehaviour
             GameObject.Find("BossSecondPhase").SetActive(false);
 
         }
-       
+        HUDController.Instance.UpdateBossHP(_currentLife);
     }
     private void InstanceObject()   //genera cura o energia
     {
