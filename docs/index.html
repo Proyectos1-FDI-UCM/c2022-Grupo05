@@ -16,17 +16,18 @@
   </head>
   <body>
 
-
-
     <main role="main">
       <!-- HEADER SECTION 
         Change image path in src="..."
       -->
-      <div class="position-relative overflow-hidden p-3 p-md-5 m-md-3 text-center bg-light">
-        <img class="img-header img-fluid" src="./img/header.jpg" alt="Header image">
-      </div>
-
-
+      
+        <div class="position-relative overflow-hidden text-center">
+         
+          <video autoplay muted loop id="myVideo">
+            <source src="./img/movie.mp4" type="video/mp4">
+          </video>
+        </div>
+        <article class="caja">
       <!-- Marketing messaging 
       ================================================== -->
       <!-- Wrap the rest of the page in another container to center all the content. -->
@@ -36,27 +37,30 @@
         <div class="row">
 
           <!-- Left column -->
-          <div class="col-md-7">
+          <div class="col-md-6" id="left">
             
             <h2>Descripción</h2>
-            <p>Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nulla, incidunt ex voluptatibus, laborum deserunt recusandae odit reiciendis, qui cumque obcaecati enim impedit accusantium. Aperiam in, corporis unde repellat, nemo quo.</p>
-
+            <p class="sangria">    El jugador encarna a Five, integrante de un equipo de cazatesoros que viven de saquear reliquias de otros planetas. Durante el juego, se lleva a cabo una incursión en el planeta SLANM-05, con el objetivo de encontrar el elemento que controla la antigravedad del planeta y llevarlo a la nave. </p>
+            <p class="sangria">    Para ello, Five tendrá que introducirse en las oscuras cuevas del planeta y enfrentarse a las formas de vida locales, que tratarán de defender su territorio y le impedirán llevar a cabo su misión.  Al recogerlo, el jugador se aprovecha de su poder para cambiar de gravedad durante la partida.</p>
+            <br>
 
             <h2>Desarrolladores</h2>
             <ul>
-              <li>Desarrollador 1</li>
-              <li>Desarrollador 2</li>
-              <li>...</li>
+              <li>Likang Wu</li>
+              <li>Matt Castellanos Silva</li>
+              <li>Nanxi Qin</li>
+              <li>Alejandro González Sánchez</li>
+              <li>Santiago Tienda Pérus</li>
             </ul>
-           
+            <br>
+            <br>
            <!-- Paste URL between "" in href="" -->
            <a href="" class="btn btn-primary" role="button" aria-pressed="true">Download now</a> 
 
           </div>
           
           <!-- Right column -->
-          <div class="col-md-5">
+          <div class="col-md-6" id="right">
 
             <!-- IMAGES AND YOUTUBE VIDEOS
               Duplicate the following elements to add new images and/or videos
@@ -72,22 +76,29 @@
 
             <!-- Images -->
             <div class="media-item">
-              <a href="img/screenshot.jpg">
-                <img src="img/screenshot.jpg" alt="Screenshot 1" class="img-thumbnail">
+              <a href="img/screenshot.png">
+                <img src="img/screenshot.png" alt="Screenshot 1" class="img-thumbnail">
               </a>
             </div>
+
+            <div class="media-item">
+              <a href="img/screenshot2.png">
+                <img src="img/screenshot2.png" alt="Screenshot 1" class="img-thumbnail">
+              </a>
+            </div>
+
           </div>
         </div>
       <!-- /END MARKETING -->
-
+    
       </div><!-- /.container -->
-
-
+    
+  </article>
       <!-- FOOTER -->
       <footer class="container">
         <hr class="footer-divider">
         <p class="float-right"><a href="#">Back to top</a></p>
-        <p>Proyectos 1. Curso 2017-2018</p>
+        <p>Proyectos 1. Curso 2021-2022</p>
         <p>Grado en Desarrollo de Videojuegos &middot; <a target="_blank" href="http://informatica.ucm.es">Facultad de Informática</a> &middot; <a target="_blank" href="http://www.ucm.es">UCM</a></p>
       </footer>
     </main>
