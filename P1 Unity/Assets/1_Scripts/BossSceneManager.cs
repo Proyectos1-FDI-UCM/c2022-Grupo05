@@ -53,12 +53,10 @@ public class BossSceneManager : MonoBehaviour
         _hudController.ShowBossBar(false);
         if (place2)
         {
-            HUDController.Instance.UpdateBossHP(20);
             Fase2();
         }
         else
         {
-            HUDController.Instance.UpdateBossHP(40);
             Fase1();
         }
     }
