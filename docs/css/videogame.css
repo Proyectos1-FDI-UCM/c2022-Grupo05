@@ -17,7 +17,7 @@ body {
   padding-bottom: 1rem;
   color: #ffffff;
   display: flex;
-  
+  justify-content: center;
 
 }
 
