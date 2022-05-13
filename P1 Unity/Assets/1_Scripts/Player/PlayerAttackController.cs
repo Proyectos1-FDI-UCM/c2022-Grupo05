@@ -43,7 +43,7 @@ public class PlayerAttackController : MonoBehaviour
                 SoundManager.Instance.PlayEffectSound(_normalShotClip);
             }
 
-            shot.GetComponent<ShotMovementController>().SetDirectionPlayerShot(_shootPoint.rotation.y == 180 ? Vector2.left : Vector2.right);
+            shot.GetComponent<ShotMovementController>().SetDirectionPlayerShot(transform.rotation.y == -1 ? Vector2.left : Vector2.right);
             _shootCooldown = _shootTime;
 
         }

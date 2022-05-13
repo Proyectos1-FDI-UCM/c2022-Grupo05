@@ -7,40 +7,30 @@ public class ShotMovementController : MonoBehaviour
     #region parameters
     [SerializeField]
     private float _shootSpeed = 15.0f;
-    private Vector2 dir = Vector2.right;
-    #endregion
-
-    #region properties
-    private Vector2 _direction;
     #endregion
 
     #region references
     private Transform _myTransform;
+    private Rigidbody2D _rigidbody;
     #endregion
 
     #region methods
     public void SetDirection(Vector2 direction)
     {
-        _myTransform = transform;
-        _direction = direction;
-        if(direction.x >= 0 && direction.y >= 0) _myTransform.rotation = Quaternion.AngleAxis(Mathf.Rad2Deg * Mathf.Asin(_direction.y), Vector3.forward);
-        else if(direction.x < 0 && direction.y >= 0) _myTransform.rotation = Quaternion.AngleAxis(180 - Mathf.Rad2Deg * Mathf.Asin(_direction.y), Vector3.forward);
-        else if(direction.x < 0 && direction.y < 0) _myTransform.rotation = Quaternion.AngleAxis(180 - Mathf.Rad2Deg * Mathf.Asin(_direction.y), Vector3.forward);
-        else _myTransform.rotation = Quaternion.AngleAxis(Mathf.Rad2Deg * Mathf.Asin(_direction.y), Vector3.forward);
+        if(direction.x >= 0 && direction.y >= 0) _myTransform.rotation = Quaternion.AngleAxis(Mathf.Rad2Deg * Mathf.Asin(direction.y), Vector3.forward);
+        else if(direction.x < 0 && direction.y >= 0) _myTransform.rotation = Quaternion.AngleAxis(180 - Mathf.Rad2Deg * Mathf.Asin(direction.y), Vector3.forward);
+        else if(direction.x < 0 && direction.y < 0) _myTransform.rotation = Quaternion.AngleAxis(180 - Mathf.Rad2Deg * Mathf.Asin(direction.y), Vector3.forward);
+        else _myTransform.rotation = Quaternion.AngleAxis(Mathf.Rad2Deg * Mathf.Asin(direction.y), Vector3.forward);
+        _rigidbody.velocity = direction * _shootSpeed;
     }
     public void SetDirectionPlayerShot(Vector2 direction)
     {
-        dir = direction;
+        _rigidbody.velocity = direction * _shootSpeed;
     }
     #endregion
-    private void Start()
+    private void Awake()
     {
         _myTransform = transform;
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        _myTransform.Translate(dir* _shootSpeed * Time.deltaTime);
+        _rigidbody = GetComponent<Rigidbody2D>();
     }
 }
